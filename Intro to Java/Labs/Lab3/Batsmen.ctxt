@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=inName\ inInnings\ inNotOut\ inRuns\ inHighScore\ inBallsFaced
+comment0.target=Batsmen(java.lang.String,\ int,\ int,\ int,\ int,\ int)
+comment1.params=
+comment1.target=double\ average()
+comment2.params=
+comment2.target=double\ scoringRate()
+numComments=3

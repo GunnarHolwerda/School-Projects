@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=lowerBound\ upperBound\ numberRectangles
+comment0.target=double\ simulateIntegration(double,\ double,\ int)
+comment1.params=x
+comment1.target=double\ function(double)
+numComments=2

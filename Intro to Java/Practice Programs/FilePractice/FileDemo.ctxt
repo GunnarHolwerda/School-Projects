@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=inFile\ outFile
+comment0.target=FileDemo(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=void\ initialize()
+comment2.params=
+comment2.target=void\ processFile()
+comment3.params=
+comment3.target=void\ sortFile()
+comment4.params=
+comment4.target=void\ showResults()
+numComments=5

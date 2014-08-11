@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=noteList\ tempo
+comment0.target=void\ playSong(java.util.ArrayList,\ int)
+comment0.text=\r\n\ @param\ Takes\ a\ note\ list\ and\ the\ tempo\ in\ beats\ per\ minute\r\n\ Plays\ the\ song\ using\ the\ PC's\ built\ in\ MIDI\ synthesizer\r\n
+comment1.params=rootNote\ note
+comment1.target=int\ getMIDIValue(int,\ Note)
+comment1.text=\r\n\ @param\ Takes\ the\ MIDI\ number\ for\ the\ root\ note\ of\ this\ scale\r\n\ @param\ Takes\ the\ note\ object\r\n\ @return\ Returns\ the\ equivalent\ MIDI\ note\ number\r\n
+comment2.params=noteList
+comment2.target=void\ displayScore(java.util.ArrayList)
+comment2.text=\r\n\ @param\ Takes\ the\ array\ of\ notes\r\n\ Prints\ out\ the\ score\ sheet\ of\ what\ you've\ written.\r\n
+comment3.params=currentNoteList
+comment3.target=int\ getCurrentNumberOfBeats(java.util.ArrayList)
+numComments=4

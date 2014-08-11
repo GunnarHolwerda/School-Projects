@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=inChar
+comment0.target=Count(char)
+comment1.params=
+comment1.target=void\ addOne()
+comment2.params=
+comment2.target=int\ getAmountOf()
+comment3.params=
+comment3.target=char\ getCharacter()
+numComments=4

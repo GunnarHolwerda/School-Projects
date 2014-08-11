@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=percentStrikes\ percentSpares\ percentOpen\ frames
+comment0.target=Bowler(double,\ double,\ double,\ int)
+comment1.params=inFrames
+comment1.target=void\ setFramesToBowl(int)
+comment2.params=percentage
+comment2.target=void\ setStrikePercentage(double)
+comment3.params=percentage
+comment3.target=void\ setSparePercentage(double)
+comment4.params=percentage
+comment4.target=void\ setOpenFramePercentage(double)
+comment5.params=
+comment5.target=void\ bowlOneGame()
+comment5.text=\r\n\ bowlOneGame\r\n\ \r\n
+comment6.params=frame
+comment6.target=void\ bowlOneFrame(int)
+comment6.text=\r\n\ bowlOneFrame\r\n\ \r\n\ @param\ \ \ \ \ \ \ frame\ \ \ \ \ \ \ \ \ \ \ the\ current\ frame\r\n
+comment7.params=
+comment7.target=int\ firstRoll()
+comment7.text=\r\n\ firstRoll\r\n\ \r\n\ @return\ \ \ \ \ the\ value\ of\ the\ first\ ball\ in\ a\ frame\r\n
+comment8.params=ball_1
+comment8.target=int\ secondRoll(int)
+comment8.text=\r\n\ secondRoll\r\n\ \r\n\ @param\ \ \ ball_1\ \ \ \ \ \ the\ ball\ prior\ to\ the\ current\ ball\ being\ assigned\ \r\n\ \r\n\ @return\ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ value\ of\ the\ second\ roll\ of\ the\ frame\ \r\n
+numComments=9

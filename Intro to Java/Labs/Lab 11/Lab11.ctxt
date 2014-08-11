@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=number
+comment0.target=java.lang.String\ convertToBinary(int)
+comment0.text=\r\n\ Converts\ a\ decimal\ number\ to\ a\ binary\ one\ using\ recursion.\r\n\ Assume\ the\ decimal\ number\ is\ >\=\ 1.\r\n\ \r\n\ @param\ \ \ \ \ \ \ number\ \ \ \ \ \ the\ decimal\ number\ to\ convert\r\n\ @return\ \ \ \ \ \ String\ representation\ of\ the\ binary\ number\r\n
+comment1.params=numbers
+comment1.target=int\ largestArrayItem(int[])
+comment1.text=\r\n\ Find\ the\ largest\ item\ in\ an\ array\ of\ integers.\ \ \r\n\ Assume\ the\ array\ contains\ at\ least\ one\ item.\r\n\ \r\n\ @param\ \ \ \ \ \ \ numbers\ \ \ \ \ an\ array\ of\ integers\r\n\ @return\ \ \ \ \ \ the\ largest\ number\ in\ the\ array\ of\ intgers\r\n
+comment2.params=numbers\ index
+comment2.target=int\ largestArrayItemAuxiliary(int[],\ int)
+comment2.text=\r\n\ The\ helper\ method\ for\ largestArrayItem.\r\n\ \r\n\ @param\ \ \ \ \ \ \ numbers\ \ \ \ \ an\ array\ of\ integers\r\n\ @param\ \ \ \ \ \ \ index\ \ \ \ \ \ \ the\ current\ index\ in\ the\ array\ to\ examine\r\n\ @return\ \ \ \ \ \ the\ largest\ number\ in\ the\ array\ of\ integers\r\n
+numComments=3

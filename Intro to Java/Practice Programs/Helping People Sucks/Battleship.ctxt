@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=inSIZE
+comment0.target=Battleship(int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Battleship\r\n
+comment1.params=
+comment1.target=void\ initialize()
+comment2.params=done
+comment2.target=void\ printBoard(boolean)
+comment3.params=row
+comment3.target=void\ printRow(int)
+comment4.params=
+comment4.target=void\ printSeparator()
+comment5.params=
+comment5.target=void\ resetBoard()
+comment6.params=
+comment6.target=boolean\ over()
+comment7.params=
+comment7.target=void\ makeGuess()
+comment8.params=
+comment8.target=void\ printStatistics()
+numComments=9

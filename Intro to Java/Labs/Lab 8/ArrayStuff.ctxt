@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=ArrayStuff(int)
+comment0.text=\r\n\ Builds\ an\ array\ of\ n\ elements\ where\r\n\ each\ element\ value\ is\ the\ same\ as\ its\ index.\r\n\r\n\ @param\ n\ the\ number\ of\ elements\ in\ the\ array.\r\n
+comment1.params=message
+comment1.target=void\ printArray(java.lang.String)
+comment1.text=\r\n\ Prints\ out\ the\ message\ passed\ in\ and\ then\ all\ the\ elements\ in\ order\ of\r\n\ the\ internal\ array.\r\n\r\n\ @param\ message\r\n
+comment2.params=
+comment2.target=void\ reverseArray()
+comment2.text=\r\n\ Method\ 1\ for\ reversing.\r\n\ Reverses\ the\ internal\ array\ in\ place\ by\ swapping\ values.\r\n
+comment3.params=
+comment3.target=void\ reverseArray2()
+comment3.text=\r\n\ Method\ 2\ for\ reversing.\r\n\ Reverses\ the\ internal\ array\ by\ utilizing\ a\ second\ temporary\ array.\r\n
+numComments=4

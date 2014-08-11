@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment1.params=account
+comment1.target=void\ printInfo(GringottsAccount)
+numComments=2

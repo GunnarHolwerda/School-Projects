@@ -1,0 +1,1 @@
+This is a test sentence meant for compression under the Huffman method.

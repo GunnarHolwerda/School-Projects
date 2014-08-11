@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PetalsGame()
+comment0.text=\r\n\ Constructor\ for\ the\ PetalsGame\ class\r\n\r\n
+comment1.params=numberOfDie
+comment1.target=void\ setNumberOfDie(int)
+comment1.text=\r\n\ Sets\ the\ number\ of\ die\ for\ the\ game\r\n\ \r\n\ @param\ \ \ number\ of\ dice\ that\ the\ user\ wants\ to\ play\ with\r\n
+comment2.params=
+comment2.target=void\ rollDice()
+comment2.text=\r\n\ Rolls\ the\ dice\r\n\ \r\n
+comment3.params=
+comment3.target=void\ printDice()
+comment3.text=\r\n\ Prints\ the\ value\ of\ all\ of\ the\ dice\r\n
+comment4.params=
+comment4.target=int\ calculateAllPetals()
+comment4.text=\r\n\ Calculates\ the\ value\ of\ all\ of\ the\ pedals\r\n\ \r\n\ @return\ \ \ \ \ \ the\ petals\ around\ the\ rose\r\n
+numComments=5

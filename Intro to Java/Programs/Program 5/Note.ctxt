@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=inNote\ inBeat
+comment0.target=Note(char,\ int)
+comment0.text=\r\n\ Constructor\ for\ class\ Note\r\n\ \r\n\ @param\ \ \ inNote\ \ Note\r\n\ @param\ \ \ inBear\ \ Beat\ of\ the\ note\r\n
+comment1.params=
+comment1.target=char\ getNote()
+comment1.text=\r\n\ getNote\r\n\ \r\n\ @return\ \ \ \ \ \ the\ note\r\n
+comment2.params=
+comment2.target=int\ getBeat()
+comment2.text=\r\n\ getBeat\r\n\ \r\n\ @return\ \ \ \ \ \ the\ beat\ of\ the\ note\r\n
+numComments=3

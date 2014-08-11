@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=inName\ inNumber
+comment0.target=CellPhoneEntry(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ CellPhoneEntry\r\n\ \r\n\ @param\ \ \ inName\ \ \ \ \ \ the\ contact's\ full\ name,\ e.g.\ "CS\ Department"\r\n\ @param\ \ \ inNumber\ \ \ \ the\ contact's\ phone\ number,\ e.g.\ "406-994-4780"\r\n
+comment1.params=
+comment1.target=java.lang.String\ getNumber()
+comment1.text=\r\n\ getNumber\r\n\ \r\n\ @return\ \ \ \ \ the\ contact's\ full\ phone\ number\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ getName\r\n\ \r\n\ @return\ \ \ \ \ \ the\ contact;s\ full\ name\r\n
+comment3.params=
+comment3.target=java.lang.String\ getAreaCode()
+comment3.text=\r\n\ getNumberPrefix\r\n\ \r\n\ @return\ \ \ \ \ the\ area\ code\ of\ the\ contact's\ phone\ number\r\n
+numComments=4

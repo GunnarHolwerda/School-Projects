@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=age
+comment0.target=void\ setAge(int)
+comment1.params=flag
+comment1.target=void\ setStudent(boolean)
+comment2.params=desiredClass
+comment2.target=int\ bahnCard25Price(int)
+comment3.params=desiredClass
+comment3.target=int\ bahnCard50Price(int)
+comment4.params=desiredClass
+comment4.target=int\ bahnCard100Price(int)
+numComments=5

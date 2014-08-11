@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=inName\ inShares\ inPrice
+comment0.target=Stock(java.lang.String,\ int,\ double)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Stock\r\n\ \r\n\ @param\ \ \ inName\ \ \ \ \ \ the\ stock's\ name,\ e.g.\ "MSFT"\r\n\ @param\ \ \ inShares\ \ \ \ the\ number\ of\ the\ shares\ of\ the\ stock,\ e.g.\ 100\r\n\ @param\ \ \ inPrice\ \ \ \ \ the\ price\ of\ the\ stock\ e.g.\ 28.11\r\n
+comment1.params=
+comment1.target=java.lang.String\ getName()
+comment1.text=\r\n\ getName\r\n\ \r\n\ @return\ \ \ \ \ \ the\ name\ of\ the\ stock\r\n
+comment2.params=
+comment2.target=int\ getShares()
+comment2.text=\r\n\ getShares\r\n\ \r\n\ @return\ \ \ \ \ \ the\ number\ of\ shares\ of\ the\ stock\r\n
+comment3.params=
+comment3.target=double\ getPrice()
+comment3.text=\r\n\ getPrice\r\n\ \r\n\ @return\ \ \ \ \ \ the\ price\ of\ the\ stock\r\n
+comment4.params=
+comment4.target=double\ getValue()
+comment4.text=\r\n\ getValue\r\n\ \r\n\ @return\ \ \ \ \ \ the\ price\ of\ the\ stock\ multplied\ by\ the\ number\ of\ shares\ of\ the\ stock\r\n
+comment5.params=
+comment5.target=void\ printStatistics()
+numComments=6

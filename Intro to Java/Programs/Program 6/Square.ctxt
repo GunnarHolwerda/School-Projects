@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=inValue
+comment0.target=Square(int)
+comment1.params=
+comment1.target=boolean\ getKnown()
+comment1.text=\r\n\ Reader\ method.\ \ \ \ \r\n\ \r\n\ @return\ \ whether\ the\ user\ has\ guessed\ the\ square\r\n
+comment2.params=value
+comment2.target=void\ setKnown(boolean)
+comment2.text=\r\n\ Writer\ method\r\n\ \r\n\ @param\ \ \ value\ \ \ indicates\ whether\ the\ user\ has\ guessed\ the\ square\r\n
+comment3.params=
+comment3.target=int\ getContents()
+comment3.text=\r\n\ Reader\ method.\r\n\ \r\n\ @return\ \ an\ integer\ indicating\ the\ contents\ of\ the\ square\ (e.g.\ empty,\ submarine,\ etc.)\r\n
+comment4.params=value
+comment4.target=void\ setContents(int)
+comment4.text=\r\n\ Writer\ method.\r\n\ \r\n\ @param\ \ \ value\ \ \ indicates\ the\ contents\ of\ the\ square\ (e.g.\ empty,\ battleship,\ etc.)\r\n
+numComments=5

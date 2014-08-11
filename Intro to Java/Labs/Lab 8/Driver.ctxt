@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment0.text=\r\n\ Test\ the\ two\ methods\ of\ reversing\ an\ array\ provided\ by\ the\ ArrayStuff\r\n\ class.\r\n\r\n\ @param\ args\r\n
+comment1.params=howMany\ whichTest
+comment1.target=void\ test(int,\ int)
+comment1.text=\r\n\ Tests\ the\ first\ method\ of\ reversal.\r\n\r\n\ @param\ howMany\ \ \ \ the\ size\ of\ the\ array\ to\ be\ created\ and\ tested\r\n\ @param\ whichTest\ \ the\ reverse\ method\ to\ call\ (1\ \=\ reverse\ in\ place)\ \r\n
+numComments=2

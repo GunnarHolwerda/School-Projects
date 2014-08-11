@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MusicScore()
+comment0.text=\r\n\ Constructor\ for\ class\ MusicScore\r\n
+comment1.params=
+comment1.target=void\ newScore()
+comment1.text=\r\n\ Creates\ a\ new\ score\r\n
+comment2.params=
+comment2.target=java.util.ArrayList\ getScore()
+comment2.text=\r\n\ Reader\ method\r\n
+comment3.params=
+comment3.target=void\ addNote()
+comment3.text=\r\n\ Adds\ a\ note\ to\ the\ score\r\n
+comment4.params=
+comment4.target=void\ printScore()
+comment4.text=\r\n\ Prints\ the\ score\r\n
+comment5.params=
+comment5.target=void\ repeatNotes()
+comment5.text=\r\n\ Repeats\ the\ Notes\r\n
+comment6.params=
+comment6.target=void\ removeNote()
+comment6.text=\r\n\ Removes\ a\ Note\r\n
+numComments=7

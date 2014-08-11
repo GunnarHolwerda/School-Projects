@@ -1,0 +1,8 @@
+/*
+	Name: calculateTotalBalance
+	Parameters:
+		savings_balance 	- balance in the savings account in cents
+		checking_balance 	- balance in the checking account in cents
+		
+	Function: Calculates the total balance between the savings and checking account
+*/
