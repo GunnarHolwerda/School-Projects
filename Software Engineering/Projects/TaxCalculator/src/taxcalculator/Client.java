@@ -49,7 +49,7 @@ public class Client {
         }
         
         calc.determineAltStrategy(salary, investments, deductions, business_income);
-        calc.executeStrategies();    
+        calc.executeStrategies(salary, investments);    
     }
     
 }

@@ -16,21 +16,21 @@ public class TaxCalculator {
     }
     
     public void determineAltStrategy(double salary, double investments, boolean deductions, boolean business_income) {
-        default_strat = new DefaultStrategy(salary, investments);
+        default_strat = new DefaultStrategy();
         if (business_income) {
-            alt_strat = new TaxStrategyC(salary, investments);
+            alt_strat = new TaxStrategyC();
         }
         else if (deductions){
-            alt_strat = new TaxStrategyB(salary, investments);
+            alt_strat = new TaxStrategyB();
         }
         else if ((salary + investments) > TAX_STRATEGY_A_VALUE){
-            alt_strat = new TaxStrategyA(salary, investments);
+            alt_strat = new TaxStrategyA();
         }
     }
     
-    public void executeStrategies() {
-        default_strat.execute();
-        alt_strat.execute();
+    public void executeStrategies(double salary, double investments) {
+        default_strat.execute(salary, investments);
+        alt_strat.execute(salary, investments);
     }
     
 }
