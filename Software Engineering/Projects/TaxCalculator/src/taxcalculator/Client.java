@@ -18,7 +18,8 @@ public class Client {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Welcome to the Tax Calculator. I will be your accountant today.\n");
+        System.out.println("Welcome to the Tax Calculator. "
+                + "I will be your accountant today.\n");
         
         TaxCalculator calc = new TaxCalculator();
         Scanner in = new Scanner(System.in);
@@ -38,7 +39,8 @@ public class Client {
             deductions = false;
         }
         
-        System.out.print("Does your income come from your own business? (Yes or No): ");
+        System.out.print("Does your income come from your own business?"
+                + " (Yes or No): ");
         temp = in.next();
         boolean business_income;
         if (temp.toUpperCase().equals("YES")) {
