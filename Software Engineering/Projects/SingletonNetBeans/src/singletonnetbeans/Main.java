@@ -13,6 +13,9 @@ public class Main {
         if (s != null) {
             System.out.println("We got an instance from Singleton");
         }
+        
+        Singleton a = SingletonA.getInstance();
+        s.Register("A", a);
     }
     
 }
