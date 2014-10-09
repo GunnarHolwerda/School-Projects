@@ -24,7 +24,7 @@ public class Singleton {
 
     public static void Register(String name, Singleton s) {
         if (registry == null) {
-            registry = new ArrayList<NameSingletonPair>();
+            registry = new ArrayList<>();
         }
         registry.add(new NameSingletonPair(name, s));
     }
