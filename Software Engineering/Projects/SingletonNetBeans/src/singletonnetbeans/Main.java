@@ -15,7 +15,11 @@ public class Main {
         }
         
         Singleton a = SingletonA.getInstance();
-        s.Register("A", a);
+        Singleton b = SingletonB.getInstance();
+        Singleton.Register("A", a);
+        Singleton.Register("B", b);
+        b.jiggle();
+        a.dance();
     }
     
 }

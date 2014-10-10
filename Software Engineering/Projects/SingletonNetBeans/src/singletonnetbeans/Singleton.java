@@ -10,14 +10,16 @@ public class Singleton {
     private static Singleton instance;
     private static ArrayList<NameSingletonPair> registry;
 
-    private Singleton() {
-       //Do some things in here to initialize singleton
+    public Singleton Singleton() {
+       if (instance == null){
+           instance = new Singleton();
+       }
+       return instance;
     }
 
     public static Singleton getInstance() {
         if (instance == null) {
             instance = new Singleton();
-            return instance;
         }
         return instance;
     }
@@ -27,6 +29,7 @@ public class Singleton {
             registry = new ArrayList<>();
         }
         registry.add(new NameSingletonPair(name, s));
+        System.out.printf("Added new singleton with name %s\n", name);
     }
 
     private static Singleton Lookup(String name) {
