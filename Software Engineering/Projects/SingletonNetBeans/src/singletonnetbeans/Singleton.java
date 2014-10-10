@@ -1,11 +1,7 @@
 package singletonnetbeans;
 
-
 import java.util.ArrayList;
-/**
- *
- * @author Gunnar
- */
+
 public class Singleton {
     private static Singleton instance;
     private static ArrayList<NameSingletonPair> registry;
@@ -32,12 +28,16 @@ public class Singleton {
         System.out.printf("Added new singleton with name %s\n", name);
     }
 
-    private static Singleton Lookup(String name) {
+    public static Singleton Lookup(String name) {
         for (NameSingletonPair value: registry) {
             if (value.getName().equals(name)) {
                 return value.getSingleton();
             }
         }
         return null;
+    }
+    
+    protected void dance() {
+        System.out.println("Do the jitterbug");
     }
 }

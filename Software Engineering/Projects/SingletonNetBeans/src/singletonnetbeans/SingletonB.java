@@ -4,7 +4,7 @@ public class SingletonB extends Singleton{
     private static SingletonB instance;
     
     private SingletonB() {
-        //Do some constructor things here
+        singletonnetbeans.Singleton.Register("B", this);
     }
     
     public static SingletonB getInstance() {
@@ -14,7 +14,7 @@ public class SingletonB extends Singleton{
         return instance;
     }
     
-    public void jiggle() {
-        System.out.println("We are currently jiggling");
+    protected void dance() {
+        System.out.println("We are jiggling");
     }
 }

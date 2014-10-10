@@ -14,12 +14,17 @@ public class Main {
             System.out.println("We got an instance from Singleton");
         }
         
-        Singleton a = SingletonA.getInstance();
-        Singleton b = SingletonB.getInstance();
-        Singleton.Register("A", a);
-        Singleton.Register("B", b);
-        b.jiggle();
-        a.dance();
+        SingletonA a = SingletonA.getInstance();
+        SingletonB b = SingletonB.getInstance();
+        
+        Singleton temp = Singleton.Lookup("B");
+        
+        if (temp != null) {
+            temp.dance();
+        }
+        else {
+            System.out.println("Could not find singleton with that label");
+        }
     }
     
 }

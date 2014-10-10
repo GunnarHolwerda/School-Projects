@@ -1,14 +1,10 @@
 package singletonnetbeans;
 
-/**
- *
- * @author Gunnar
- */
 public class SingletonA extends Singleton{
     private static SingletonA instance;
     
     private SingletonA() {
-        //Do some constructor things here
+        singletonnetbeans.Singleton.Register("A", this);
     }
     
     public static SingletonA getInstance() {
@@ -18,7 +14,8 @@ public class SingletonA extends Singleton{
         return instance;
     }
     
-    public void dance() {
-        System.out.println("We are dancing.");
+    @Override
+    protected void dance() {
+        System.out.println("We are doing the macarena");
     }
 }
