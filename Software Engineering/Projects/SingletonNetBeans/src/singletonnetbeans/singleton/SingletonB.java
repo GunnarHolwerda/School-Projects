@@ -1,6 +1,4 @@
-package singletonnetbeans.singletons;
-
-import singletonnetbeans.Singleton;
+package singletonnetbeans.singleton;
 
 public class SingletonB extends Singleton{
     private static SingletonB instance;
@@ -13,9 +11,17 @@ public class SingletonB extends Singleton{
         }
         return instance;
     }
+  
+    public static void Register(String name, Singleton s) {
+        throw new UnsupportedOperationException();
+    }
+    
+    public static Singleton Lookup(String name) {
+        throw new UnsupportedOperationException();
+    }
     
     @Override
-    protected void speak() {
+    public void speak() {
         System.out.println("Yo, call me SingletonB");
     }
 }
