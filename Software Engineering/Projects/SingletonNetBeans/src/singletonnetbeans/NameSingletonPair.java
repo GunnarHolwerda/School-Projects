@@ -1,9 +1,5 @@
 package singletonnetbeans;
 
-/**
- *
- * @author Gunnar
- */
 public class NameSingletonPair {
     private Singleton singleton;
     private String name;

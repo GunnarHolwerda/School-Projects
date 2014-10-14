@@ -4,7 +4,7 @@ public class SingletonA extends Singleton{
     private static SingletonA instance;
     
     private SingletonA() {
-        singletonnetbeans.Singleton.Register("A", this);
+       Singleton.Register("A", this);
     }
     
     public static SingletonA getInstance() {

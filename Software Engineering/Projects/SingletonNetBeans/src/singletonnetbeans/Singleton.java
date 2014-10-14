@@ -19,7 +19,7 @@ public class Singleton {
         }
         return instance;
     }
-
+    
     public static void Register(String name, Singleton s) {
         if (registry == null) {
             registry = new ArrayList<>();
