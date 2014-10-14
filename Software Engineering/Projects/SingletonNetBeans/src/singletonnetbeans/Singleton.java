@@ -6,12 +6,7 @@ public class Singleton {
     private static Singleton instance;
     private static ArrayList<NameSingletonPair> registry;
 
-    public Singleton Singleton() {
-       if (instance == null){
-           instance = new Singleton();
-       }
-       return instance;
-    }
+    protected Singleton() {};
 
     public static Singleton getInstance() {
         if (instance == null) {
@@ -20,7 +15,8 @@ public class Singleton {
         return instance;
     }
     
-    public static void Register(String name, Singleton s) {
+    //No modifier, so that subclasses can't inherit
+    static final void Register(String name, Singleton s) {
         if (registry == null) {
             registry = new ArrayList<>();
         }
@@ -28,16 +24,22 @@ public class Singleton {
         System.out.printf("Added new singleton with name %s\n", name);
     }
 
-    public static Singleton Lookup(String name) {
-        for (NameSingletonPair value: registry) {
-            if (value.getName().equals(name)) {
-                return value.getSingleton();
+    //No modifier so sublcasses can't inherit
+    static final Singleton Lookup(String name) {
+        if (registry != null) {
+            for (NameSingletonPair value: registry) {
+                if (value.getName().equals(name)) {
+                    return value.getSingleton();
+                }
             }
+        }
+        else {
+            System.out.println("Your registry has not been set up");
         }
         return null;
     }
     
-    protected void dance() {
-        System.out.println("Do the jitterbug");
+    protected void speak() {
+        System.out.println("I am the container singleton that holds all singletons");
     }
 }

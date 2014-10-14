@@ -1,11 +1,11 @@
-package singletonnetbeans;
+package singletonnetbeans.singletons;
+
+import singletonnetbeans.Singleton;
 
 public class SingletonB extends Singleton{
     private static SingletonB instance;
     
-    private SingletonB() {
-        Singleton.Register("B", this);
-    }
+    private SingletonB () {};
     
     public static SingletonB getInstance() {
         if (instance == null) {
@@ -14,7 +14,8 @@ public class SingletonB extends Singleton{
         return instance;
     }
     
-    protected void dance() {
-        System.out.println("We are jiggling");
+    @Override
+    protected void speak() {
+        System.out.println("Yo, call me SingletonB");
     }
 }

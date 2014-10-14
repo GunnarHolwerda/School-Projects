@@ -1,22 +1,19 @@
 package singletonnetbeans;
 
+//Import the singleton classes
+import singletonnetbeans.singletons.*;
+
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Singleton world!");
-        Singleton s = Singleton.getInstance();
         
-        if (s != null) {
-            System.out.println("We got an instance from Singleton");
-        }
+        Singleton.Register("A", SingletonA.getInstance());
+        Singleton.Register("B", SingletonB.getInstance());
         
-        SingletonA a = SingletonA.getInstance();
-        SingletonB b = SingletonB.getInstance();
-        
-        Singleton temp = Singleton.Lookup("B");
-        
+        Singleton temp = Singleton.Lookup("A");
         if (temp != null) {
-            temp.dance();
+            temp.speak();
         }
         else {
             System.out.println("Could not find singleton with that label");
