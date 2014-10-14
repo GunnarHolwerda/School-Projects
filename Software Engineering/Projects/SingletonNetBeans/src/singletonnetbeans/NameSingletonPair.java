@@ -1,10 +1,12 @@
 package singletonnetbeans;
 
+import singletonnetbeans.singleton.Singleton;
+
 public class NameSingletonPair {
     private Singleton singleton;
     private String name;
 
-    NameSingletonPair (String name, Singleton instance) {
+    public NameSingletonPair (String name, Singleton instance) {
             this.singleton = instance;
             this.name = name;
     }

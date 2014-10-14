@@ -1,7 +1,8 @@
 package singletonnetbeans;
 
 //Import the singleton classes
-import singletonnetbeans.singletons.*;
+import singletonnetbeans.singleton.Singleton;
+import singletonnetbeans.singleton.*;
 
 public class Main {
 

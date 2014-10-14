@@ -1,6 +1,7 @@
-package singletonnetbeans;
+package singletonnetbeans.singleton;
 
 import java.util.ArrayList;
+import singletonnetbeans.NameSingletonPair;
 
 public class Singleton {
     private static Singleton instance;
@@ -16,7 +17,7 @@ public class Singleton {
     }
     
     //No modifier, so that subclasses can't inherit
-    static final void Register(String name, Singleton s) {
+    public static void Register(String name, Singleton s) {
         if (registry == null) {
             registry = new ArrayList<>();
         }
@@ -25,7 +26,7 @@ public class Singleton {
     }
 
     //No modifier so sublcasses can't inherit
-    static final Singleton Lookup(String name) {
+    public static Singleton Lookup(String name) {
         if (registry != null) {
             for (NameSingletonPair value: registry) {
                 if (value.getName().equals(name)) {
@@ -39,7 +40,7 @@ public class Singleton {
         return null;
     }
     
-    protected void speak() {
+    public void speak() {
         System.out.println("I am the container singleton that holds all singletons");
     }
 }
