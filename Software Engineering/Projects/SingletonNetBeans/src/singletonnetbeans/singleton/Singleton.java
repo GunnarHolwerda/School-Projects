@@ -16,7 +16,6 @@ public class Singleton {
         return instance;
     }
     
-    //No modifier, so that subclasses can't inherit
     public static void Register(String name, Singleton s) {
         if (registry == null) {
             registry = new ArrayList<>();
@@ -25,7 +24,6 @@ public class Singleton {
         System.out.printf("Added new singleton with name %s\n", name);
     }
 
-    //No modifier so sublcasses can't inherit
     public static Singleton Lookup(String name) {
         if (registry != null) {
             for (NameSingletonPair value: registry) {
