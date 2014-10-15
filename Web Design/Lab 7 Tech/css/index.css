@@ -4,42 +4,42 @@ body {
 	margin-right: auto;
 }
 
-#content {
-
+img {
+	padding-top: 5px;
+	padding-bottom: 20px;
 }
 
 h1 {
 	font-size: 25px;
 	text-transform: uppercase;
 	font-family: Georgia;
-	letter-spacing: 15px;
+	letter-spacing: 20px;
 	color: #000;
 }
 
 h2 {
-	font-size: 15px;
-	color: #000;
 	font-family: Verdana;
-	font-weight: 600;
+	font-weight: bold;
+	font-size: 15px;
 	letter-spacing: 0px;
+	color: #000;
 }
 
 ul {
 	display: inline;
 	padding: 0px;
 	margin: 0px;
-	font-size: 10px;
-	font-weight: 100;
-	color: #b0b0b0;
 	font-family: Verdana;
+	font-size: 10px;
 	text-transform: uppercase;
+	color: #b0b0b0;
 }
 
 li {
 	display: inline;
 	text-align: left;
-	padding-right: 3px;
-	letter-spacing: 1px;
+	word-spacing: 1px;
+	padding-right: 15px;
 }
 
 li.right {
@@ -47,42 +47,34 @@ li.right {
 	padding-left: 4px;
 }
 
-img {
-	padding-top: 5px;
-	padding-bottom: 30px;
-}
-
 div.box {
 	float: left;
 	height: 75px;
-	width: 150px;
+	width: 135px;
 	padding-left: 25px;
+	padding-right: 15px;
 	border-bottom: 1px solid #b0b0b0;
 	border-right: 1px solid #b0b0b0;
 	font-size: 10px;
+	font-family: Verdana;
+	word-spacing: 1px;
 	color: #b0b0b0;
-	font-family: Georgia;
-	font-weight: 100;
-	text-align: left;
-	letter-spacing: 2px;
-
-}
-
-#rightbox {
-	border-right: 0px;
 }
 
 div.clear {
 	clear: both;
 }
 
+#rightbox {
+	border-right: 0px;
+}
+
 #footer {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
+	margin-top: 40px;
 	font-family: Verdana;
 	font-size: 10px;
-	letter-spacing: 1px;
-	font-weight: 100;
+	word-spacing: 3px;
 }
