@@ -1,0 +1,101 @@
+body {
+background-color:#BBBBBB;
+}
+
+h2 {
+font-size:40px;
+color:#000000;
+font-family: 'Allerta Stencil', sans-serif;
+}
+
+h3 {
+font-size:40px;
+color:#E39C2C;
+font-family: 'Allerta Stencil', sans-serif;
+position:relative;
+left:500px;
+bottom:500px;
+}
+
+ul {
+margin:0 auto;
+text-align:right;
+padding-top:10px;
+width:1000px;
+padding-bottom:13px;
+}										
+
+li { 
+display:inline;
+}
+
+#content {
+width:1000px;
+margin:0 auto;
+background:#EEEEEE;
+padding:20px;
+}
+
+#header {
+margin:0 auto;
+border-bottom:3px solid #E39C2C;
+background:#FFFFFF;
+} 
+
+* {
+padding:0px 0px 0px 0px;
+}
+
+#footer {
+text-align:center;
+font-family: Verdana, Geneva, sans-serif;
+font-size:10px;
+padding-top:25px;
+padding-bottom:25px;
+}
+
+a {
+padding-bottom:8px;
+position:relative;
+bottom:9px;		/* adjusts vertical position of nav bar elements */
+left:5px;
+text-decoration:none;
+margin:0 auto;
+font-size:20px;
+text-transform:uppercase;
+color:#E39C2C;
+font-family: 'Allerta Stencil', sans-serif;
+list-style-type:none;
+background-color:#FFFFFF;
+text-align:right;
+padding-top:10px;
+width:1000px;
+padding-right:30px;
+}
+
+a:hover {
+color:#000000;
+}
+
+.logo {
+position:relative;
+right:110px;		/* this moves the logo within the nav bar */
+width:3000px;
+}
+
+.box {
+float:left;
+width:460px;
+font-family: Verdana, Geneva, sans-serif; 
+padding-left:30px;
+padding-right:10px;
+padding-bottom:10px;
+text-align:left;
+font-size:14px;
+color:#909090;
+height:200px;
+}
+
+.clear {
+clear:both;
+}

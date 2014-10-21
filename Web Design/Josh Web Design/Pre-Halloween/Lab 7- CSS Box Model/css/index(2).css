@@ -1,0 +1,38 @@
+body {
+background-color:#FFFFFF;
+}
+
+h1 {
+color:#FF0000;
+border-bottom:5px solid #FF0000;
+}
+
+h2 {
+color:#0000FF;
+border-bottom:3px solid #0000FF;
+}
+
+h3 {
+color:#0000FF;
+border-bottom:3px solid #0000FF;
+}
+
+#maincontent {
+float:left;
+width:74.5%
+}
+
+.box {
+float:right;
+width:25%;
+border:2px solid #0000FF;
+background-color:#FFFFFF;
+}
+
+.clear {
+clear:both;
+}
+
+p {
+text-indent:25px;
+}
