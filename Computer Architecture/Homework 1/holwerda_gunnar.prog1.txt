@@ -1,4 +1,5 @@
 Question 1: What does this program do? What is the result? List the calculation.
+
 I have commented the program explaining what it does:
 la $t0, a  			# Loads address of a into $t0 from RAM ($t0 = Memory address of a)
 addi $8, -4			# Changes address held in $t0 down 4	
@@ -24,7 +25,8 @@ R11 = e
 R12 = 4
 
 Question 3: This code is inefficient. Which lines can be eliminated or modified to improve efficiency? Explain each choice you make.
-You can remove line 13 as it just puts $t3 back into $t3. You are taking the value of $t3 adding 0 to it and then putting it back into $t3 so you don't need that. Line 7 and 8 are also unneeded because currently it takes the address moves it back four, then loads from that address offsetting it forward by 4 which means you are back to where you started. Also since we don't use $t4 other than to load its value into $t2 which we load into $t4 directly anyway, we can change that to just li $t2, 4 instead of putting 4 in a register then putting that register into 2
+
+You can remove line 13 as it just puts $t3 back into $t3. You are taking the value of $t3 adding 0 to it and then putting it back into $t3 so you don't need that. Line 7 and 8 are also unneeded because currently it takes the address moves it back four, then loads from that address offsetting it forward by 4 which means you are back to where you started. Also since we don't use $t4 other than to load its value into $t2 which we load into $t4 directly anyway, we can change that to just 'li $t2, 4' instead of putting 4 in a register then putting that register into 2. We can also get rid of saving 4 into $t2 as we can make the subtraction below into a subi.
 
 
 Question 4: Rewrite this code using a minimum number of instructions while performing the same number of necessary arithmetic operations. Use proper indentation. Use register names and not register numbers. Comment every single line of your code.
@@ -34,10 +36,9 @@ Question 4: Rewrite this code using a minimum number of instructions while perfo
 a: .word 10
 .text
 main:
-	la $t0, a  			# Loads a into $t0 from RAM ($t0 = 10)
+	la $t0, a  			# Loads a into $t0 from RAM ($t0 = mem address of a)
 	lw $t1, 0($t0)		# Puts 0($t0) into $t1 which is the value of a ($t1 = 10)
-	li $t2, 4			# Puts 4 into $t2 ($t2 = 4)
-	sub $t0, $t1, $t2	# $t0 = $t1 - $t2, $t0 = 10 - 4, $t0 = 6
+	sub $t0, $t1, 4		# $t0 = $t1 - 4, $t0 = 10 - 4, $t0 = 6
 	addi $t3, $t0, 8	# $t3 = $t0 + 8, $t3 = 6 + 8, $t3 = 14
 	add $a0, $t3, $zero	# $a0 = 14
 	addi $v0, $zero, 1  # $v0 = 1, Integer print syscall
