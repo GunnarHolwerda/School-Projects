@@ -40,8 +40,11 @@ hyphen: .asciiz "-"
 #############################################
 .text
 main:
-	
-	# Your experiments go here
+	dollar_sign:
+		la $a0, seq1
+		jal printchar
+		jal exit
+		# Your experiments go here
 
 	
 ############################################# 
@@ -55,6 +58,12 @@ main:
 #############################################
 
 rowprint:
+	addi $sp, $sp, -4	# Move the stack pointer
+	sw $ra 0($sp)		# Store ra because we will be calling functions
+
+	# Thinking here since we know they are 10 bit numbers
+	# We "and" 2^9 with the current number then divide 2^9 by 2 to get 2^8
+	# Loop through again and compare again
 	
 
 #############################################	
@@ -71,23 +80,23 @@ rowprint:
 #	-outputs: none                          #
 #############################################
 charprint: 
-	addi $sp, $sp, -4		#Move stack pointer
-	sw	$ra, 0($sp)			#Store $ra
-	la $t0, $a0				#Load array into $t0
-	li $t1, 0				#Set $t1 to 0
-	li $t2, 10				#Place length of array in $t2 (10)
+	addi $sp, $sp, -4		# Move stack pointer
+	sw	$ra, 0($sp)			# Store $ra
+	move $t0, $a0			# Move array into $t0
+	li $t1, 0				# Set $t1 to 0
+	li $t2, 10				# Place length of array in $t2 (10)
 	loop:
-		slt $t3, $t1, $t2,  #Checks if $t1 < $t2 and puts it in $t3
-		bne $t3, 1, exit    #Branch to exit if $t1 >= $t2
-		lw $a0, 0($t0)		#Load first item from array into $a0
-		jal rowprint		#Call rowprint
-		jal newline			#Call newline
-		addi $t1, $t1, 1 	#increment i
-		j loop				#Jump to top of loop
-	exit:
-		lw $ra, 0($sp)		#Restore $ra
-		addi $sp, $sp, 4	#Move stack pointer back
-		jr $ra				#Return
+		slt $t3, $t1, $t2,  # Checks if $t1 < $t2 and puts it in $t3
+		bne $t3, 1, end_loop# Branch to end_loop if $t1 >= $t2
+		lw $a0, 0($t0)		# Load first item from array into $a0
+		jal rowprint		# Call rowprint
+		jal newline			# Call newline
+		addi $t1, $t1, 1 	# Increment i
+		j loop				# Jump to top of loop
+	end_loop:
+		lw $ra, 0($sp)		# Restore $ra
+		addi $sp, $sp, 4	# Move stack pointer back
+		jr $ra				# Return
 
 #############################################
 ## end procedure charprint                 ##
@@ -101,8 +110,8 @@ charprint:
 #	-outputs: none                          #
 #############################################
 newline:
-	addi $v0, $zero, 4	#Prepare print_string
-	la	 $a0, newln		#Load newln into $a0
+	addi $v0, $zero, 4	# Prepare print_string
+	la	 $a0, newln		# Load newln into $a0
 	syscall
 
 #############################################
@@ -117,8 +126,8 @@ newline:
 #	-outputs: none                          #
 #############################################
 printchar:
-	li $v0, 11  #Load print_char
-	syscall     #$char already in $a0 so print
+	li $v0, 11  # Load print_char
+	syscall     # $char already in $a0 so print
 
 
 #############################################
