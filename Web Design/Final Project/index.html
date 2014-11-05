@@ -7,42 +7,56 @@
 
 <!--Include Bootstrap-->
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-	  <!-- Indicators -->
-	  <ol class="carousel-indicators">
-	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	  </ol>
+	<div id="content">
+		<div id="header">
+			<img src="img/carboidrati.png" alt="Home">
+			<ul id="nav">
+				<li id="first-item"><a href="">Home</a></li>
+				<li><a href="">Menu</a></li>
+				<li><a href="">Promotions</a></li>
+				<li><a href="">About Us</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
 
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner">
-	    <div class="item active">
-	      <img src="img/carboidrati.png" alt="Carboidrati">
-	      <div class="carousel-caption">
-	        Welcome!
-	      </div>
-	    </div>
-	    <div class="item">
-	      <img src="img/carboidrati.png" alt="Carboidrati">
-	      <div class="carousel-caption">
-	        ...
-	      </div>
-	    </div>
-	    ...
-	  </div>
+		</div> <!--End header -->
 
-	  <!-- Controls -->
-	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-	    <span class="glyphicon glyphicon-chevron-left"></span>
-	  </a>
-	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-	    <span class="glyphicon glyphicon-chevron-right"></span>
-	  </a>
-	</div>
+		<div id="index-carousel" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#index-carousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#index-carousel" data-slide-to="1"></li>
+		    <!--<li data-target="#index-carousel" data-slide-to="2"></li>-->
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" id="inner-index-carousel">
+		    <div class="item active">
+		      <img src="img/carboidrati.png" alt="Carboidrati">
+		      <div class="carousel-caption">
+		        Welcome!
+		      </div>
+		    </div>
+		    <div class="item">
+		      <img src="img/carboidrati.png" alt="Carboidrati">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#index-carousel" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		  </a>
+		  <a class="right carousel-control" href="#index-carousel" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right"></span>
+		  </a>
+		</div> <!-- End carousel -->
+	</div> <!-- End Wrapper -->
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
