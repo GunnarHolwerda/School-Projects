@@ -9,7 +9,7 @@ body {
 
 #top-logo {
 	display: block;
-	width: 150px;
+	width: 200px;
 	height: 150px;
 	padding: 0px;
 	margin-left: auto;
@@ -20,7 +20,7 @@ body {
 #nav {
 	margin: 0px;
 	padding: 0px;
-	width: 800px;
+	width: 1000px;
 	height: 37px;
 	margin-right: auto;
 	margin-left: auto;
@@ -43,7 +43,8 @@ body {
 	color: #FFF;
 	text-align: center;
 	margin: 0px;
-	padding: 10px 53px;
+	padding: 10px;
+	width: 200px;
 	-webkit-transition: all .3s ease ; /* For Safari 3.1 to 6.0 */
     transition: all .3s ease ;
 	border-right: 1px solid #000;
@@ -60,12 +61,13 @@ body {
 }
 
 #last-item {
-	border-right: 1px solid #9E9A89;
+	border: none;
 	border-radius: 0 10px 10px 0;
 }
 
 #footer {
-	padding-top: 200px;
+	padding-top: 25px;
+	letter-spacing: 1px;
 	text-align: center;
 	font-size: 9px;
 }
