@@ -45,16 +45,9 @@ h1 {
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
+	font-family: 'Lora', serif;
 }
 
 #left-box {
 	margin-left: 50px;
-}
-
-#middle-box {
-
-}
-
-#right-box {
-
 }

@@ -7,6 +7,10 @@ body {
 	margin: auto;
 }
 
+.active {
+	background-color: #535B30 !important;
+}
+
 #top-logo {
 	display: block;
 	width: 200px;
@@ -15,7 +19,15 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-	
+
+#first-item {
+	border-radius: 10px 0 0 10px;
+}
+
+#last-item {
+	border-right: none !important;
+	border-radius: 0 10px 10px 0;
+}
 
 #nav {
 	margin: 0px;
@@ -45,7 +57,7 @@ body {
 	margin: 0px;
 	padding: 10px;
 	width: 200px;
-	-webkit-transition: all .3s ease ; /* For Safari 3.1 to 6.0 */
+	/*-webkit-transition: all .3s ease ;  For Safari 3.1 to 6.0 */
     transition: all .3s ease ;
 	border-right: 1px solid #000;
 	background-color: #9E9A89;
@@ -56,17 +68,13 @@ body {
 	background-color: #535B30;
 }
 
-#first-item {
-	border-radius: 10px 0 0 10px;
-}
-
-#last-item {
-	border: none;
-	border-radius: 0 10px 10px 0;
+#nav li a:active {
+	background-color: #535B30;
 }
 
 #footer {
 	padding-top: 25px;
+	padding-bottom: 10px;
 	letter-spacing: 1px;
 	text-align: center;
 	font-size: 9px;
