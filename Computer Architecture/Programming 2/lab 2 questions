@@ -1,40 +1,19 @@
 Part A:
 1)	The @ sign
 2)  The & sign
-3) To produce an A you would need [16, 56, 40, 68, 68, 130, 254, 130, 130, 130]
-4) To produce a B you would need [252, 130, 130, 130, 252, 130, 130, 130, 130, 252]
+3) To produce an A you would need [16,56,40,68,68,130,254,130,130,130]
+4) To produce a B you would need [252,130,130,130,252,130,130,130,130,252]
 
 Part B:
 1) The letter x
 2) A + sign
-3) I HAVE NO CLUE
-4) I HAVE NO CLUE
-5) 
-
-Calls:
-	B3:
-		la $t0, seqY
-		la $t1, seqX
-		and $a0, $t0, $t1
-		jal charprint
-		jal newline
-	B4:
-		la $t0, seqY
-		la $t1, seqX
-		or $a0, $t0, $t1
-		jal charprint
-		jal newline
-	B5:
-		la $t0, seqY
-		la $t1, seqX
-		xor $a0, $t0, $t1
-		jal charprint
-		jal newline
+3) You get a period, or a single X depending how you look at it
+4) You get an asterisk
+5) You get an asterisk with the center X removed
 
 Part C:
 1) The letter C
 2) The letter D
-3) I HAVE NO CLUE 
-4) I HAVE NO CLUE
-5) I HAVE NO CLUE
-6) I HAVE NO CLUE
+5) A C shifted one bit to the left
+6) A D shifted one bit to the left
+
