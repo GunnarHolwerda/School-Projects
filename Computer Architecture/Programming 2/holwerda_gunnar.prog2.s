@@ -29,8 +29,8 @@
 
 seq1:	.word 60 66 157 293 329 329 334 304 131 124
 seq2:	.word 0 56 72 80 102 420 296 274 236 0
-seq3: 	.word 16 40 68 130 254 130 130 130 130 130
-seq4:	.word 480 272 264 264 304 264 264 264 272 480
+seq3: 	.word 16 56 40 68 68 130 254 130 130 130
+seq4:	.word 252 130 130 130 252 130 130 130 130 252
 seqX: 	.word 65 34 20 8 20 34 65 0 0 0
 seqY:	.word 8 8 8 127 8 8 8 0 0 0
 seqA:	.word 0 60 64 128 128 128 64 60 0
@@ -47,38 +47,95 @@ hyphen: .asciiz "- "
 #############################################
 .text
 main:
-	A1:
-		la $a0, seq1
+	# A1:
+	# 	la $a0, seq1
+	# 	jal charprint
+	# 	jal newline
+	# A2:
+	# 	la $a0, seq2
+	# 	jal charprint
+	# 	jal newline
+	# A3:
+	# 	la $a0, seq3
+	# 	jal charprint
+	# 	jal newline
+	# A4:
+	# 	la $a0, seq4
+	# 	jal charprint
+	# 	jal newline
+	# B1:
+	# 	la $a0, seqX
+	# 	jal charprint
+	# 	jal newline
+	# B2:
+	# 	la $a0, seqY
+	# 	jal charprint
+	# 	jal newline
+	# B3:
+	# 	la $t0, seqY
+	# 	la $t1, seqX
+	# 	li $t4, 10 					# Set a counter to 0
+	# and_loop:
+	# 	beq $t4, 0, exit_and_loop	# Branch to exit if we have looped 10 times
+	# 	lw $t2, 0($t0)				# Load an item from $t0 and place in $t2
+	# 	lw $t3, 0 ($t1)				# Load an item from $t1 and place in $t3
+	# 	and $t2, $t2, $t3			# And the two numbers and place in $t2
+	# 	sw $t2, 0($t0)				# Store $t2 into $t0
+	# 	addi $t0, $t0, 4    		# Move address of $t0 by 4
+	# 	addi $t1, $t1, 4 			# Add 4 to address of $t1 to move to next element
+	# 	addi $t4, $t4, -1   		# Subtract one from $t4 to decrement counter
+	# 	j and_loop
+	# exit_and_loop:
+	# 	addi $t0, $t0, -40   		# Move address of $t0 back to the first element
+	# 	move $a0, $t0
+	# 	jal charprint
+	# 	jal newline
+	B4:
+		la $t0, seqY
+		la $t1, seqX
+		li $t4, 10 					# Set a counter to 0
+	or_loop:
+		beq $t4, 0, exit_or_loop	# Branch to exit if we have looped 10 times
+		lw $t2, 0($t0)				# Load an item from $t0 and place in $t2
+		lw $t3, 0 ($t1)				# Load an item from $t1 and place in $t3
+		or $t2, $t2, $t3			# And the two numbers and place in $t2
+		sw $t2, 0($t0)				# Store $t2 into $t0
+		addi $t0, $t0, 4    		# Move address of $t0 by 4
+		addi $t1, $t1, 4 			# Add 4 to address of $t1 to move to next element
+		addi $t4, $t4, -1   		# Subtract one from $t4 to decrement counter
+		j or_loop
+	exit_or_loop:
+		addi $t0, $t0, -40   		# Move address of $t0 back to the first element
+		move $a0, $t0
 		jal charprint
 		jal newline
-	A2:
-		la $a0, seq2
-		jal charprint
-		jal newline
-	A3:
-		la $a0, seq3
-		jal charprint
-		jal newline
-	A4:
-		la $a0, seq4
-		jal charprint
-		jal newline
-	B1:
-		la $a0, seqX
-		jal charprint
-		jal newline
-	B2:
-		la $a0, seqY
-		jal charprint
-		jal newline
-	C1:
-		la $a0, seqA
-		jal charprint
-		jal newline
-	C2:
-		la $a0, seqB
-		jal charprint
-		jal newline
+	# B5:
+	# 	la $t0, seqY
+	# 	la $t1, seqX
+	# 	li $t4, 10 					# Set a counter to 0
+	# xor_loop:
+	# 	beq $t4, 0, exit_xor_loop	# Branch to exit if we have looped 10 times
+	# 	lw $t2, 0($t0)				# Load an item from $t0 and place in $t2
+	# 	lw $t3, 0 ($t1)				# Load an item from $t1 and place in $t3
+	# 	xor $t2, $t2, $t3			# And the two numbers and place in $t2
+	# 	sw $t2, 0($t0)				# Store $t2 into $t0
+	# 	addi $t0, $t0, 4    		# Move address of $t0 by 4
+	# 	addi $t1, $t1, 4 			# Add 4 to address of $t1 to move to next element
+	# 	addi $t4, $t4, -1   		# Subtract one from $t4 to decrement counter
+	# 	j xor_loop
+	# exit_xor_loop:
+	# 	addi $t0, $t0, -40   		# Move address of $t0 back to the first element
+	# 	move $a0, $t0
+	# 	jal charprint
+	# 	jal newline
+	# C1:
+	# 	la $a0, seqA
+	# 	jal charprint
+	# 	jal newline
+	# C2:
+	# 	la $a0, seqB
+	# 	jal charprint
+	# 	jal newline
 	
 	jal exit
 
@@ -96,7 +153,7 @@ main:
 rowprint:
 	addi $sp, $sp, -8				# Move the stack pointer
 	sw $ra, 0($sp)					# Store ra because we will be calling functions
-	sw $s0, 4($sp)
+	sw $s0, 4($sp)					# Store $s0
 	move $s0, $a0					# Store $a0 into $s0
 	li $s1, 256     				# Load 2^8 into $s1
 	print_loop:
@@ -113,7 +170,7 @@ rowprint:
 		srl $s1, $s1, 1             # Shift bit string to the right in order to check next bit
 		j print_loop                # jump back to loop
 	end_print_loop:
-		lw $s0, 4($sp)
+		lw $s0, 4($sp)				# Get $s0 back from stack
 		lw $ra, 0($sp)				# Get $ra back from stack
 		addi $sp, $sp, 8			# Move stack pointer back
 		jr $ra						# Exit procedure

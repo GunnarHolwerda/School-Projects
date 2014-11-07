@@ -1,8 +1,8 @@
 Part A:
 1)	The @ sign
 2)  The & sign
-3) To produce an A you would need [16, 40, 68, 130, 254, 130, 130, 130, 130, 130]
-4) To produce a B you would need [480, 272, 264, 264, 304, 264, 264, 264, 272, 480]
+3) To produce an A you would need [16, 56, 40, 68, 68, 130, 254, 130, 130, 130]
+4) To produce a B you would need [252, 130, 130, 130, 252, 130, 130, 130, 130, 252]
 
 Part B:
 1) The letter x
