@@ -2,11 +2,10 @@ int pin = 13;
 
 void setup(){
   pinMode(pin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(pin, HIGH);
+  Serial.print(F("What is going on here?\n"));
   delay(1000);
-  digitalWrite(pin, LOW);
-  delay(5000);
 }
