@@ -43,8 +43,6 @@
    if (inString != null) {
      // trim off any whitespace:
      inString = trim(inString);
-     System.out.println(inString);
-     /*
      // Convert to an int and map to the screen height:
      float inByte = float(inString); 
      inByte = map(inByte, 0, 1023, 0, height);
@@ -62,6 +60,5 @@
        // increment the horizontal position:
        xPos++;
      }
-     */
    }
  }

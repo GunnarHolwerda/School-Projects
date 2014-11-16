@@ -17,7 +17,7 @@ void setup() {
 
 void loop() {
   // Send the value of analog input 0:
-  Serial.println("YOLO");
+  Serial.println(analogRead(A5));
   
   // Wait a bit for the analog-to-digital converter 
   // To stabilize after the last reading:
