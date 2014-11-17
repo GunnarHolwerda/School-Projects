@@ -1,7 +1,12 @@
+/* CURRENT STATUS
+  The code currently allows for data to be processed in the sketch
+  Saves the data to a file
+  Prints out a basic graph of the changes of the value from the arduino 
+*/
+
 /* Processing code for this example
  
-  Graphing sketch
- 
+  Graphing sketch 
  
   This program takes ASCII-encoded strings
   from the serial port at 9600 baud and graphs them. It expects values in the

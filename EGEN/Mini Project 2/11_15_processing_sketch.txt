@@ -1,3 +1,7 @@
+/* CURRENT STATUS
+Current sketch will display data coming from serial port in a graph
+*/
+
 /* Processing code for this example
  
   Graphing sketch
@@ -40,12 +44,9 @@
    if (inString != null) {
      // trim off any whitespace:
      inString = trim(inString);
-     System.out.println("We got " + inString + " from the Arduino");
      
      //Save data to a file
      String data[] = split(inString, ' ');
-     saveStrings("data.txt", data);
-     System.out.println("Saving " + data[0] + " to the text file.");
      
      // Convert to a float and map to the screen height:
      float inByte = float(inString); 

@@ -1,3 +1,9 @@
+/* CURRENT STATUS
+Code currently sends data through the Serial port to be printed or interpreted by Processing
+Also algorithm was developed for calibrating the sensor and ignoring the
+Water level determined by the sensor
+*/
+
 /*
   Graph
  
@@ -10,6 +16,7 @@
  The salinity sensor is attached to A5.
 */
 
+//int digitalPin = 19;
 float ppt = 0;
 float refvoltage = 1.1;
 boolean calibrate = true;
@@ -22,9 +29,6 @@ void setup() {
 }
 
 void loop() {
-  int temperature = analogRead(A0);
-  Serial.print("Temperature is ");
-  Serial.println(temperature);
   int samples = 20; //How many times we will read in
   int aRead = 0;
   
@@ -76,4 +80,3 @@ void loop() {
   // To stabilize after the last reading:
   delay(2);
 }
-
