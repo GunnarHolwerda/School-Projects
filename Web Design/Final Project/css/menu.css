@@ -1,4 +1,49 @@
 /*
 This is the CSS file for the menu page
 */
+p {
+	text-align: center;
+}
 
+.menu_item {
+	font-family: 'Ubuntu', sans-serif;
+	width: 200px !important;
+	height: 100px !important;
+	background-color: #9E9A89;
+	border-color: #000;
+	color: #FFF !important;
+	transition: all .3s ease ;
+}
+
+.menu_item:hover {
+	background-color: #535B30;
+	color: #FFF;
+}
+
+#content {
+	margin-left: 50px;
+	margin-top: 25px;
+	height: 500px;
+	width: 890px;
+}
+
+#sidebar {
+	float: left;
+	width: 200px;
+	height: 500px;
+}
+
+#top_button {
+	border-radius: 10px 10px 0 0;
+}
+
+#bot_button {
+	border-radius: 0 0 10px 10px;
+}
+
+#menu_display {
+	float: left;
+	margin-left: 40px;
+	height: 500px;
+	width: 650px;
+}

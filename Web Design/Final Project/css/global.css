@@ -13,8 +13,8 @@ body {
 
 #top-logo {
 	display: block;
-	width: 200px;
-	height: 150px;
+	width: 150px;
+	height: 125px;
 	padding: 0px;
 	margin-left: auto;
 	margin-right: auto;
@@ -73,6 +73,7 @@ body {
 }
 
 #footer {
+	clear: both;
 	padding-top: 25px;
 	padding-bottom: 10px;
 	letter-spacing: 1px;
