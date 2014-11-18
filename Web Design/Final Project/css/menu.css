@@ -47,3 +47,11 @@ p {
 	height: 500px;
 	width: 650px;
 }
+
+#top-item {
+	/* Set the top left and right corners to be rounded */
+}
+
+#bottom-item {
+	/* Set the bottom left and right corners to be rounded */
+}
