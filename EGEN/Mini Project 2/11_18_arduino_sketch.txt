@@ -1,3 +1,7 @@
+/* CURRENT STATE
+  Fixed a bug with the calibrating system
+*/
+  
 /*
   Graph
  
@@ -11,7 +15,7 @@
 */
 
 float ppt = 0;
-float refVoltage = 5.0;
+float refvoltage = 1.1;
 boolean calibrate = true;
 int waterLevel = 0;
 int calibratedWaterLevel = 0;
@@ -23,8 +27,8 @@ void setup() {
 }
 
 void loop() {
-  float samples = 1; //How many times we will read in
-  float aRead = 0;
+  int samples = 20; //How many times we will read in
+  int aRead = 0;
   
   int count = 0;
   int pastWaterLevel = analogRead(A5);
@@ -65,7 +69,7 @@ void loop() {
     //Serial.println(aRead);
   }
   
-  float voltage = refVoltage * aRead/ (1023.0 * samples);  // assuming 5V reference 
+  float voltage = 5.0 * aRead/ (1023 * samples);  // assuming 5V reference 
   
   ppt = 16.3 * voltage;
   
@@ -82,4 +86,3 @@ void loop() {
   // To stabilize after the last reading:
   delay(2);
 }
-

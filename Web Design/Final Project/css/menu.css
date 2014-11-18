@@ -5,53 +5,82 @@ p {
 	text-align: center;
 }
 
-.menu_item {
-	font-family: 'Ubuntu', sans-serif;
-	width: 200px !important;
-	height: 100px !important;
-	background-color: #9E9A89;
-	border-color: #000;
-	color: #FFF !important;
-	transition: all .3s ease ;
-}
-
-.menu_item:hover {
-	background-color: #535B30;
-	color: #FFF;
-}
-
 #content {
-	margin-left: 50px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 25px;
+	padding: 0px;
 	height: 500px;
-	width: 890px;
+	width: 900px;
 }
 
 #sidebar {
+	margin: 0px;
+	padding: 0px;
 	float: left;
+	display: block;
 	width: 200px;
 	height: 500px;
 }
 
-#top_button {
+#menu-nav {
+	height: 500px;
+	width: 200px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#menu-nav li {
+	display: block;
+	margin: 0px;
+	padding-top: 35px;
+	width: 200px;
+	height: 100px;
+	font-size: 12px;
+	font-family: 'Ubuntu', sans-serif;
+	color: #FFF;
+	text-align: center;
+	/* vertical-align: middle; */
+	transition: all .3s ease;
+	border-bottom: 1px solid #000;
+	background-color: #9E9A89;
+}
+
+#menu-nav li:hover {
+	background-color: #535B30;
+}
+
+#top-item {
 	border-radius: 10px 10px 0 0;
 }
 
-#bot_button {
+#bottom-item {
 	border-radius: 0 0 10px 10px;
 }
 
 #menu_display {
-	float: left;
+	float: right;
 	margin-left: 40px;
 	height: 500px;
 	width: 650px;
 }
 
-#top-item {
-	/* Set the top left and right corners to be rounded */
+#menu-carousel {
+	margin-left: auto;
+	height: 500px;
+	width: 650px;
 }
 
-#bottom-item {
-	/* Set the bottom left and right corners to be rounded */
+#menu-carousel img {
+	height: 500px;
+	width: 650px;
+}
+
+#information {
+	margin-top: 35px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 900px;
+	height: 200px;
+	font-family: 'Lora', serif;
 }
