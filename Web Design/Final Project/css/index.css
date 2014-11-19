@@ -44,10 +44,14 @@ h1 {
 	margin-top: 25px;
 	padding-left: 10px;
 	padding-right: 10px;
-	text-align: center;
 	font-family: 'Lora', serif;
 }
 
 #left-box {
 	margin-left: 50px;
+	padding-left: 0px;
+}
+
+#right-box {
+	padding-right: 0px;
 }
