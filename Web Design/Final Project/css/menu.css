@@ -40,7 +40,6 @@ p {
 	font-family: 'Ubuntu', sans-serif;
 	color: #FFF;
 	text-align: center;
-	/* vertical-align: middle; */
 	transition: all .3s ease;
 	border-bottom: 1px solid #000;
 	background-color: #9E9A89;
