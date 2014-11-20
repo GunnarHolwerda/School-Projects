@@ -54,11 +54,11 @@ p {
 }
 
 #top-item {
-	border-radius: 10px 0 0 10px;
+	/*border-radius: 10px 0 0 10px;*/
 }
 
 #bottom-item {
-	border-radius: 0 10px 10px 0;
+	/*border-radius: 0 10px 10px 0;*/
 	border-right: 0px !important;
 }
 

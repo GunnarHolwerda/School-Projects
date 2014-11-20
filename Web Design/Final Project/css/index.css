@@ -5,20 +5,30 @@ h1 {
 	text-align: center;
 }
 
+#banner {
+	position: absolute;
+	z-index: 2;
+	opacity: 0.85;
+	width: 900px;
+	font-size: 25px;
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	color: white;
+	background-color: #9E9A89;
+}
+
 #index-carousel {
+	clear: both;
 	width: 900px;
 	height: 500px;
-	margin-top: 25px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 0px;
+	margin-top: 25px;
 }
 
 #index-carousel .carousel-inner{
 	width: 900px;
 	height: 500px;
-	margin-top: 0px;
-	padding-top: 0px;
 }
 
 #index-carousel img {
