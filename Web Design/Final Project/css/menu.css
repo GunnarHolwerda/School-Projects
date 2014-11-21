@@ -33,32 +33,15 @@ p {
 	padding: 0px;
 }
 
-#menu-nav li {
-	display: block;
-	padding: 10px;
-	float: left;
-	margin: 0px;
-	width: 180px;
-	height: 37px;
-	font-size: 12px;
-	font-family: 'Ubuntu', sans-serif;
-	color: #FFF;
-	text-align: center;
-	transition: all .3s ease;
-	border-right: 1px solid #000;
-	background-color: #9E9A89;
+#menu-nav li {     
+    width: 180px;
 }
 
 #menu-nav li:hover {
 	background-color: #535B30;
 }
 
-#top-item {
-	/*border-radius: 10px 0 0 10px;*/
-}
-
-#bottom-item {
-	/*border-radius: 0 10px 10px 0;*/
+#right-item {
 	border-right: 0px !important;
 }
 
@@ -85,7 +68,16 @@ p {
 	margin-top: 150px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 	width: 900px;
 	height: 50px;
+	font-family: 'Lora', serif;
+}
+
+#title {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#menu {
 	font-family: 'Lora', serif;
 }

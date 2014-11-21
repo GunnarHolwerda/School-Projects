@@ -23,11 +23,11 @@
 	<div class="wrapper">
 		<a href="../index.html"><img id="top-logo" src="../img/carboidrati_small.png" alt="Home"></a>
 		<ul id="nav">
-			<li><a id="first-item" href="../index.html">Home</a></li>
-			<li><a class="active" href="menu.html">Menu</a></li>
-			<li><a href="promotions.html">Promotions</a></li>
-			<li><a href="about-us.html">About Us</a></li>
-			<li><a id="last-item" href="contact.html">Contact</a></li>
+			<li><a class="button" id="first-item" href="../index.html">Home</a></li>
+			<li><a class="button active" href="menu.html">Menu</a></li>
+			<li><a class="button" href="promotions.html">Promotions</a></li>
+			<li><a class="button" href="about-us.html">About Us</a></li>
+			<li><a class="button" id="last-item" href="contact.html">Contact</a></li>
 		</ul>
 
 		<div id="content">
@@ -55,17 +55,20 @@
 			</div> <!-- Close the menu display -->
 			<div id="bottom-bar">
 				<ul id="menu-nav">
-					<li data-target="#menu-carousel" data-slide-to="0" id="top-item">Drinks</li>
-					<li data-target="#menu-carousel" data-slide-to="1">Appetizers</li>
-					<li data-target="#menu-carousel" data-slide-to="2">Salads</li>
-					<li data-target="#menu-carousel" data-slide-to="3">Entrees</li>
-					<li data-target="#menu-carousel" data-slide-to="4" id="bottom-item">Desserts</li>
+					<li class="button no-select" data-target="#menu-carousel" data-slide-to="0" id="left-item">Drinks</li>
+					<li class="button no-select" data-target="#menu-carousel" data-slide-to="1" id="appetizers">Appetizers</li>
+					<li class="button no-select" data-target="#menu-carousel" data-slide-to="2" id="salads">Salads</li>
+					<li class="button no-select" data-target="#menu-carousel" data-slide-to="3" id="entrees">Entrees</li>
+					<li class="button no-select" data-target="#menu-carousel" data-slide-to="4" id="right-item">Desserts</li>
 				</ul>
 			</div> <!-- Close the sidebar -->
 		</div>	
 
 		<div id="information">
-			<p>All of our food is home made and we love to eat apples.</p>	
+			<h1 id='title'>Drinks</h1>
+			<p id='menu'>
+				<b>There are so many drinks here.</b>
+			</p>
 		</div>
 		
 		<div id="footer">
@@ -85,6 +88,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
+    <!-- Include personal javascript -->
+    <script type="text/javascript" src="../js/menu.js"></script>
 </body>
 
 </html>

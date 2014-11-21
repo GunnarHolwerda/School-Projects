@@ -1,11 +1,13 @@
-body {
+html, body {
 	background-color: #FFF;
+	height: 100%;
 }
 
 .wrapper {
 	height: 100%;
 	width: 1000px;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 	background-color: #F0F0F0;
 }
 
@@ -32,13 +34,9 @@ body {
 	margin-right: auto;
 }
 
-#first-item {
-	/*border-radius: 10px 0 0 10px;*/
-}
 
 #last-item {
 	border-right: none !important;
-	/*border-radius: 0 10px 10px 0;*/
 }
 
 #nav {
@@ -53,11 +51,9 @@ body {
 #nav li {
 	display: block;
 	float: left;
-	padding: 0px;
-	margin: 0px;
 } 
 
-#nav li a {
+.button {
 	display: block;
 	float: left;
 	text-decoration: none;
@@ -66,35 +62,41 @@ body {
 	font-family: 'Ubuntu', sans-serif;
 	color: #FFF;
 	text-align: center;
-	margin: 0px;
 	padding: 10px;
 	width: 200px;
-	/*-webkit-transition: all .3s ease ;  For Safari 3.1 to 6.0 */
-    transition: all .3s ease ;
+	transition: all .3s ease ;
 	border-right: 1px solid #000;
 	background-color: #9E9A89;
-
 }
 
-#nav li a:hover {
+.button:hover {
+	color: #FFF;
+	text-decoration: none;
 	background-color: #535B30;
 }
 
-#nav li a:active {
-	background-color: #535B30;
+.no-select {
+	cursor: default;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 #footer {
+	position: absolute;
+	bottom: 0px;
 	width: 1000px;
 	height: 125px;
-	padding-top: 15px;
 	padding-bottom: 10px;
 	letter-spacing: 1px;
 	font-size: 11px;
+	font-family: 'Lora', serif;
 }
 
 #footer p {
-	padding: 0px;
 	margin: 0px;
 	text-align: center;
 }
