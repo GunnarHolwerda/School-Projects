@@ -1,3 +1,8 @@
+/* CURRENT STATUS
+    Code has been updated to play the mario level finish sound after we are done recording
+*/
+
+
 /* Processing code for this example
  
   Graphing sketch
@@ -8,12 +13,18 @@
   range 0 to 1023, followed by a newline, or newline and carriage return
  
  */
- import processing.serial.*;
  
+ import processing.serial.*;
+ import beads.*;
+ 
+ String finishAudioFileName = "C:\\Users\\Gunnar\\Documents\\Programming\\School-Projects\\EGEN\\Mini_Project_2\\graph_sketch_processing\\finish.mp3"; 
  Serial myPort;        // The serial port
  int xPos = 1;         // horizontal position of the graph
+ long stopTime;
+ 
  
  void setup () {
+   stopTime = System.currentTimeMillis() + 5000;
    // Set the window size:
    size(400, 300);        
    
@@ -30,7 +41,12 @@
  
  
  void draw () {
- // everything happens in the serialEvent()
+   // everything happens in the serialEvent()
+   if (System.currentTimeMillis() > stopTime) {
+     playSound(finishAudioFileName);
+     delay(10000);
+     System.exit(0);
+   }
  }
  
  void serialEvent (Serial myPort) {
@@ -64,5 +80,14 @@
        // increment the horizontal position:
        xPos++;
      }
-   }
+   }   
+ }
+ 
+ void playSound(String fileName) {
+    AudioContext ac = new AudioContext();
+    SamplePlayer player = new SamplePlayer(ac, SampleManager.sample(fileName));
+    Gain g = new Gain(ac, 2, 0.2);
+    g.addInput(player);
+    ac.out.addInput(g);
+    ac.start();
  }
