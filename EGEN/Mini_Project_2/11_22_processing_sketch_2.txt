@@ -1,3 +1,7 @@
+/*  CURRENT STATUS
+    Updated sketch filewriting and now will take in the humidity, temp, and salinity from the Arduino. Also records the current time in milliseconds allong with it.
+*/
+
 /*
   Graphing sketch
  
