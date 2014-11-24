@@ -1,3 +1,7 @@
+/* CURRENT STATUS
+  Sends all data to the processing sketch over the serial connection
+*/
+
 /*
   Graph
  
@@ -14,17 +18,16 @@ int DHT11_PIN = 5;
 int SALINITY_PIN = 5;
 float ppt = 0;
 float refVoltage = 5.0;
-// This is the calibration value, it gets subtracted from the reading in
-// to give you the conductivity
-int calibratedWaterLevel = 317;
+int calibratedWaterLevel = 461;
 
 void setup() {
   // Initialize the serial communication:
   Serial.begin(9600);
+  //Serial.println("H\tT\tSalt");
 }
 
 void loop() {
-  float samples = 1; //How many times we will read in
+  float samples = 20; //How many times we will read in
   float aRead = 0;
   
   for (int i = 0; i < samples ; i++) 
@@ -37,8 +40,8 @@ void loop() {
   
   ppt = 16.3 * voltage;    //ppt is 16.3 * voltage
   
-  Serial.print("Analog in reading: ");
-  Serial.println(aRead);
+  //Serial.print("Analog in reading: ");
+  //Serial.print(aRead);
 
   //Serial.print(" - Calculated ppt: ");
   DHT.read11(DHT11_PIN);
@@ -49,4 +52,3 @@ void loop() {
   Serial.println(ppt, 4);                 //Send salinity calculation
   delay(500);
 }
-
