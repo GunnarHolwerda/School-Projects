@@ -33,7 +33,7 @@
  void draw () {
    // All drawing of the graph happens in serialEvent()
    if (System.currentTimeMillis() > stopTime) {  //Check if we are past our stop time
-     //playSound(finishAudioFileName);           //Play finishAudioFile
+     playSound(finishAudioFileName);           //Play finishAudioFile
      saveFile.close();                           //Close file
      delay(7500);                                //Wait for audiofile to finish
      exit();                                     //Close program
@@ -42,7 +42,7 @@
  
  void serialEvent (Serial myPort) {
    String inString = myPort.readStringUntil('\n');  //Get the ASCII string:
-   
+   System.out.println(inString);
    if (inString != null) {   
      String data[] = new String[3];
      data = split(inString, ' ');   //Split up the data by ' '
