@@ -25,7 +25,8 @@
    String COM = Serial.list()[1];
    myPort = new Serial(this, COM, 9600);  //First port in serial list is Arduino so we assign that to the SerialPort
    myPort.bufferUntil('\n');    //serialEvent() gets called @ a newline character
-   saveFile = createWriter("data.txt"); //file to write out to
+   saveFile = createWriter("data.csv"); //file to write out to
+   saveFile.print("Time, Humidity, Temperature, Salinity\n"); 
    background(0);            //Set initial background
  }
  
