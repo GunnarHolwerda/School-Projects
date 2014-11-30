@@ -5,6 +5,11 @@ p {
 	text-align: center;
 }
 
+h3 {
+	font-family:  'Ubuntu', sans-serif;
+	color: #FFF;
+}
+
 #content {
 	margin-left: auto;
 	margin-right: auto;
@@ -34,7 +39,7 @@ p {
 }
 
 #menu-nav li {     
-    width: 180px;
+   	 width: 180px;
 }
 
 #menu-nav li:hover {
@@ -68,10 +73,12 @@ p {
 	margin-top: 150px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 25px;
 	text-align: center;
 	width: 900px;
 	height: auto;
 	font-family: 'Lora', serif;
+	background-color: #F9F9F9;
 }
 
 #title {
@@ -79,5 +86,42 @@ p {
 }
 
 #menu {
+	clear: both;
+	width: 900px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
 	font-family: 'Lora', serif;
+}
+
+#right-menu {
+	margin-right: 0px;
+}
+
+#left-menu {
+	margin-left: 200px;
+}
+
+.menu-box {
+	width: 200px;
+	height: 200px;
+	float: left;
+	display: block;
+	padding: 0px;
+	margin-right: 100px;
+	margin-top: 20px;
+	background-color:  #9E9A89;
+}
+
+.menu-box ul {
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.menu-box li {
+	display: block;
+	text-align: left;
+	padding-left: 10px;
 }
