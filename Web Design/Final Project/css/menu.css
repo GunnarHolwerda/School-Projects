@@ -78,11 +78,12 @@ h3 {
 	width: 900px;
 	height: auto;
 	font-family: 'Lora', serif;
-	background-color: #F9F9F9;
+	background-color: #9E9A89;
 }
 
 #title {
 	font-family: 'Ubuntu', sans-serif;
+	color: white;
 }
 
 #menu {
@@ -111,7 +112,7 @@ h3 {
 	padding: 0px;
 	margin-right: 100px;
 	margin-top: 20px;
-	background-color:  #9E9A89;
+	background-color:  #535B30;
 }
 
 .menu-box ul {
@@ -124,4 +125,5 @@ h3 {
 	display: block;
 	text-align: left;
 	padding-left: 10px;
+	color: #FFF;
 }
