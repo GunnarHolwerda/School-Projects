@@ -54,7 +54,7 @@ void loop() {
   //---Hopper Gate Control---//
   if (servoButtonState == HIGH) {
    Serial.println("The servo button is on");
-   while (!servoRan) {    //Makes sure the servo's don't keep running in the buton remains on
+   while (!servoRan) {    //Makes sure the servo's don't keep running if the buton remains on
      if (gateState != 1) {      //If gate is not open
        //We need to open the gate
        for(int pos = 180; pos >= 90; pos -= 1) // goes from 0 degrees to 180 degrees 

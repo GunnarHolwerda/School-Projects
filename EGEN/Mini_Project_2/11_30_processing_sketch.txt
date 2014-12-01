@@ -1,3 +1,7 @@
+/* CURRENT STATUS
+    Added variable for how long we want the program to run for
+*/
+
 /*
   Graphing sketch
  
