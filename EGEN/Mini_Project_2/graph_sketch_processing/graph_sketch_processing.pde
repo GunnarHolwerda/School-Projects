@@ -20,7 +20,7 @@
  PrintWriter saveFile;
  
  void setup () {
-   stopTime = System.currentTimeMillis() + 15000;  //Set up stopTime
+   stopTime = System.currentTimeMillis() + 300000;  //Set up stopTime
    size(400, 300);                                //Set the window size      
    String COM = Serial.list()[1];
    myPort = new Serial(this, COM, 9600);  //First port in serial list is Arduino so we assign that to the SerialPort
@@ -63,7 +63,7 @@
      
      // Convert to a float and map to the screen height:
      float inByte = float(data[2]); 
-     inByte = map(inByte, 0, 100, 0, height);
+     inByte = map(inByte, 0, 40, 0, height);
      
      // Draw the line:
      stroke(127,34,255);
