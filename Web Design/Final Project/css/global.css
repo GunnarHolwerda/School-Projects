@@ -34,8 +34,6 @@ html, body {
 
 .no-select {
 	cursor: default;
-	-webkit-touch-callout: none;
-	user-select: none; 
 }
 
 .active {
