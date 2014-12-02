@@ -1,27 +1,5 @@
 h3 {
 	font-family:  'Ubuntu', sans-serif;
-	color: #FFF;
-}
-
-.menu-box {
-	display: block;
-	float: left;
-	width: 200px;
-	height: 200px;
-	padding: 0px;
-	margin: 20px 100px 0px 0px;
-}
-
-.menu-box ul {
-	display: block;
-	padding: 0px;
-	margin: 0px;
-}
-
-.menu-box li {
-	display: block;
-	text-align: left;
-	color: #FFF;
 }
 
 #content {
@@ -79,7 +57,7 @@ h3 {
 
 #information {
 	clear: both;
-	margin: 150px auto 25px auto;
+	margin: 100px auto 25px auto;
 	width: 900px;
 	height: auto;
 	font-family: 'Lora', serif;
@@ -91,17 +69,35 @@ h3 {
 	height: 50px;
 	padding-top: 5px;
 	margin: 0px;
-	border: 1px solid #000;
 	text-align: center;
 }
 
 #menu {
 	clear: both;
 	width: 900px;
-	height: 250px;
+	height: 180px;
 	margin: 0px auto 25px auto;
-	background-color: #9E9A89;
 	font-family: 'Lora', serif;
+}
+
+.menu-box {
+	display: block;
+	float: left;
+	width: 200px;
+	height: 200px;
+	padding: 0px;
+	margin: 0px 100px 0px 0px;
+}
+
+.menu-box ul {
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.menu-box li {
+	display: block;
+	text-align: left;
 }
 
 #right-menu {

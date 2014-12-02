@@ -37,14 +37,7 @@ html, body {
 }
 
 .active {
-	background-color: #535B30 !important;
-}
-
-.social-media {
-	width: 35px;
-	height: 35px;
-	display: inline-block;
-	margin: 10px auto 0px 10px;
+	background-color: #535B30;
 }
 
 .top-logo {
@@ -53,11 +46,6 @@ html, body {
 	height: 125px;
 	padding: 0px 0px 10px 0px;
 	margin: 0px auto 0px auto;
-}
-
-
-#last-item {
-	border-right: none !important;
 }
 
 #nav {
@@ -72,6 +60,10 @@ html, body {
 	float: left;
 }
 
+#last-item {
+	border-right: none;
+}
+
 #footer {
 	clear: both;
 	position: relative;
@@ -83,6 +75,13 @@ html, body {
 	font-size: 11px;
 	text-align: center;
 	font-family: 'Lora', serif;
+}
+
+.social-media {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	margin: 10px auto 0px 10px;
 }
 
 #instagram {
