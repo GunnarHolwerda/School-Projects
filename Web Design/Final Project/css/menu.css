@@ -10,7 +10,6 @@ h3 {
 	height: 200px;
 	padding: 0px;
 	margin: 20px 100px 0px 0px;
-	background-color:  #535B30;
 }
 
 .menu-box ul {
@@ -22,7 +21,6 @@ h3 {
 .menu-box li {
 	display: block;
 	text-align: left;
-	padding-left: 10px;
 	color: #FFF;
 }
 
@@ -82,16 +80,19 @@ h3 {
 #information {
 	clear: both;
 	margin: 150px auto 25px auto;
-	text-align: center;
 	width: 900px;
 	height: auto;
 	font-family: 'Lora', serif;
-	background-color: #9E9A89;
 }
 
 #title {
 	font-family: 'Ubuntu', sans-serif;
-	color: #FFF;
+	width: 900px;
+	height: 50px;
+	padding-top: 5px;
+	margin: 0px;
+	border: 1px solid #000;
+	text-align: center;
 }
 
 #menu {
@@ -99,6 +100,7 @@ h3 {
 	width: 900px;
 	height: 250px;
 	margin: 0px auto 25px auto;
+	background-color: #9E9A89;
 	font-family: 'Lora', serif;
 }
 
@@ -107,5 +109,5 @@ h3 {
 }
 
 #left-menu {
-	margin-left: 200px;
+	margin-left: 250px;
 }
