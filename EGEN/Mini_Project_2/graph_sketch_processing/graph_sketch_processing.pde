@@ -16,7 +16,7 @@
  Serial myPort;   // The serial port
  int xPos = 1;    // Horizontal position of the graph  
  long startTime = System.currentTimeMillis(); 
- long stopTime, timeToRun = 7200000;   //Time in milliseconds the program will stop recording data and how long in milliseconds we want the program to run
+ long stopTime, timeToRun = 3600000;   //Time in milliseconds the program will stop recording data and how long in milliseconds we want the program to run
  PrintWriter saveFile;
  
  void setup () {
@@ -63,7 +63,7 @@
      
      // Convert to a float and map to the screen height:
      float inByte = float(data[2]); 
-     inByte = map(inByte, 0, 40, 0, height);
+     inByte = map(inByte, 0, 100, 0, height);
      
      // Draw the line:
      stroke(127,34,255);

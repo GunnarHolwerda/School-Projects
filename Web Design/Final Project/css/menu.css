@@ -1,30 +1,42 @@
-/*
-This is the CSS file for the menu page
-*/
-p {
-	text-align: center;
-}
-
 h3 {
 	font-family:  'Ubuntu', sans-serif;
 	color: #FFF;
 }
 
+.menu-box {
+	display: block;
+	float: left;
+	width: 200px;
+	height: 200px;
+	padding: 0px;
+	margin: 20px 100px 0px 0px;
+	background-color:  #535B30;
+}
+
+.menu-box ul {
+	display: block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.menu-box li {
+	display: block;
+	text-align: left;
+	padding-left: 10px;
+	color: #FFF;
+}
+
 #content {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 25px;
+	margin: 25px auto 0px auto;
 	padding: 0px;
 	height: 500px;
 	width: 900px;
 }
 
 #bottom-bar {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 25px;
-	padding: 0px;
 	display: block;
+	margin: 25px auto 0px auto;
+	padding: 0px;
 	width: 900px;
 	height: 50px;
 }
@@ -51,8 +63,7 @@ h3 {
 }
 
 #menu_display {
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0px auto;
 	height: 500px;
 	width: 900px;
 }
@@ -70,10 +81,7 @@ h3 {
 
 #information {
 	clear: both;
-	margin-top: 150px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 25px;
+	margin: 150px auto 25px auto;
 	text-align: center;
 	width: 900px;
 	height: auto;
@@ -83,16 +91,14 @@ h3 {
 
 #title {
 	font-family: 'Ubuntu', sans-serif;
-	color: white;
+	color: #FFF;
 }
 
 #menu {
 	clear: both;
 	width: 900px;
 	height: 250px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 25px;
+	margin: 0px auto 25px auto;
 	font-family: 'Lora', serif;
 }
 
@@ -102,28 +108,4 @@ h3 {
 
 #left-menu {
 	margin-left: 200px;
-}
-
-.menu-box {
-	width: 200px;
-	height: 200px;
-	float: left;
-	display: block;
-	padding: 0px;
-	margin-right: 100px;
-	margin-top: 20px;
-	background-color:  #535B30;
-}
-
-.menu-box ul {
-	display: block;
-	padding: 0px;
-	margin: 0px;
-}
-
-.menu-box li {
-	display: block;
-	text-align: left;
-	padding-left: 10px;
-	color: #FFF;
 }

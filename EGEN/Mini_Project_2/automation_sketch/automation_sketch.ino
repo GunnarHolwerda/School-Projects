@@ -12,8 +12,8 @@ Servo gateServo, stirringServo;  // create servo object to control a servo
 int servoButtonPin = 4, solenoidButtonPin = 2;        //Pins the buttons are plugged into
 int servoButtonState = 0, solenoidButtonState = 0;    //Starting state of buttons 0 = off
 int gateServoPin = 10, stirringServoPin = 9;          //Pin of servo motors
-int solenoidTime = 4078;                              // How long to open the solenoid valve for
-int stirSwipes = 40;                                 //how many times the stirrer swipes
+int solenoidTime = 3380;                              // How long to open the solenoid valve for
+int stirSwipes = 60;                                 //how many times the stirrer swipes
 boolean solenoidRan = true, servoRan = false;        // booleans to tell if the solenoid or servo have run, used to determine if button was pressed on
 int gateState = 0;                                   // gateServo state, 0 = close, 1 = open      
 

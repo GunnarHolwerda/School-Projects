@@ -6,64 +6,21 @@ html, body {
 .wrapper {
 	height: auto;
 	width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0px auto 0px auto;
 	background-color: #F0F0F0;
 }
-
-.active {
-	background-color: #535B30 !important;
-}
-
-.social-media {
-	margin-top: 10px;
-	width: 35px;
-	height: 35px;
-	display: inline-block;
-	margin-right: auto;
-	margin-left: 10px;
-}
-
-#top-logo {
-	display: block;
-	width: 135px;
-	height: 125px;
-	padding: 0px;
-	padding-bottom: 10px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-
-#last-item {
-	border-right: none !important;
-}
-
-#nav {
-	margin: 0px;
-	padding: 0px;
-	width: 1000px;
-	height: 37px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-#nav li {
-	display: block;
-	float: left;
-} 
 
 .button {
 	display: block;
 	float: left;
+	padding: 10px;
+	width: 200px;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 12px;
 	font-family: 'Ubuntu', sans-serif;
 	color: #FFF;
 	text-align: center;
-	padding: 10px;
-	width: 200px;
 	transition: all .3s ease ;
 	border-right: 1px solid #000;
 	background-color: #9E9A89;
@@ -78,11 +35,43 @@ html, body {
 .no-select {
 	cursor: default;
 	-webkit-touch-callout: none;
-    	-webkit-user-select: none;
-    	-khtml-user-select: none;
-    	-moz-user-select: none;
-    	-ms-user-select: none;
-    	user-select: none; 
+	user-select: none; 
+}
+
+.active {
+	background-color: #535B30 !important;
+}
+
+.social-media {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	margin: 10px auto 0px 10px;
+}
+
+.top-logo {
+	display: block;
+	width: 135px;
+	height: 125px;
+	padding: 0px 0px 10px 0px;
+	margin: 0px auto 0px auto;
+}
+
+
+#last-item {
+	border-right: none !important;
+}
+
+#nav {
+	padding: 0px;
+	width: 1000px;
+	height: 37px;
+	margin: 0px auto 0px auto;
+}
+
+#nav li {
+	display: block;
+	float: left;
 }
 
 #footer {
@@ -91,16 +80,11 @@ html, body {
 	bottom: 0px;
 	width: 1000px;
 	height: 125px;
-	margin-top: 50px;
-	padding-bottom: 10px;
+	margin: 50px 0px 0px 0px;
 	letter-spacing: 1px;
 	font-size: 11px;
-	font-family: 'Lora', serif;
-}
-
-#footer p {
-	margin: 0px;
 	text-align: center;
+	font-family: 'Lora', serif;
 }
 
 #instagram {
