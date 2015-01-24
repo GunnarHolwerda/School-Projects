@@ -1,6 +1,6 @@
 #############################################
-## Name:  Lab 3 Template File               #
-## Email: address@email.com                 #
+## Name:  Gunnar Holwerda                   #
+## Email: gunnarholwerda@gmail.com          #
 #############################################
 ##                                          #
 ##  This program produces a Lucas sequence  #
