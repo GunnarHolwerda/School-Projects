@@ -1,3 +1,10 @@
+/*
+Brute force tool
+Written by: Gunnar Holwerda
+
+For: CSCI-476
+*/
+
 #include <stdio.h>
 #include<unistd.h> //Include the getopt library see: http://www.gnu.org/software/libc/manual/html_node/Using-Getopt.html#Using-Getopt
 
