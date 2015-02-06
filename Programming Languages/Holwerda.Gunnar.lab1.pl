@@ -23,25 +23,24 @@ open( INFILE, $ARGV[0] ) or die "Cannot open $ARGV[0]: $!.\n";
 # YOUR VARIABLE DEFINITIONS HERE...
 $count         = 0;
 @special_chars = (
-    "\\(",  "\\[", "\\{", "\\\\", "\/", "_", "-", ":",
-    "\\\"", "`", "\\+", "=",  "\\*", "feat."
+    "\\(",  "\\[", "\\{", "\\\\", "\/",  "_", "-", ":",
+    "\\\"", "`",   "\\+", "=",    "\\*", "feat."
 );
 
 # This loops through each line of the file
 while ( my $line = <INFILE> ) {
 
     # This prints each line. You will not want to keep this line.
-    print "$line\n";
+    print "$line";
 
-# My goal here is to iterate over the special characters, injecting them into the regex
+    # Will need to remove everything before the Song title here
+
+# Iterates over array of special characters and removes all text following them
     foreach $char (@special_chars) {
         $line =~ s/($char.*)//;
-        print "Did we change anything? $char\n";
     }
 
     print "$line\n";
-
-    # YOUR CODE BELOW...
     if ( $count < 15 ) {
         $count++;
     }
