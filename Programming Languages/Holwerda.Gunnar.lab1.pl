@@ -33,7 +33,8 @@ while ( my $line = <INFILE> ) {
     # This prints each line. You will not want to keep this line.
     print "$line";
 
-    # Will need to remove everything before the Song title here
+    # Remove everything before the Song title here
+    $line =~ s/(.*<SEP>)//;
 
 # Iterates over array of special characters and removes all text following them
     foreach $char (@special_chars) {
