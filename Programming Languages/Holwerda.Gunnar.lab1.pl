@@ -45,8 +45,8 @@ while ( my $line = <INFILE> ) {
         $line =~ s/($punc)//g;
     }
 
-    if ($line =~ m/[^\w\s']+/) {
-        print $line;
+    # Match all songs that do not contain only English characters
+    if ( $line =~ m/[^\w\s']+/ ) {
     }
     else {
         $count++;
@@ -56,25 +56,25 @@ while ( my $line = <INFILE> ) {
     $line = lc $line;
 }
 
-print "Found $count songs\n";
-
 # Close the file handle
 close(INFILE);
 
+print "Found $count songs\n";
+
 # At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
-# print "File parsed. Bigram model built.\n\n";
+print "File parsed. Bigram model built.\n\n";
 
 # # User control loop
-# print "Enter a word [Enter 'q' to quit]: ";
-# $input = <STDIN>;
-# chomp($input);
-# print "\n";
-# while ( $input ne "q" ) {
+print "Enter a word [Enter 'q' to quit]: ";
+$input = <STDIN>;
+chomp($input);
+print "\n";
+while ( $input ne "q" ) {
 
-#     # Replace these lines with some useful code
-#     print "Not yet implemented.  Goodbye.\n";
-#     $input = 'q';
-# }
+    # Replace these lines with some useful code
+    print "Not yet implemented.  Goodbye.\n";
+    $input = 'q';
+}
 
 # MORE OF YOUR CODE HERE....
