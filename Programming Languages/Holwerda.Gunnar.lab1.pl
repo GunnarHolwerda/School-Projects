@@ -26,12 +26,11 @@ $count         = 0;
     "\\(",  "\\[", "\\{", "\\\\", "\/",  "_", "-", ":",
     "\\\"", "`",   "\\+", "=",    "\\*", "feat."
 );
+@punctuation
+    = ( "\\?", "¿", "!", "¡", "\\.", ";", "&", "\$", "@", "%", "#", "|" );
 
 # This loops through each line of the file
 while ( my $line = <INFILE> ) {
-
-    # This prints each line. You will not want to keep this line.
-    print "$line";
 
     # Remove everything before the Song title here
     $line =~ s/(.*<SEP>)//;
@@ -41,32 +40,41 @@ while ( my $line = <INFILE> ) {
         $line =~ s/($char.*)//;
     }
 
-    print "$line\n";
-    if ( $count < 15 ) {
-        $count++;
+    # Iterates over array of punctuation and removes all of them
+    foreach $punc (@punctuation) {
+        $line =~ s/($punc)//g;
+    }
+
+    if ($line =~ m/[^\w\s']+/) {
+        print $line;
     }
     else {
-        exit;
+        $count++;
     }
+
+    # Sets the title to all lower case
+    $line = lc $line;
 }
+
+print "Found $count songs\n";
 
 # Close the file handle
 close(INFILE);
 
 # At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
-print "File parsed. Bigram model built.\n\n";
+# print "File parsed. Bigram model built.\n\n";
 
-# User control loop
-print "Enter a word [Enter 'q' to quit]: ";
-$input = <STDIN>;
-chomp($input);
-print "\n";
-while ( $input ne "q" ) {
+# # User control loop
+# print "Enter a word [Enter 'q' to quit]: ";
+# $input = <STDIN>;
+# chomp($input);
+# print "\n";
+# while ( $input ne "q" ) {
 
-    # Replace these lines with some useful code
-    print "Not yet implemented.  Goodbye.\n";
-    $input = 'q';
-}
+#     # Replace these lines with some useful code
+#     print "Not yet implemented.  Goodbye.\n";
+#     $input = 'q';
+# }
 
 # MORE OF YOUR CODE HERE....
