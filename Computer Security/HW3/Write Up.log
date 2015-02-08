@@ -1,0 +1,260 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  1 FEB 2015 22:40
+entering extended mode
+**D:/Documents/Programming/School-Projects/Computer*Security/HW3/Write*Up.tex
+("D:/Documents/Programming/School-Projects/Computer Security/HW3/Write Up.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count89
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count90
+\lst@currlwidth=\dimen105
+\lst@column=\count91
+\lst@pos=\count92
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count93
+\lst@lineno=\count94
+\lst@maxwidth=\dimen108
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count95
+\lst@skipnumbers=\count96
+\lst@framebox=\box27
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+("D:\Documents\Programming\School-Projects\Computer Security\HW3\Write Up.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count97
+\scratchdimen=\dimen109
+\scratchbox=\box28
+\nofMPsegments=\count98
+\nofMParguments=\count99
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count100
+\MPscratchDim=\dimen110
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
+\everyMPtoPDFconversion=\toks17
+)
+\c@lstlisting=\count103
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 17.
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+("D:\Documents\Programming\School-Projects\Computer Security\HW3\Write Up.toc"
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 2.
+)
+\tf@toc=\write3
+[1
+
+] [2
+
+
+] <list_of_ports.PNG, id=14, 1338.50063pt x 877.02657pt>
+File: list_of_ports.PNG Graphic file (type png)
+
+<use list_of_ports.PNG>
+Package pdftex.def Info: list_of_ports.PNG used on input line 40.
+(pdftex.def)             Requested size: 441.70657pt x 289.41966pt.
+
+<ncat_sql_return_info.PNG, id=16, 1237.62375pt x 373.395pt>
+File: ncat_sql_return_info.PNG Graphic file (type png)
+
+<use ncat_sql_return_info.PNG>
+Package pdftex.def Info: ncat_sql_return_info.PNG used on input line 47.
+(pdftex.def)             Requested size: 408.4171pt x 123.22072pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--49
+
+ []
+
+[3
+
+
+ <D:/Documents/Programming/School-Projects/Computer Security/HW3/list_of_ports.
+PNG>] <nessus_scan.PNG, id=22, 1032.10594pt x 759.58781pt>
+File: nessus_scan.PNG Graphic file (type png)
+
+<use nessus_scan.PNG>
+Package pdftex.def Info: nessus_scan.PNG used on input line 51.
+(pdftex.def)             Requested size: 340.59602pt x 250.66475pt.
+
+Overfull \hbox (22.84647pt too wide) in paragraph at lines 51--54
+[] \OT1/cmr/m/n/12 The
+ []
+
+[4 <D:/Documents/Programming/School-Projects/Computer Security/HW3/ncat_sql_ret
+urn_info.PNG> <D:/Documents/Programming/School-Projects/Computer Security/HW3/n
+essus_scan.PNG>]
+<blank_password_check_output.PNG, id=28, 1355.0625pt x 459.21562pt>
+File: blank_password_check_output.PNG Graphic file (type png)
+
+<use blank_password_check_output.PNG>
+Package pdftex.def Info: blank_password_check_output.PNG used on input line 62.
+
+(pdftex.def)             Requested size: 447.17201pt x 151.54161pt.
+
+<success.PNG, id=29, 1379.90532pt x 311.66437pt>
+File: success.PNG Graphic file (type png)
+ <use success.PNG>
+Package pdftex.def Info: success.PNG used on input line 69.
+(pdftex.def)             Requested size: 455.37016pt x 102.84955pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
+
+ []
+
+[5 <D:/Documents/Programming/School-Projects/Computer Security/HW3/blank_passwo
+rd_check_output.PNG> <D:/Documents/Programming/School-Projects/Computer Securit
+y/HW3/success.PNG>]
+<successful_sql_login.PNG, id=35, 1376.14125pt x 479.54156pt>
+File: successful_sql_login.PNG Graphic file (type png)
+
+<use successful_sql_login.PNG>
+Package pdftex.def Info: successful_sql_login.PNG used on input line 76.
+(pdftex.def)             Requested size: 454.12802pt x 158.2492pt.
+
+<_etc_password.PNG, id=36, 1327.20844pt x 976.39781pt>
+File: _etc_password.PNG Graphic file (type png)
+ <use _etc_password.PNG>
+Package pdftex.def Info: _etc_password.PNG used on input line 79.
+(pdftex.def)             Requested size: 437.98013pt x 322.21227pt.
+
+[6 <D:/Documents/Programming/School-Projects/Computer Security/HW3/successful_s
+ql_login.PNG>] <weird_output.PNG, id=42, 1505.625pt x 836.3747pt>
+File: weird_output.PNG Graphic file (type png)
+
+<use weird_output.PNG>
+Package pdftex.def Info: weird_output.PNG used on input line 92.
+(pdftex.def)             Requested size: 496.85779pt x 276.0045pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--96
+
+ []
+
+[7 <D:/Documents/Programming/School-Projects/Computer Security/HW3/_etc_passwor
+d.PNG>]
+Overfull \hbox (165.75027pt too wide) in paragraph at lines 100--100
+[]\OT1/cmtt/m/n/12 # hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/m
+etasploit/namelist.txt -v -t 8[] 
+ []
+
+<find_the_login.PNG, id=47, 986.18437pt x 205.5178pt>
+File: find_the_login.PNG Graphic file (type png)
+ <use find_the_login.PNG>
+Package pdftex.def Info: find_the_login.PNG used on input line 101.
+(pdftex.def)             Requested size: 325.44185pt x 67.82108pt.
+
+[8 <D:/Documents/Programming/School-Projects/Computer Security/HW3/weird_output
+.PNG>] [9 <D:/Documents/Programming/School-Projects/Computer Security/HW3/find_
+the_login.PNG>] [10
+
+
+]
+("D:\Documents\Programming\School-Projects\Computer Security\HW3\Write Up.aux")
+ ) 
+Here is how much of TeX's memory you used:
+ 2386 strings out of 493921
+ 34126 string characters out of 3144873
+ 87150 words of memory out of 3000000
+ 5697 multiletter control sequences out of 15000+200000
+ 9276 words of font info for 33 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,6n,32p,643b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "Write Up.pdf" (11 pages, 6142118 bytes).
+PDF statistics:
+ 73 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+

