@@ -23,8 +23,9 @@ open( INFILE, $ARGV[0] ) or die "Cannot open $ARGV[0]: $!.\n";
 # YOUR VARIABLE DEFINITIONS HERE...
 $count         = 0;
 @special_chars = (
-    "\\(",  "\\[", "\\{", "\\\\", "\/",  "_", "-", ":",
-    "\\\"", "`",   "\\+", "=",    "\\*", "feat."
+    "\\(", "\\[", "\\{",  "\\\\", "\/",  "_",
+    "-",   ":",   "\\\"", "`",    "\\+", "=",
+    "\\*", "feat\\."
 );
 @punctuation
     = ( "\\?", "¿", "!", "¡", "\\.", ";", "&", "\$", "@", "%", "#", "|" );
@@ -66,15 +67,15 @@ print "Found $count songs\n";
 print "File parsed. Bigram model built.\n\n";
 
 # # User control loop
-print "Enter a word [Enter 'q' to quit]: ";
-$input = <STDIN>;
-chomp($input);
-print "\n";
-while ( $input ne "q" ) {
+# print "Enter a word [Enter 'q' to quit]: ";
+# $input = <STDIN>;
+# chomp($input);
+# print "\n";
+# while ( $input ne "q" ) {
 
-    # Replace these lines with some useful code
-    print "Not yet implemented.  Goodbye.\n";
-    $input = 'q';
-}
+#     # Replace these lines with some useful code
+#     print "Not yet implemented.  Goodbye.\n";
+#     $input = 'q';
+# }
 
 # MORE OF YOUR CODE HERE....
