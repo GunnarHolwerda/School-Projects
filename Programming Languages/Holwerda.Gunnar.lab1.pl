@@ -115,7 +115,9 @@ sub mcw {
             sort { $word_hash{$argument}{$b} <=> $word_hash{$argument}{$a} }
                 keys %{ $word_hash{$argument} }
         )[1];
-
+        # Need to add in random decider for ties in word count
+        # Need to add in the removal of Stop Words from the song title
+        # Need to add in something that stops it from revolving forever
         # print "$word_hash{$argument}{$key} ";
         $argument = $key;
     }
