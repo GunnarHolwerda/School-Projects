@@ -72,23 +72,35 @@ while ( my $line = <INFILE> ) {
 # Close the file handle
 close(INFILE);
 
+# foreach $word ( keys %word_hash ) {
+#     $distinct_word_count = ( keys $word_hash{$word} ) - 1;
+#     print "$word: $word_hash{$word}{'count'} $distinct_word_count\n";
+#     foreach $following_word (
+#         sort { $word_hash{$word}{$b} <=> $word_hash{$word}{$a} }
+#         keys %{ $word_hash{$word} }
+#         )
+#     {
+#         if ( $following_word ne "count" ) {
+#             print
+#                 "\t$following_word; count = $word_hash{$word}{$following_word}\n";
+#         }
+#     }
+# }
+
 # At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
 
-mcw("party");
+# User control loop
+while ( $input ne "q" ) {
+    print "Enter a word [Enter 'q' to quit]: ";
+    $input = <STDIN>;
+    chomp($input);
+    print "\n";
 
-# # User control loop
-# print "Enter a word [Enter 'q' to quit]: ";
-# $input = <STDIN>;
-# chomp($input);
-# print "\n";
-# while ( $input ne "q" ) {
-
-#     # Replace these lines with some useful code
-#     print "Not yet implemented.  Goodbye.\n";
-#     $input = 'q';
-# }
+    # Replace these lines with some useful code
+    mcw($input);
+}
 
 # MORE OF YOUR CODE HERE....
 
@@ -98,11 +110,12 @@ sub mcw {
     $argument = $_[0];
 
     for ( $i = 0; $i < 20; $i++ ) {
-    	print "$argument ";
+        print "$argument ";
         $key = (
             sort { $word_hash{$argument}{$b} <=> $word_hash{$argument}{$a} }
                 keys %{ $word_hash{$argument} }
         )[1];
+
         # print "$word_hash{$argument}{$key} ";
         $argument = $key;
     }
