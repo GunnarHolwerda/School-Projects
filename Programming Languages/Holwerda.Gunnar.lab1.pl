@@ -21,20 +21,22 @@ if ( $#ARGV != 0 ) {
 open( INFILE, $ARGV[0] ) or die "Cannot open $ARGV[0]: $!.\n";
 
 # YOUR VARIABLE DEFINITIONS HERE...
-$count         = 0;
-@special_chars = (
-    "\\(", "\\[", "\\{",  "\\\\", "\/",  "_",
-    "-",   ":",   "\\\"", "`",    "\\+", "=",
-    "\\*", "feat\\."
+my @special_chars = (
+    "\\(",  "\\[", "\\{", "\\\\", "\/",  "_", "-", ":",
+    "\\\"", "`",   "\\+", "=",    "\\*", "feat."
 );
-@punctuation
+my @punctuation
     = ( "\\?", "¿", "!", "¡", "\\.", ";", "&", "\$", "@", "%", "#", "|" );
+%word_hash = ();
 
 # This loops through each line of the file
 while ( my $line = <INFILE> ) {
 
     # Remove everything before the Song title here
     $line =~ s/(.*<SEP>)//;
+
+    # Sets the title to all lower case
+    $line = lc $line;
 
 # Iterates over array of special characters and removes all text following them
     foreach $char (@special_chars) {
@@ -50,21 +52,31 @@ while ( my $line = <INFILE> ) {
     if ( $line =~ m/[^\w\s']+/ ) {
     }
     else {
-        $count++;
-    }
+        # Split the line into an array based on a space delimiter
+        @words = split( ' ', $line );
 
-    # Sets the title to all lower case
-    $line = lc $line;
+        for ( $i = 0; $i < @words; $i++ ) {
+            if ( ( $i + 1 ) < @words ) {
+
+      # Create hash of words for each word and add 1 to the count of that word
+                $word_hash{ $words[$i] }{ $words[ $i + 1 ] } += 1;
+            }
+
+            # This increases count of current word
+            $word_hash{ $words[$i] }{'count'} += 1;
+        }
+
+    }
 }
 
 # Close the file handle
 close(INFILE);
 
-print "Found $count songs\n";
-
 # At this point (hopefully) you will have finished processing the song
 # title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
+
+mcw("party");
 
 # # User control loop
 # print "Enter a word [Enter 'q' to quit]: ";
@@ -79,3 +91,20 @@ print "File parsed. Bigram model built.\n\n";
 # }
 
 # MORE OF YOUR CODE HERE....
+
+sub mcw {
+
+    # Get total number of arguments passed
+    $argument = $_[0];
+
+    for ( $i = 0; $i < 20; $i++ ) {
+    	print "$argument ";
+        $key = (
+            sort { $word_hash{$argument}{$b} <=> $word_hash{$argument}{$a} }
+                keys %{ $word_hash{$argument} }
+        )[1];
+        # print "$word_hash{$argument}{$key} ";
+        $argument = $key;
+    }
+    print "\n";
+}
