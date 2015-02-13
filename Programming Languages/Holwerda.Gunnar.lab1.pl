@@ -6,7 +6,6 @@
 #
 #########################################
 
-# Replace the string value of the following variable with your names.
 my $name    = "Gunnar Holwerda";
 my $partner = "no one else";
 print "CSCI 305 Lab 1 submitted by $name and $partner.\n\n";
@@ -20,7 +19,7 @@ if ( $#ARGV != 0 ) {
 # Opens the file and assign it to handle INFILE
 open( INFILE, $ARGV[0] ) or die "Cannot open $ARGV[0]: $!.\n";
 
-# YOUR VARIABLE DEFINITIONS HERE...
+# Variables
 my @special_chars = (
     "\\(",  "\\[", "\\{", "\\\\", "\/",  "_", "-", ":",
     "\\\"", "`",   "\\+", "=",    "\\*", "feat."
@@ -87,8 +86,6 @@ close(INFILE);
 #     }
 # }
 
-# At this point (hopefully) you will have finished processing the song
-# title file and have populated your data structure of bigram counts.
 print "File parsed. Bigram model built.\n\n";
 
 # User control loop
@@ -98,11 +95,8 @@ while ( $input ne "q" ) {
     chomp($input);
     print "\n";
 
-    # Replace these lines with some useful code
     mcw($input);
 }
-
-# MORE OF YOUR CODE HERE....
 
 sub mcw {
 
