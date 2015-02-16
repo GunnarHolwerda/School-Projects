@@ -91,46 +91,78 @@ while ( my $line = <INFILE> ) {
 # Close the file handle
 close(INFILE);
 
-print_hash();
+#print_hash();
 
 print "File parsed. Bigram model built.\n\n";
 
 # User control loop
-# while ( $input ne "q" ) {
-#     print "Enter a word [Enter 'q' to quit]: ";
-#     $input = <STDIN>;
-#     chomp($input);
-#     print "\n";
+while ( $input ne "q" ) {
+    print "Enter a word [Enter 'q' to quit]: ";
+    $input = <STDIN>;
+    chomp($input);
+    print "\n";
 
-#     if ($input == "q") {
-#     	exit;
-#     }
+    if ( $input eq "q" ) {
+        exit;
+    }
 
-#     mcw($input);
-# }
+    mcw($input);
+}
 
 sub mcw {
 
     # Get total number of arguments passed
-    my $argument = $_[0];
+    my $argument   = $_[0];
+    my $song_title = "$argument ";
 
     for ( $i = 0; $i < 20; $i++ ) {
-        print "$argument ";
+        @tie_words   = ();
+        $word_to_get = 1;
 
         # Get the second element from the array because the first will always
         # be the number of times the word appears
-        my $key = (
+        my @keys = (
             sort { $word_hash{$argument}{$b} <=> $word_hash{$argument}{$a} }
                 keys %{ $word_hash{$argument} }
-        )[1];
+        );
 
-        # Need to add in random decider for ties in word count
-        # Need to add in the removal of Stop Words from the song title
+        # Remove the count from the array which will always be the top item
+        splice( @keys, 0, 1 );
+
+        # Create a list of all words with the same count
+        foreach $key (@keys) {
+
+            # Compare count of current word to next word
+            if ( $word_hash{$argument}{$key}
+                == $word_hash{$argument}{ $keys[$word_to_get] } )
+            {
+                # If they are the same push them to tie words array
+                push( @tie_words, $key );
+                push( @tie_words, $keys[$word_to_get] );
+                $word_to_get += 1;
+            }
+            else {
+                # Else we can bail out
+                last;
+            }
+        }
+
+        if ( @tie_words == 0 ) {
+
+            # If tie_words is empty then there is only one word next
+            $new_argument = $keys[0];
+        }
+        else {
+        	# Else we need to randomly pick a word from the tie_words
+            $new_argument = $tie_words[ int( rand(@tie_words) ) ];
+        }
+
         # Need to add in something that stops it from revolving forever
-        # print "$word_hash{$argument}{$key} ";
-        $argument = $key;
+        $song_title .= "$new_argument ";
+        $argument = $new_argument;
     }
-    print "\n";
+
+    print "$song_title\n";
 }
 
 sub print_hash {
