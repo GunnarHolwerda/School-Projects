@@ -74,9 +74,8 @@ while ( my $line = <INFILE> ) {
             if (    !grep( /^$words[$i]$/, @stop_words )
                 and !grep( /^$words[$i + 1]$/, @stop_words ) )
             {
+                # Create hash of words for each word and add 1 to the count
                 if ( ( $i + 1 ) < @words ) {
-
-                   # Create hash of words for each word and add 1 to the count
                     $word_hash{ $words[$i] }{ $words[ $i + 1 ] } += 1;
                 }
 
@@ -114,6 +113,7 @@ sub mcw {
     # Get total number of arguments passed
     my $argument   = $_[0];
     my $song_title = "$argument ";
+    my $end_next   = 0;
 
     for ( $i = 0; $i < 20; $i++ ) {
         @tie_words   = ();
@@ -127,7 +127,7 @@ sub mcw {
         );
 
         # Remove the count from the array which will always be the top item
-        splice( @keys, 0, 1 );
+        shift(@keys);
 
         # Create a list of all words with the same count
         foreach $key (@keys) {
@@ -147,18 +147,34 @@ sub mcw {
             }
         }
 
+        # If tie_words is empty then there is only one word next
         if ( @tie_words == 0 ) {
-
-            # If tie_words is empty then there is only one word next
             $new_argument = $keys[0];
         }
         else {
-        	# Else we need to randomly pick a word from the tie_words
+            # Else we need to randomly pick a word from the tie_words
             $new_argument = $tie_words[ int( rand(@tie_words) ) ];
         }
 
-        # Need to add in something that stops it from revolving forever
+        # If end_next set to 1 then we exit here to stop loops
+        if ($end_next) {
+            last;
+        }
+
         $song_title .= "$new_argument ";
+
+        # Check if next words most popular word is this word
+        $next_value = (
+            sort {
+                $word_hash{$new_argument}{$b} <=> $word_hash{$new_argument}
+                    {$a}
+                }
+                keys %{ $word_hash{$new_argument} }
+        )[1];
+        if ( $argument eq $next_value ) {
+            $end_next = 1;
+        }
+
         $argument = $new_argument;
     }
 
