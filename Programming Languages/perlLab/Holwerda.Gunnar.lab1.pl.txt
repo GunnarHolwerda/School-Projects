@@ -1,0 +1,100 @@
+Question 1:
+What word most often follows the word “happy”?
+	Birthday
+
+Question 2: 
+Which word most often follows the word “sad”? 
+	song
+
+Question 3:
+How many different (unique) words follow the word “computer”?
+	57
+
+Question 4: 
+Which word most often follows the word “computer”? 
+	love
+
+Question 5: 
+How many times does this word follow “computer”’?
+	13
+
+Question 6: 
+Using the starting word “happy”, what song title do you get? 
+	happy birthday song for the world is a little girl in the world is a little girl in the world 
+
+Question 7: 
+Using the starting word “sad”, what song title do you get? 
+	sad song for the world is a little girl in the world is a little girl in the world is 
+
+Question 8: 
+Using the starting word “hey”, what song title do you get? 
+hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey hey	
+
+Question 9: 
+Using the starting word “little”, what song title do you get? 
+	little girl in the world is a little girl in the world is a little girl in the world is 
+
+Question 10: 
+Try a few other words. What problem(s) do you see? Which phrase do you most often find recurring in these titles?
+All of the titles start getting into a repetitive loop. The phrase “little girl in the world” seems to be the most repeated.
+
+Question 11: 
+Using the starting word “amore”, what song title do you get? 
+	amore mio babbino caro nome na na na na na na na na na na na na na na na 
+
+Question 12: 
+Using the starting word “love”, what song title do you get? 
+	love you are you are you are you are you are you are you are you are you are you 
+
+Question 13: 
+Using the starting word “little”, what song title do you get? 
+	little girl i don't know what you are you are you are you are you are you are you are 
+
+Question 14: 
+Explain why so many of the titles devolve into repeating patterns. 
+	Because common words like “are” and “you” often follow each other so when  the song generator comes to two words that are both each others most followed word as well then it devolves into this repeating pattern.
+
+Question 15: 
+Try several words. Find a song title that terminates in less than 20 words. Could you find one? If so, which song title did you find? If not, why not?
+	I entered in the number 9 and it terminated with “9 etudes symphoniques”
+
+Question 16: 
+Describe in one to two paragraphs your extension and how it fixed the repeating phrase/word problem. 
+In the mcw sub routine I added a check to see if the next word we would use is the same word we are currently on. So to stop the “you are you are…” loop, if you are on “you” then it checks the most popular word after “are” and if it matches “you” then it breaks the loop.
+
+Question 17: 
+Using the starting word “montana”, what song title do you get? 
+montana sacra nova baby i don't know what you are 	
+
+Question 18: 
+Using the starting word “bob”, what song title do you get? 
+	bob marley song is my love you are 
+
+Question 19: 
+Using the starting word “bob’ again, do you get the same title? If no, what do you get? Try it a third time. Explain why the title might differ each time. 
+bob marley me down south side story short fuse box blues innight time is my love you are
+The title differs each time because you had us put in a random selector for when ties occur between words.
+
+Question 20: 
+Share your favorite song title that you have found.
+	poop song is my love you are
+
+Question 21:
+Name something you like about Perl. Explain. 
+I like that it is an interpreted language. It just makes it really easy to get up and go, much like PHP.
+
+Question 22:
+Name something you dislike about Perl. Explain. 
+I dislike how almost all of its built in String handling is through regex. Regex is still extremely complicated. I know that it is powerful, but still seems a bit finicky.
+
+Question 23: 
+Did you enjoy this lab? Which aspects did you like and/or dislike? 
+	I thought it was fun. I like doing something other than making some data structure.
+
+Question 24: 
+Approximately how many hours did you spend on this lab? 
+I spent maybe 6-8 total. And half of that was probably due to me trying to fix something that was an error, but wasn’t being told to me as an error. Such as having a variable called $words, but accidentally typing $word somewhere.
+
+Question 25: 
+Do you think you will use Perl again? For which type(s) of project(s)?
+	Probably not, I prefer to use Python or PHP.
