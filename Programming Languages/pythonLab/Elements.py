@@ -64,8 +64,10 @@ class Spock(Element):
         else:
             return element.compareTo(self, "Lose")
 
-rock = Rock("Rock")
-paper = Paper("Paper")
-print rock.compareTo(paper)
-print paper.compareTo(rock)
-print rock.compareTo(rock)
+global moves = {
+    'Rock': Rock("Rock"),
+    'Paper': Paper("Paper"),
+    'Scissors': Scissors("Scissors"),
+    'Lizard': Lizard("Lizard"),
+    'Spock': Spock("Spock")
+}
