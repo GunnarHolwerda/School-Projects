@@ -11,63 +11,89 @@ class Element:
 
 class Rock(Element):
     def compareTo(self, element, outcome = "Win"):
+        result = {}
         if element.name() == "Lizard":
-            return "Rock crushes Lizard"
+            result['string'] = "Rock crushes Lizard"
         elif element.name() == "Scissors":
-            return "Rock crushes Scissors"
+            result['string']= "Rock crushes Scissors"
         elif element.name() == "Rock":
-            return "Rock equals Rock"
+            result['string'] = "Rock equals Rock"
+            outcome = "Tie"
         else:
             return element.compareTo(self, "Lose")
+
+        result['outcome'] = outcome
+        return result
+
 
 class Paper(Element):
     def compareTo(self, element, outcome = "Win"):
+        result = {}
         if element.name() == "Rock":
-            return "Paper covers Rock"
+            result['string'] = "Paper covers Rock"
         elif element.name() == "Spock":
-            return "Paper disproves Spock"
+            result['string'] = "Paper disproves Spock"
         elif element.name() == "Paper":
-            return "Paper equals Paper"
+            result['string'] = "Paper equals Paper"
+            outcome = "Tie"
         else:
             return element.compareTo(self, "Lose")
+
+        result['outcome'] = outcome
+        return result
 
 class Scissors(Element):
     def compareTo(self, element, outcome = "Win"):
+        result = {}
         if element.name() == "Paper":
-            return "Scissors cuts Paper"
+            result['string'] = "Scissors cuts Paper"
         elif element.name() == "Lizard":
-            return "Scissors decapitate Lizard"
+            result['string'] = "Scissors decapitate Lizard"
         elif element.name() == "Scissors":
-            return "Scissors equals Scissors"
+            result['string'] = "Scissors equals Scissors"
+            outcome = "Tie"
         else:
             return element.compareTo(self, "Lose")
+
+        result['outcome'] = outcome
+        return result
 
 class Lizard(Element):
     def compareTo(self, element, outcome = "Win"):
+        result = {}
         if element.name() == "Spock":
-            return "Lizard poisons Spock"
+            result['string'] = "Lizard poisons Spock"
+        elif element.name() == "Paper":
+            result['string'] = "Lizard eats Paper"
         elif element.name() == "Lizard":
-            return "Lizard eats Paper"
-        elif element.name() == "Lizard":
-            return "Lizard equals Lizard"
+            result['string'] = "Lizard equals Lizard"
+            outcome = "Tie"
         else:
             return element.compareTo(self, "Lose")
+
+        result['outcome'] = outcome
+        return result
 
 class Spock(Element):
     def compareTo(self, element, outcome = "Win"):
+        result = {}
         if element.name() == "Scissors":
-            return "Spock smashes Scissors"
+            result['string'] = "Spock smashes Scissors"
         elif element.name() == "Lizard":
-            return "Spock vaporizes Rock"
+            result['string'] = "Spock vaporizes Rock"
         elif element.name() == "Spock":
-            return "Spock equals Spock"
+            result['string'] = "Spock equals Spock"
+            outcome = "Tie"
         else:
             return element.compareTo(self, "Lose")
 
-global moves = {
-    'Rock': Rock("Rock"),
-    'Paper': Paper("Paper"),
-    'Scissors': Scissors("Scissors"),
-    'Lizard': Lizard("Lizard"),
-    'Spock': Spock("Spock")
-}
+        result['outcome'] = outcome
+        return result
+
+moves = (
+    Rock("Rock"),
+    Paper("Paper"),
+    Scissors("Scissors"),
+    Lizard("Lizard"),
+    Spock("Spock")
+)

@@ -1,4 +1,4 @@
-import Elements
+from Elements import *
 import random
 
 class Player:
@@ -13,40 +13,42 @@ class Player:
 
 class StupidBot(Player):
     def play(self):
-        return moves['Rock']
+        return moves[0]
 
 class RandomBot(Player):
     def play(self):
-        return random.choice(moves.keys())
+        return moves[random.randint(0, 4)]
 
 class IterativeBot(Player):
-    keys = moves.keys()
-    current_pos = 0
-    
+    def __init__(self, name):
+        Player.__init__(self,name)
+        self._current_pos = -1 
+
     def play(self):
-        return moves[keys[current_pos++]]
+        self._current_pos += 1
+        return moves[self._current_pos]
 
 class LastPlayBot(Player):
     first_move = True
     def play(self):
-        if !first_move:
+        if not(first_move):
             first_move = False
-            return random.choice(moves.keys())
-        else:
+            return moves[random.randint(0, 4)]
+        
             # Play the move last played by the other player
 
 class Human(Player):
     def play(self):
         accepted_input = False
-        print "(1) : Rock"
-        print "(2) : Paper"
-        print "(3) : Scissors"
-        print "(4) : Lizard"
-        print "(5) : Spock"
-        while !accepted_input:
+        print("(1) : Rock")
+        print("(2) : Paper")
+        print("(3) : Scissors")
+        print("(4) : Lizard")
+        print("(5) : Spock")
+        while not(accepted_input):
             choice = input("Enter your move: ")
             if choice <= 0 or choice >= 6:
-                print "Invalid move. Please try again."
+                print("Invalid move. Please try again.")
             else:
                 accepted_input = True
 
@@ -54,3 +56,13 @@ class Human(Player):
 
 class MyBot(Player):
     def play(self):
+        raise NotImplementedError("MYBOT SUCKS ASS")
+
+players = (
+    Human("Human"),
+    StupidBot("Stupid Bot"),
+    RandomBot("Random Bot"),
+    IterativeBot("Iterative Bot"),
+    LastPlayBot("Last Play Bot"),
+    MyBot("My Bot")
+)
