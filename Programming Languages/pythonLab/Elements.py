@@ -6,16 +6,17 @@ class Element:
     def name(self):
         return self._name
 
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         raise NotImplementedError("Not yet implemented")
 
+
 class Rock(Element):
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Lizard":
             result['string'] = "Rock crushes Lizard"
         elif element.name() == "Scissors":
-            result['string']= "Rock crushes Scissors"
+            result['string'] = "Rock crushes Scissors"
         elif element.name() == "Rock":
             result['string'] = "Rock equals Rock"
             outcome = "Tie"
@@ -27,7 +28,7 @@ class Rock(Element):
 
 
 class Paper(Element):
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Rock":
             result['string'] = "Paper covers Rock"
@@ -42,8 +43,9 @@ class Paper(Element):
         result['outcome'] = outcome
         return result
 
+
 class Scissors(Element):
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Paper":
             result['string'] = "Scissors cuts Paper"
@@ -58,8 +60,9 @@ class Scissors(Element):
         result['outcome'] = outcome
         return result
 
+
 class Lizard(Element):
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Spock":
             result['string'] = "Lizard poisons Spock"
@@ -74,12 +77,13 @@ class Lizard(Element):
         result['outcome'] = outcome
         return result
 
+
 class Spock(Element):
-    def compareTo(self, element, outcome = "Win"):
+    def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Scissors":
             result['string'] = "Spock smashes Scissors"
-        elif element.name() == "Lizard":
+        elif element.name() == "Rock":
             result['string'] = "Spock vaporizes Rock"
         elif element.name() == "Spock":
             result['string'] = "Spock equals Spock"
@@ -89,6 +93,7 @@ class Spock(Element):
 
         result['outcome'] = outcome
         return result
+
 
 moves = (
     Rock("Rock"),

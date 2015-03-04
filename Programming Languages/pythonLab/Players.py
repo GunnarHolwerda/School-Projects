@@ -1,5 +1,6 @@
-from Elements import *
+from Elements import moves
 import random
+
 
 class Player:
     def __init__(self, name):
@@ -11,31 +12,41 @@ class Player:
     def play(self):
         raise NotImplementedError("Not yet implemented")
 
+
 class StupidBot(Player):
     def play(self):
         return moves[0]
+
 
 class RandomBot(Player):
     def play(self):
         return moves[random.randint(0, 4)]
 
+
 class IterativeBot(Player):
     def __init__(self, name):
-        Player.__init__(self,name)
-        self._current_pos = -1 
+        Player.__init__(self, name)
+        self._current_pos = -1
 
     def play(self):
-        self._current_pos += 1
+        if self._current_pos < len(moves) - 1:
+            self._current_pos += 1
+        else:
+            self._current_pos = 0
         return moves[self._current_pos]
 
+
 class LastPlayBot(Player):
-    first_move = True
+    def __init__(self, name):
+        Player.__init__(self, name)
+        self._first_move = True
+
     def play(self):
-        if not(first_move):
-            first_move = False
+        if not(self._first_move):
+            self._first_move = False
             return moves[random.randint(0, 4)]
-        
             # Play the move last played by the other player
+
 
 class Human(Player):
     def play(self):
@@ -52,7 +63,8 @@ class Human(Player):
             else:
                 accepted_input = True
 
-        return moves[choice]        
+        return moves[choice]
+
 
 class MyBot(Player):
     def play(self):
