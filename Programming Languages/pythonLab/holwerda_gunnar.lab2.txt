@@ -1,0 +1,27 @@
+1) Describe your Player LastPlayBot. How did you implement this strategy?
+	I created a field called _last_move that gets updated for each player after a round is played, then the LastPlayBot, if on its first move will play a random thing, and then you pass in the oponnent and it just plays the value in the _last_move field on the object.
+
+2) Describe your Player MyBot, explaining the strategy you employed and how you accomplished it.
+	NEED TO ANSWER THIS
+
+3) Using the course notes and any web resources of your choosing, explain the type system of Python, giving attention to the concepts of binding time, dynamic vs. static typing, strong vs. weak typing, and user-defined types (classes). Cite any sources you used other than class discussion or the textbook.
+	NEED TO ANSWER THIS
+
+4) Play a nubmer of games, selecting your various players. Do you notice any trends? Are you, as the Human Player, able to beat any of the Bots on a consistent basis?
+
+5) Read the wikipedia entry on Normal Form Games. Also review the wikipedia page. Is it possible to design a Player strategy that is more likely to succeed? Why or why not? Explain in a paragraph. It is possible to answer this question even if you did not finish the Lab.
+
+6) Name something you like about Python. Explain.
+	I like how quick it is to get running code up and running. Makes mock-ups very nice.
+
+7) Name something you dislike about Python. Explain.
+	I hate the whitespace, I like to use whitespace to format my code nicely and python is overly strict about the whitespace you are allowed to use.
+
+8) Did you enjoy this lab? Which aspects did you like and/or dislike?
+	I mean the lab was fun, but it was super easy.
+
+9) Approximately how many hours did you spend on this lab?
+	1-2
+
+10) Do you think you will use Python again? For which type(s) of project(s)?
+	I have used it before to create a dashboard system on Raspberry Pi's that polls a Google Spreadsheet for the url to display in chrome. I used it then just to get familiar with it and I think I will rather use PHP as it is just as fast to whip stuff up in and it uses syntax I like.

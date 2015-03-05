@@ -4,7 +4,7 @@ from Players import *
 class Main:
 
     def __init__(self):
-        self._welcome_msg = "Welcome to Rock, Paper, Scissors, Lizard, Spock\nBy Gunnar Holwerda"
+        self._welcome_msg = "Welcome to Rock, Paper, Scissors, Lizard, Spock, implemented by Gunnar Holwerda\n"
         self._num_rounds = 5
         self.player_one = None
         self.player_two = None
@@ -13,6 +13,7 @@ class Main:
         player_one_accept = False
         player_two_accept = False
 
+        print("Pleast choose two players:")
         print("(1) Human")
         print("(2) StupidBot")
         print("(3) RandomBot")
