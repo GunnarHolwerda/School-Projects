@@ -12,6 +12,21 @@ class Player:
     def play(self):
         raise NotImplementedError("Not yet implemented")
 
+    @staticmethod
+    def getPlayer(number):
+        if number == 1:
+            return Human("Human")
+        elif number == 2:
+            return StupidBot("Stupid Bot")
+        elif number == 3:
+            return RandomBot("Random Bot")
+        elif number == 4:
+            return IterativeBot("Iterative Bot")
+        elif number == 5:
+            return LastPlayBot("Last Play Bot")
+        else:
+            return MyBot("My Bot")
+
 
 class StupidBot(Player):
     def play(self):
@@ -57,24 +72,15 @@ class Human(Player):
         print("(4) : Lizard")
         print("(5) : Spock")
         while not(accepted_input):
-            choice = input("Enter your move: ")
+            choice = eval(input("Enter your move: "))
             if choice <= 0 or choice >= 6:
                 print("Invalid move. Please try again.")
             else:
                 accepted_input = True
 
-        return moves[choice]
+        return moves[choice - 1]
 
 
 class MyBot(Player):
     def play(self):
         raise NotImplementedError("MYBOT SUCKS ASS")
-
-players = (
-    Human("Human"),
-    StupidBot("Stupid Bot"),
-    RandomBot("Random Bot"),
-    IterativeBot("Iterative Bot"),
-    LastPlayBot("Last Play Bot"),
-    MyBot("My Bot")
-)

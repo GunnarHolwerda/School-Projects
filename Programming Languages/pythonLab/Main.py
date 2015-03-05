@@ -1,4 +1,4 @@
-from Players import *
+from Players import Player
 
 
 class Main:
@@ -33,8 +33,8 @@ class Main:
             else:
                 player_two_accept = True
 
-        self.player_one = players[self.player_one - 1]
-        self.player_two = players[self.player_two - 1]
+        self.player_one = Player.getPlayer(self.player_one)
+        self.player_two = Player.getPlayer(self.player_two)
 
         print("\n{:s} vs. {:s}. Fight!\n".format(self.player_one.name(), self.player_two.name()))
 
