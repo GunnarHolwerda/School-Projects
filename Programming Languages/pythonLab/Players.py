@@ -5,6 +5,7 @@ import random
 class Player:
     def __init__(self, name):
         self._name = name
+        self._last_move = None
 
     def name(self):
         return self._name
@@ -30,6 +31,7 @@ class Player:
 
 class StupidBot(Player):
     def play(self):
+        self._last_move = moves[0]
         return moves[0]
 
 
@@ -48,6 +50,7 @@ class IterativeBot(Player):
             self._current_pos += 1
         else:
             self._current_pos = 0
+
         return moves[self._current_pos]
 
 
@@ -56,10 +59,12 @@ class LastPlayBot(Player):
         Player.__init__(self, name)
         self._first_move = True
 
-    def play(self):
-        if not(self._first_move):
+    def play(self, opponent):
+        if self._first_move:
             self._first_move = False
             return moves[random.randint(0, 4)]
+        else:
+            return opponent._last_move
             # Play the move last played by the other player
 
 
