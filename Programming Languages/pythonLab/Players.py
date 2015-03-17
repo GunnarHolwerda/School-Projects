@@ -1,4 +1,3 @@
-from Elements import moves_array
 from Elements import moves_dict
 import random
 
@@ -31,13 +30,13 @@ class Player:
             return MyBot("My Bot")
 
     def getRandMove(self):
-        return moves_array[random.randint(0, 4)]
+        return moves_dict[moves_dict.keys()[random.randint(0, 4)]]
 
 
 class StupidBot(Player):
     def play(self):
-        self._last_move = moves_array[0]
-        return moves_array[0]
+        self._last_move = moves_dict[moves_dict.keys()[0]]
+        return moves_dict[moves_dict.keys()[0]]
 
 
 class RandomBot(Player):
@@ -51,12 +50,12 @@ class IterativeBot(Player):
         self._current_pos = -1
 
     def play(self):
-        if self._current_pos < len(moves_array) - 1:
+        if self._current_pos < len(moves_dict) - 1:
             self._current_pos += 1
         else:
             self._current_pos = 0
 
-        return moves_array[self._current_pos]
+        return moves_dict[moves_dict.keys()[self._current_pos]]
 
 
 class LastPlayBot(Player):
@@ -88,7 +87,7 @@ class Human(Player):
             else:
                 accepted_input = True
 
-        return moves_array[choice - 1]
+        return moves_dict[moves_dict.keys()[choice - 1]]
 
 
 class MyBot(Player):
