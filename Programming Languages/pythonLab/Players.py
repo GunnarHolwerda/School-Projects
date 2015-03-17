@@ -1,4 +1,5 @@
-from Elements import moves
+from Elements import moves_array
+from Elements import moves_dict
 import random
 
 
@@ -6,6 +7,7 @@ class Player:
     def __init__(self, name):
         self._name = name
         self._last_move = None
+        self.previous_result = None
 
     def name(self):
         return self._name
@@ -28,16 +30,19 @@ class Player:
         else:
             return MyBot("My Bot")
 
+    def getRandMove(self):
+        return moves_array[random.randint(0, 4)]
+
 
 class StupidBot(Player):
     def play(self):
-        self._last_move = moves[0]
-        return moves[0]
+        self._last_move = moves_array[0]
+        return moves_array[0]
 
 
 class RandomBot(Player):
     def play(self):
-        return moves[random.randint(0, 4)]
+        return Player.getRandMove(self)
 
 
 class IterativeBot(Player):
@@ -46,12 +51,12 @@ class IterativeBot(Player):
         self._current_pos = -1
 
     def play(self):
-        if self._current_pos < len(moves) - 1:
+        if self._current_pos < len(moves_array) - 1:
             self._current_pos += 1
         else:
             self._current_pos = 0
 
-        return moves[self._current_pos]
+        return moves_array[self._current_pos]
 
 
 class LastPlayBot(Player):
@@ -62,7 +67,7 @@ class LastPlayBot(Player):
     def play(self, opponent):
         if self._first_move:
             self._first_move = False
-            return moves[random.randint(0, 4)]
+            return Player.getRandMove(self)
         else:
             return opponent._last_move
             # Play the move last played by the other player
@@ -83,9 +88,26 @@ class Human(Player):
             else:
                 accepted_input = True
 
-        return moves[choice - 1]
+        return moves_array[choice - 1]
 
 
 class MyBot(Player):
-    def play(self):
-        raise NotImplementedError("MYBOT SUCKS ASS")
+    def __init__(self, name):
+        Player.__init__(self, name)
+
+    def play(self, opponent):
+        if self.previous_result is None:
+            return Player.getRandMove(self)
+        else:
+            if self.previous_result['outcome'] == "Win":
+                #If we won, play the same thing
+                return self._last_move
+            elif self.previous_result['outcome'] == "Tie":
+                #If it was a tie play a random move
+                return Player.getRandMove(self)
+            else:
+                #If we lost, play the winning move against their last move
+                opp_last_move = opponent._last_move
+                my_move = opp_last_move._lose_to[random.randint(0, 1)]
+
+                return moves_dict[my_move]

@@ -47,24 +47,26 @@ class Main:
         for x in range(1, self._num_rounds + 1):
             print("Round {:d}:".format(x))
 
-            if type(self.player_one) is not LastPlayBot:
+            if type(self.player_one) != LastPlayBot and type(self.player_one) != MyBot:
                 p1_choice = self.player_one.play()
             else:
                 p1_choice = self.player_one.play(self.player_two)
-            print("Player 1 chose {:s}".format(p1_choice.name()))
 
-            if type(self.player_two) != LastPlayBot:
+            if type(self.player_two) != LastPlayBot and type(self.player_two) != MyBot:
                 p2_choice = self.player_two.play()
             else:
                 p2_choice = self.player_two.play(self.player_one)
-            print("Player 2 chose {:s}".format(p2_choice.name()))
 
+            print("Player 1 chose {:s}".format(p1_choice.name()))
+            print("Player 2 chose {:s}".format(p2_choice.name()))
             result = p1_choice.compareTo(p2_choice)
             print(result['string'])
 
             # Set the last move values
             self.player_one._last_move = p1_choice
             self.player_two._last_move = p2_choice
+            self.player_one.previous_result = result
+            self.player_two.previous_result = result
 
             if result['outcome'] == "Win":
                 print("Player 1 won the round\n")

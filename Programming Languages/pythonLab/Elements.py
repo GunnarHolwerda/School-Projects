@@ -2,6 +2,7 @@ class Element:
 
     def __init__(self, name):
         self._name = name
+        self._lose_to = None
 
     def name(self):
         return self._name
@@ -11,6 +12,11 @@ class Element:
 
 
 class Rock(Element):
+
+    def __init__(self, name):
+        Element.__init__(self, name)
+        self._lose_to = ["Paper", "Spock"]
+
     def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Lizard":
@@ -28,6 +34,11 @@ class Rock(Element):
 
 
 class Paper(Element):
+
+    def __init__(self, name):
+        Element.__init__(self, name)
+        self._lose_to = ["Lizard", "Scissors"]
+
     def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Rock":
@@ -45,6 +56,11 @@ class Paper(Element):
 
 
 class Scissors(Element):
+
+    def __init__(self, name):
+        Element.__init__(self, name)
+        self._lose_to = ["Rock", "Spock"]
+
     def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Paper":
@@ -62,6 +78,11 @@ class Scissors(Element):
 
 
 class Lizard(Element):
+
+    def __init__(self, name):
+        Element.__init__(self, name)
+        self._lose_to = ["Rock", "Spock"]
+
     def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Spock":
@@ -79,6 +100,11 @@ class Lizard(Element):
 
 
 class Spock(Element):
+
+    def __init__(self, name):
+        Element.__init__(self, name)
+        self._lose_to = ["Paper", "Lizard"]
+
     def compareTo(self, element, outcome="Win"):
         result = {}
         if element.name() == "Scissors":
@@ -95,7 +121,15 @@ class Spock(Element):
         return result
 
 
-moves = (
+moves_dict = {
+    'Rock': Rock("Rock"),
+    'Paper': Paper("Paper"),
+    'Scissors': Scissors("Scissors"),
+    'Lizard': Lizard("Lizard"),
+    'Spock': Spock("Spock")
+}
+
+moves_array = (
     Rock("Rock"),
     Paper("Paper"),
     Scissors("Scissors"),
