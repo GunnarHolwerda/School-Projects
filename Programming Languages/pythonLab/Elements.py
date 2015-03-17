@@ -121,18 +121,10 @@ class Spock(Element):
         return result
 
 
-moves_dict = {
+moves = {
     'Rock': Rock("Rock"),
     'Paper': Paper("Paper"),
     'Scissors': Scissors("Scissors"),
     'Lizard': Lizard("Lizard"),
     'Spock': Spock("Spock")
 }
-
-moves_array = (
-    Rock("Rock"),
-    Paper("Paper"),
-    Scissors("Scissors"),
-    Lizard("Lizard"),
-    Spock("Spock")
-)

@@ -1,4 +1,4 @@
-from Elements import moves_dict
+from Elements import moves
 import random
 
 
@@ -30,13 +30,13 @@ class Player:
             return MyBot("My Bot")
 
     def getRandMove(self):
-        return moves_dict[moves_dict.keys()[random.randint(0, 4)]]
+        return list(moves.values())[random.randint(0, 4)]
 
 
 class StupidBot(Player):
     def play(self):
-        self._last_move = moves_dict[moves_dict.keys()[0]]
-        return moves_dict[moves_dict.keys()[0]]
+        self._last_move = moves['Rock']
+        return moves['Rock']
 
 
 class RandomBot(Player):
@@ -50,12 +50,12 @@ class IterativeBot(Player):
         self._current_pos = -1
 
     def play(self):
-        if self._current_pos < len(moves_dict) - 1:
+        if self._current_pos < len(moves) - 1:
             self._current_pos += 1
         else:
             self._current_pos = 0
 
-        return moves_dict[moves_dict.keys()[self._current_pos]]
+        return list(moves.values())[self._current_pos]
 
 
 class LastPlayBot(Player):
@@ -87,7 +87,7 @@ class Human(Player):
             else:
                 accepted_input = True
 
-        return moves_dict[moves_dict.keys()[choice - 1]]
+        return list(moves.values())[choice - 1]
 
 
 class MyBot(Player):
@@ -109,4 +109,4 @@ class MyBot(Player):
                 opp_last_move = opponent._last_move
                 my_move = opp_last_move._lose_to[random.randint(0, 1)]
 
-                return moves_dict[my_move]
+                return list(moves.values())[my_move]
