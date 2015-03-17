@@ -93,11 +93,14 @@ class Human(Player):
 class MyBot(Player):
     def __init__(self, name):
         Player.__init__(self, name)
+        self._first_move = True
 
     def play(self, opponent):
-        if self.previous_result is None:
+        if self._first_move:
+            self._first_move = False
             return Player.getRandMove(self)
         else:
+            print("Previous result {:s}".format(self.previous_result['outcome']))
             if self.previous_result['outcome'] == "Win":
                 #If we won, play the same thing
                 return self._last_move
@@ -109,4 +112,4 @@ class MyBot(Player):
                 opp_last_move = opponent._last_move
                 my_move = opp_last_move._lose_to[random.randint(0, 1)]
 
-                return list(moves.values())[my_move]
+                return moves[my_move]

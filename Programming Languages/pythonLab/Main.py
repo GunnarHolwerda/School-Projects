@@ -65,17 +65,23 @@ class Main:
             # Set the last move values
             self.player_one._last_move = p1_choice
             self.player_two._last_move = p2_choice
-            self.player_one.previous_result = result
-            self.player_two.previous_result = result
-
+            p2_result = {}
             if result['outcome'] == "Win":
                 print("Player 1 won the round\n")
+                p2_result = result.copy()
+                p2_result['outcome'] = "Lose"
                 p1_victories += 1
             elif result['outcome'] == "Lose":
                 print("Player 2 won the round\n")
+                p2_result = result.copy()
+                p2_result['outcome'] = "Win"
                 p2_victories += 1
             else:
                 print("Round was a tie\n")
+                p2_result = result.copy()
+
+            self.player_one.previous_result = result
+            self.player_two.previous_result = p2_result
 
         print("The score is {:d} to {:d}".format(p1_victories, p2_victories))
 
