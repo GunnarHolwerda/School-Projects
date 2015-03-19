@@ -11,7 +11,7 @@
 	I can beat pretty much any bot because I made them, so they are all beatable. Also I recognize the trends, because I made all of the bots. 
 
 5) Read the wikipedia entry on Normal Form Games. Also review the wikipedia page. Is it possible to design a Player strategy that is more likely to succeed? Why or why not? Explain in a paragraph. It is possible to answer this question even if you did not finish the Lab.
-	NEED TO ANSWER THIS
+	I mean you could design a player that just picks a winning move against whatever the other player picks and call it CheaterBot. Using Game Theory/Normal Form Game ideas and applying it to Rock Paper scissors I can't really see how there could be a dominant strategy because everything is equal. I mean ideally we always pick the same thing because then no one can ever win or lose and if you don't lose then you feel better about yourself and that is better.
 
 6) Name something you like about Python. Explain.
 	I like how quick it is to get running code up and running. Makes mock-ups very nice.

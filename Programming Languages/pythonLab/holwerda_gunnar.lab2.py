@@ -1,3 +1,6 @@
+import random
+
+
 class Element:
 
     def __init__(self, name):
@@ -15,7 +18,7 @@ class Rock(Element):
 
     def __init__(self, name):
         Element.__init__(self, name)
-        self._lose_to = ["Paper", "Spock"]
+        self._lose_to = [1, 4]
 
     def compareTo(self, element, outcome="Win"):
         result = {}
@@ -40,7 +43,7 @@ class Paper(Element):
 
     def __init__(self, name):
         Element.__init__(self, name)
-        self._lose_to = ["Lizard", "Scissors"]
+        self._lose_to = [3, 2]
 
     def compareTo(self, element, outcome="Win"):
         result = {}
@@ -62,7 +65,7 @@ class Scissors(Element):
 
     def __init__(self, name):
         Element.__init__(self, name)
-        self._lose_to = ["Rock", "Spock"]
+        self._lose_to = [0, 4]
 
     def compareTo(self, element, outcome="Win"):
         result = {}
@@ -84,7 +87,7 @@ class Lizard(Element):
 
     def __init__(self, name):
         Element.__init__(self, name)
-        self._lose_to = ["Rock", "Spock"]
+        self._lose_to = [0, 2]
 
     def compareTo(self, element, outcome="Win"):
         result = {}
@@ -106,7 +109,7 @@ class Spock(Element):
 
     def __init__(self, name):
         Element.__init__(self, name)
-        self._lose_to = ["Paper", "Lizard"]
+        self._lose_to = [1, 3]
 
     def compareTo(self, element, outcome="Win"):
         result = {}
@@ -124,13 +127,13 @@ class Spock(Element):
         return result
 
 # Global moves array
-moves = {
-    'Rock': Rock("Rock"),
-    'Paper': Paper("Paper"),
-    'Scissors': Scissors("Scissors"),
-    'Lizard': Lizard("Lizard"),
-    'Spock': Spock("Spock")
-}
+moves = (
+    Rock("Rock"),
+    Paper("Paper"),
+    Scissors("Scissors"),
+    Lizard("Lizard"),
+    Spock("Spock")
+)
 
 
 class Player:
@@ -163,14 +166,14 @@ class Player:
 
     # Return random move
     def getRandMove(self):
-        return list(moves.values())[random.randint(0, 4)]
+        return moves[random.randint(0, 4)]
 
 
 class StupidBot(Player):
     def play(self):
-        self._last_move = moves['Rock']
+        self._last_move = moves[0]
         # Play rock over and over
-        return moves['Rock']
+        return moves[0]
 
 
 class RandomBot(Player):
@@ -192,7 +195,7 @@ class IterativeBot(Player):
             self._current_pos = 0
 
         # Cast dictionary to list because Python sucks
-        return list(moves.values())[self._current_pos]
+        return moves[self._current_pos]
 
 
 class LastPlayBot(Player):
@@ -226,7 +229,8 @@ class Human(Player):
                 accepted_input = True
 
         # Play move selected by player
-        return list(moves.values())[choice - 1]
+        return moves[choice - 1]
+
 
 # MyBot when wins plays the same move as last time, if it loses plays a winning
 # move against the opponents last move, if Tie it picks a random move
@@ -241,7 +245,6 @@ class MyBot(Player):
             self._first_move = False
             return Player.getRandMove(self)
         else:
-            print("Previous result {:s}".format(self.previous_result['outcome']))
             if self.previous_result['outcome'] == "Win":
                 #If we won, play the same thing
                 return self._last_move
