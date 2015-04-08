@@ -1,0 +1,17 @@
+Question 1: Run this function as (f '(3 1 4 1 5 9)). What output do you get?
+(4 2 5 2 6 10)
+
+Question 2: What does this function f do?
+It adds 1 to each element in the list
+
+Question 3: Give a comment that explains the following line (a)
+; Check if we have empty list
+
+Question 4: Give a comment that explains the following line (b)
+; If we have empty list, return an empty list
+
+Question 5: Give a comment that explains the following line (c)
+; Else add 1 to the first item in the list and then recursively call f on the rest of the list
+
+Question 6: Trace the call given in Question 1, showing each recursive call to the function. Specifically show each call, expanding the term lst to specific lists or atoms at each depth of the recursion.
+
