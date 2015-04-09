@@ -14,4 +14,18 @@ Question 5: Give a comment that explains the following line (c)
 ; Else add 1 to the first item in the list and then recursively call f on the rest of the list
 
 Question 6: Trace the call given in Question 1, showing each recursive call to the function. Specifically show each call, expanding the term lst to specific lists or atoms at each depth of the recursion.
+NEED TO ANSWER THIS
+
+Question 7: What output do you get for the call (member? 'one '(1 2 3 4))?
+#f
+
+Question 8: Does your member? function use head or tail recursion?
+NEED TO ANSWER THIS
+
+Question 9: What output do you get for the call (set? '(it was the best of times, it was the worst of times))?
+#f
+
+Question 10: Research tail recursion. Describe, in a few short senteces, why it can be beneficial to write tail recursing functions.
+Tail recursion is useful because it doesn't rely on the farthest down recursive call to compute before computing all those that came before it. Tail recursion passes the result from the current iteration to the next recursive call.
+
 
