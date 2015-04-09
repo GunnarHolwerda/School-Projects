@@ -28,4 +28,21 @@ Question 9: What output do you get for the call (set? '(it was the best of times
 Question 10: Research tail recursion. Describe, in a few short senteces, why it can be beneficial to write tail recursing functions.
 Tail recursion is useful because it doesn't rely on the farthest down recursive call to compute before computing all those that came before it. Tail recursion passes the result from the current iteration to the next recursive call.
 
+Question 11: What output do you get for the call: (union '(green eggs and) '(ham))?
+(and eggs green ham)
 
+Question 12: What output do you get for the call: (intersect '(stewed tomatoes and macaroni) '(macaroni and cheese))?
+
+Question 13: Name something you like about Scheme. Explain.
+It has very nice way of managing and manipulating lists.
+
+Question 14: Name something you dislike about Scheme. Explain.
+It isn't like a conventional programming language. You kind of have to relearn how to program when you work with a functional language.
+
+Question 15: Did you enjoy this lab? What aspects did you like and/or dislike?
+I liked the length.
+
+Question 16: Approximately how many hours did you spend on this lab?
+
+Question 17: Do you think you will use Scheme again? For which type(s) of project(s)?
+No. Not a fan.

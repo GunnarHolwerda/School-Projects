@@ -42,10 +42,30 @@
 (display (set? '(it was the best of times, it was the worst of times)))
 (display "\n")
 
-;(define (union lst1 lst2)
-;	; complete this function definition
-;)
+(define (union lst1 lst2)
+	(cond
+		; if lst1 is empty then we have finished recursion, return lst2
+		[(null? lst1) lst2] 
+		; if the first element of lst1 is not a member of lst2
+		[(not (member? (car lst1) lst2)) 
+			; Then we call union on the rest of list one with lst2 + the first element of lst1
+			(union (cdr lst1) (cons (car lst1) lst2))
+		]
+		; else we call union on the rest of lst1 and lst2
+		; this occurs when an element exists in both lists
+		[else (union (cdr lst1) lst2)]
+	)	
+)
 
-;(define (intersect lst1 lst2)
-;	; complete this function definition
-;)
+(display (union '(2 3 7 8) '(1 2 3 4 5)))
+(display "\n")
+
+(define (intersect lst1 lst2)
+	(cond
+		[(null? lst1) lst2] 
+		[(not (member? (car lst1) lst2)) 
+			(intersect (cdr lst1) (cons (car lst1) lst2))
+		]
+		[else ]
+	)
+)
