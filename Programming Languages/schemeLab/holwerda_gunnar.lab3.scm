@@ -42,6 +42,10 @@
 (display (set? '(it was the best of times, it was the worst of times)))
 (display "\n")
 
+; lst1		- A list to be unioned with lst2
+; lst2		- A list to be unioned with lst1
+;
+; returns	- The union of the two parameter lists
 (define (union lst1 lst2)
 	(cond
 		; if lst1 is empty then we have finished recursion, return lst2
@@ -57,15 +61,27 @@
 	)	
 )
 
-(display (union '(2 3 7 8) '(1 2 3 4 5)))
+(display (union '(green eggs and) '(ham)))
 (display "\n")
 
+; lst1		- A list to be intersected with lst2
+; lst2		- A list to be intersected with lst1
+;
+; returns	- The intersection of lst1 and lst2
 (define (intersect lst1 lst2)
 	(cond
-		[(null? lst1) lst2] 
-		[(not (member? (car lst1) lst2)) 
-			(intersect (cdr lst1) (cons (car lst1) lst2))
+		; If lst1 is null we have reached end of recursion, return lst1
+		[(null? lst1) lst1] 
+		; Check if the first element of lst1 is in lst2
+		[(member? (car lst1) lst2)
+			; if it is we take that element and add it to the intersect of the remainder of lst1 with lst2
+			(cons 	(car lst1) 
+					(intersect (cdr lst1) lst2))
 		]
-		[else ]
+		; Else the element isn't in lst2 so we just intersect with the remainder of lst1 and lst2
+		[else (intersect (cdr lst1) lst2)]
 	)
 )
+
+(display (intersect '(stewed tomatoes and macaroni) '(macaroni and cheese)))
+(display "\n")

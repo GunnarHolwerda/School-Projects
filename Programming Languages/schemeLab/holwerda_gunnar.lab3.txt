@@ -32,6 +32,7 @@ Question 11: What output do you get for the call: (union '(green eggs and) '(ham
 (and eggs green ham)
 
 Question 12: What output do you get for the call: (intersect '(stewed tomatoes and macaroni) '(macaroni and cheese))?
+(and macaroni)
 
 Question 13: Name something you like about Scheme. Explain.
 It has very nice way of managing and manipulating lists.
@@ -43,6 +44,7 @@ Question 15: Did you enjoy this lab? What aspects did you like and/or dislike?
 I liked the length.
 
 Question 16: Approximately how many hours did you spend on this lab?
+1.5 hrs
 
 Question 17: Do you think you will use Scheme again? For which type(s) of project(s)?
 No. Not a fan.
