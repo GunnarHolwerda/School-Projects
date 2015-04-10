@@ -14,19 +14,31 @@ Question 5: Give a comment that explains the following line (c)
 ; Else add 1 to the first item in the list and then recursively call f on the rest of the list
 
 Question 6: Trace the call given in Question 1, showing each recursive call to the function. Specifically show each call, expanding the term lst to specific lists or atoms at each depth of the recursion.
-NEED TO ANSWER THIS
+(cons (4) (f ( 1 4 1 5 9)))
+	(cons (2) (f (4 1 5 9)))
+		(cons (5) (f (1 5 9)))
+			(cons (2) (f (5 9)))
+				(cons (6) (f (9)))
+					(cons (10) (f ()))
+						()
+					(10)
+				(6 10)
+			(2 6 10)
+		(5 2 6 10)
+	(2 5 2 6 10)
+(4 2 5 2 6 10)
 
 Question 7: What output do you get for the call (member? 'one '(1 2 3 4))?
 #f
 
 Question 8: Does your member? function use head or tail recursion?
-NEED TO ANSWER THIS
+tail
 
 Question 9: What output do you get for the call (set? '(it was the best of times, it was the worst of times))?
 #f
 
 Question 10: Research tail recursion. Describe, in a few short senteces, why it can be beneficial to write tail recursing functions.
-Tail recursion is useful because it doesn't rely on the farthest down recursive call to compute before computing all those that came before it. Tail recursion passes the result from the current iteration to the next recursive call.
+When using tail recursion you know that there is nothing else that is going to happen when your function returns. So it allows the compiler to do some optimizations for the stack so that it wouldn't have to use a hundred stack frames from each recursive call
 
 Question 11: What output do you get for the call: (union '(green eggs and) '(ham))?
 (and eggs green ham)
