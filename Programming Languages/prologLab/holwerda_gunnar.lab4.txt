@@ -1,0 +1,2 @@
+Answers to Lab 4 Questions
+1) What is the reuslt of query '?- father(X, 'Queen Elizabeth II').'?
