@@ -1,2 +1,147 @@
 Answers to Lab 4 Questions
-1) What is the reuslt of query '?- father(X, 'Queen Elizabeth II').'?
+1) What is the result of query '?- father(X, 'Queen Elizabeth II').'?
+	X = King George VI
+
+2) What is the result of the query '?- grandmother(X, 'Queen Elizabeth II').'?
+	X = Mary, Princess of Teck
+
+3) What is result of query ?- grandfather(X, 'Queen Elizabeth II').?
+	X = King George V
+
+4) What is result of query ?- grandparent(X, 'Queen Elizabeth II').?
+	X = King George V;
+	X = Mary, Princess of Teck;
+
+5) What is result of query ?- grandparent('Queen Elizabeth II', X).?
+	X = 'Prince William, Duke of Cambridge' ;
+	X = 'Prince Henry of Wales' ;
+	X = 'Princess Beatrice of York' ;
+	X = 'Peter Phillips' ;
+	X = 'Zara Phillips' ;
+	X = 'Lady Louise Windsor' ;
+	X = 'James, Viscount Severn' ;
+
+6) What is result of query ?- sibling(X, 'Queen Elizabeth II').?
+	X = 'Princess Margaret' ;
+	X = 'Princess Margaret'.
+
+7) What is result of query ?- son(X, 'Queen Elizabeth II').?
+	X = 'Edward, Earl of Wessex' ;
+	X = 'Charles, Prince of Wales' ;
+	X = 'Andrew, Duke of York'.
+
+8) What is result of query ?- daughter(X, 'Queen Elizabeth II').?
+	X = 'Anne, Princess Royal' ;
+
+9) What is result of query ?- aunt(X, 'Lady Diana Spencer').?
+	false
+
+10) What is result of query ?- spouse(X, 'Prince William, Duke of Cambridge').?
+	X = 'Catherine Middleton'.
+
+11) What is result of query ?- ancestor(X, 'Prince Henry of Wales').?
+	X = 'Charles, Prince of Wales' ;
+	X = 'Lady Diana Spencer' ;
+	X = 'King George III' ;
+	X = 'King George III' ;
+	X = 'Charlotte of Mecklenburg-Strelitz' ;
+	X = 'Charlotte of Mecklenburg-Strelitz' ;
+	X = 'Edward, Duke of Kent' ;
+	X = 'Edward, Duke of Kent' ;
+	X = 'Princess Victoria of Saxe-Coburg-Saalfeld' ;
+	X = 'Princess Victoria of Saxe-Coburg-Saalfeld' ;
+	X = 'Franz, Duke of Saxe-Coburg-Saalfeld' ;
+	X = 'Franz, Duke of Saxe-Coburg-Saalfeld' ;
+	X = 'Augusta Reuss of Ebersdorf und Lobenstein' ;
+	X = 'Augusta Reuss of Ebersdorf und Lobenstein' ;
+	X = 'Franz, Duke of Saxe-Coburg-Saalfeld' ;
+	X = 'Franz, Duke of Saxe-Coburg-Saalfeld' ;
+	X = 'Augusta Reuss of Ebersdorf und Lobenstein' ;
+	X = 'Augusta Reuss of Ebersdorf und Lobenstein' ;
+	X = 'Ernest I, Duke of Saxe-Coburg and Gotha' ;
+	X = 'Ernest I, Duke of Saxe-Coburg and Gotha' ;
+	X = 'Princess Louise of Saxe-Gotha-Altenburg' ;
+	X = 'Princess Louise of Saxe-Gotha-Altenburg' ;
+	X = 'Prince Albert' ;
+	X = 'Queen Victoria' ;
+	X = 'Prince Albert' ;
+	X = 'Queen Victoria' ;
+	X = 'Princess Alice' ;
+	X = 'Louis IV, Grand Duke of Hesse' ;
+	X = 'King Edward VII' ;
+	X = 'Princess Alexandra of Denmark' ;
+	X = 'King George V' ;
+	X = 'Mary, Princess of Teck' ;
+	X = 'Prince Louis of Battenberg' ;
+	X = 'Princess Victoria of Hesse' ;
+	X = 'Andrew, Prince of Greece' ;
+	X = 'Alice, Princess of Baltenberg' ;
+	X = 'King George VI' ;
+	X = 'Lady Elizabeth Bowes-Lyon' ;
+	X = 'Prince Phillip, Duke of Edinburgh' ;
+	X = 'Queen Elizabeth II' ;
+
+12) What is result of query ?- descendant('Queen Victoria', Y).?
+	Y = 'Edward, Duke of Kent' ;
+	Y = 'Princess Victoria of Saxe-Coburg-Saalfeld' ;
+	Y = 'King George III' ;
+	Y = 'Charlotte of Mecklenburg-Strelitz' ;
+	Y = 'Franz, Duke of Saxe-Coburg-Saalfeld' ;
+	Y = 'Augusta Reuss of Ebersdorf und Lobenstein' ;
+
+13) What is result of query ?- older('Prince Henry of Wales', 'Prince William, Duke of Cambridge').?
+	true
+
+14) What is result of query ?- older(X, 'Queen Elizabeth II').?
+	X = 'Princess Margaret' ;
+	X = 'Lady Diana Spencer' ;
+	X = 'Anne, Princess Royal' ;
+	X = 'Catherine Middleton' ;
+	X = 'Anthony Armstrong-Jones' ;
+	X = 'Sarah Armstrong-Jones' ;
+	X = 'David, Viscount Linley' ;
+	X = 'Charles, Prince of Wales' ;
+	X = 'Andrew, Duke of York' ;
+	X = 'Mark Phillips' ;
+	X = 'Edward, Earl of Wessex' ;
+	X = 'Prince William, Duke of Cambridge' ;
+	X = 'Prince Henry of Wales' ;
+	X = 'Sophie Rhys-Jones' ;
+	X = 'Sarah Ferguson' ;
+	X = 'Catherine Middleton' ;
+	X = 'Prince George of Cambridge' ;
+	X = 'Princess Beatrice of York' ;
+	X = 'Princess Eugenie of York' ;
+	X = 'Peter Phillips' ;
+	X = 'Zara Phillips' ;
+	X = 'Autumn Kelly' ;
+	X = 'Mike Tindall' ;
+	X = 'Mia Tindall' ;
+	X = 'Savannah Phillips' ;
+	X = 'Isla Phillips' ;
+	X = 'Lady Louise Windsor' ;
+	X = 'James, Viscount Severn' ;
+	X = 'Serena Armstrong-Jones' ;
+	X = 'Charles Armstrong-Jones' ;
+	X = 'Margarita Armstrong-Jones' ;
+	X = 'Daniel Chatto' ;
+	X = 'Samuel Chatto' ;
+	X = 'Arthur Chatto' ;
+
+15) What is result of query ?- regentWhenBorn(X, 'Queen Elizabeth II').?
+	X = 'King George V' ;
+
+16) Name something you like about Prolog. Explain.
+	I am not really a fan of anything about prolog. I mean in this lab it was nice to be able to think about things logically and they worked as you intended them.
+
+17) Name something you dislike about Prolog. Explain.
+	I like figuring out the problem instead of describing it. And Prolog just allows you to describe the problem and it figures it out for you. And any math stuff is impossible.
+
+18) Did you enjoy this lab? What aspects did you like and/or dislike?
+	I don't like prolog, so I didn't enjoy the lab. I wish that you would have given examples of what some correct answers would have been for queries so that we knew if we were on the right track. I liked that it was rather simple.
+
+19) Approximately how many hours did you spend on this lab?
+ 	~2 hours
+
+ 20) Do you think you will use Prolog agin? For which type(s) of project(s)?
+ 	No I will not. Not a fan.

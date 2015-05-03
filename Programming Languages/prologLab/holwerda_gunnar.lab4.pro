@@ -4,6 +4,7 @@
 mother(M, C)		:- parent(M, C), female(M).
 father(M, C)		:- parent(M, C), male(M).
 spouse(M, F)		:- married(M, F).
+spouse(F, M)		:- married(M, F).
 child(C, P)			:- parent(P, C).
 son(C, P)			:- child(C, P), male(C).
 daughter(C, P)		:- child(C, P), female(C).
@@ -20,8 +21,8 @@ grandmother(G, C)	:- grandparent(G, C), female(G).
 grandchild(C, G)	:- child(P, G), child(C, P).
 ancestor(A, I)		:- parent(A, I).
 ancestor(A, I)		:- parent(A, P), ancestor(P, I).
-descendant(D, I)	:- grandchild(D, I).
-descendant(D, I)	:- grandchild(D, G), descendant(G, I).
+descendant(D, I)	:- child(D, I).
+descendant(D, I)	:- child(D, G), descendant(G, I).
 older(O, Y)			:- born(O, OYear), born(Y, YYear), OYear > YYear.
 younger(Y, O)		:- born(Y, YYear), born(O, OYear), YYear < OYear.
 regentWhenBorn(R, P):- born(P, BornYear), reigned(R, Start, Finish), BornYear >= Start, BornYear =< Finish.
