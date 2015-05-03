@@ -22,3 +22,6 @@ ancestor(A, I)		:- parent(A, I).
 ancestor(A, I)		:- parent(A, P), ancestor(P, I).
 descendant(D, I)	:- grandchild(D, I).
 descendant(D, I)	:- grandchild(D, G), descendant(G, I).
+older(O, Y)			:- born(O, OYear), born(Y, YYear), OYear > YYear.
+younger(Y, O)		:- born(Y, YYear), born(O, OYear), YYear < OYear.
+regentWhenBorn(R, P):- born(P, BornYear), reigned(R, Start, Finish), BornYear >= Start, BornYear =< Finish.
