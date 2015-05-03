@@ -1,0 +1,400 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"outpu",
+				"output_file_name"
+			],
+			[
+				"upload",
+				"uploadOk"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "HolwerdaGunnar.tex",
+			"settings":
+			{
+				"buffer_size": 5528,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"last_filter": "latexTools",
+		"selected_items":
+		[
+			[
+				"latexTools",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"late",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: up",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package control:",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"brow",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"browse",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"bro",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"pacakge control: up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"brows",
+				"SFTP: Browse Remote…"
+			],
+			[
+				"bros",
+				"SFTP: Browse Server…"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test"
+	],
+	"file_history":
+	[
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/Final_Test.sublime-project",
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.pdf",
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.tex",
+		"/D/Documents/Programming/School-Projects/Computer Security/HW3/Write Up.tex",
+		"/C/Users/Gunnar/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/D/Documents/Programming/School-Projects/Computer Security/HW3/The Hacking Begins.txt",
+		"/D/Documents/Programming/School-Projects/Programming Languages/prologLab/royal.pro",
+		"/D/Documents/Programming/School-Projects/Programming Languages/prologLab/holwerda_gunnar.lab4.txt",
+		"/D/Documents/Programming/School-Projects/Programming Languages/prologLab/holwerda_gunnar.lab4.pro",
+		"/D/Documents/Programming/Non-School-Projects/TeamSelector/src/teamselector/NCAA Football Teams.txt",
+		"/D/Documents/Programming/Non-School-Projects/TeamSelector/src/teamselector/NFL AFC Teams.txt",
+		"/D/Games/Borderlands The Pre-Sequel/Binaries/Win32/steam_api.ini",
+		"/D/Games/SteamLibrary/SteamApps/common/Skyrim/skse_whatsnew.txt",
+		"/D/Games/SteamLibrary/SteamApps/common/Skyrim/ControlMap_Custom.txt",
+		"/D/Games/SteamLibrary/SteamApps/common/Skyrim/Data/sos - the dungeons.bsa",
+		"/D/Games/SteamLibrary/SteamApps/common/Skyrim/Data/scripts/scroll.pex",
+		"/D/Games/SteamLibrary/SteamApps/common/Counter-Strike Global Offensive/installscript.vdf",
+		"/D/Games/SteamLibrary/SteamApps/common/Counter-Strike Global Offensive/steam_appid.txt",
+		"/D/Games/SteamLibrary/SteamApps/common/HacknSlash/moai_log_Hack 'n' Slash.txt",
+		"/D/Downloads/_L0WSS-1",
+		"/D/Downloads/188399.txt",
+		"/D/Downloads/Applications/DS4Tool 1.2.2/Readme.txt",
+		"/D/Downloads/Applications/DS4Tool 1.2.2/Virtual Bus Driver/ScpDriver.log",
+		"/D/Downloads/370991.txt",
+		"/D/Documents/Programming/School-Projects/Programming Languages/schemeLab/holwerda_gunnar.lab3.scm",
+		"/D/Documents/Programming/School-Projects/Programming Languages/schemeLab/holwerda_gunnar.lab3.txt",
+		"/D/Downloads/855798.txt",
+		"/D/Downloads/521924.txt",
+		"/D/Downloads/671512.txt",
+		"/D/Downloads/852145.txt",
+		"/D/Downloads/563126.txt",
+		"/D/Downloads/242278.txt",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/views/shared/_topnav.html.erb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/views/shared/_footer.html.erb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/assets/stylesheets/application.css",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/views/home/index.html.erb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/views/layouts/application.html.erb",
+		"/D/Downloads/815466.txt",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/controllers/home_controller.rb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/controllers/application_controller.rb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/config/routes.rb",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/assets/stylesheets/application.css.scss",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/app/assets/javascripts/application.js",
+		"/D/Documents/Programming/Non-School-Projects/Wynne/Gemfile",
+		"/D/Documents/Programming/Wynne/Gemfile",
+		"/D/Documents/Programming/Wynne/app/assets/javascripts/application.js",
+		"/D/Documents/Programming/Wynne/app/assets/stylesheets/application.css",
+		"/D/Documents/Programming/Wynne/app/assets/stylesheets/application.css.scss",
+		"/D/Documents/Programming/Wynne/.gitignore",
+		"/D/Documents/Programming/Wynne/sftp-config.json",
+		"/D/Downloads/798108.txt",
+		"/D/Documents/Programming/Scrapbook/.gitignore",
+		"/C/Users/Gunnar/AppData/Local/Temp/Temp1_hammerhead-5.0.zip/files/appfilter.xml",
+		"/C/Users/Gunnar/Desktop/Project_2_Presentation_Summaries.txt",
+		"/C/Program Files (x86)/Notepad++/themes/Sublime_Monokai.xml",
+		"/D/Documents/Programming/School-Projects/Programming Languages/perlLab/Holwerda.Gunnar.lab1.pl",
+		"/D/Documents/Programming/Non-School-Projects/finGameScript/upload.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425436104/gunnarholwerda_pw/var/www/html/scripts/upload.php",
+		"/D/Downloads/411530.txt",
+		"/D/Downloads/662841.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434200/gunnarholwerda_pw/var/www/html/upload.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435871/gunnarholwerda_pw/var/www/html/inc/header.inc",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425436048/gunnarholwerda_pw/var/www/html/navbar/finGame.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435812/gunnarholwerda_pw/var/www/html/finGame.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435639/gunnarholwerda_pw/var/www/html/inc/footer.inc",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434322/gunnarholwerda_pw/var/www/html/leaguemain.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434381/gunnarholwerda_pw/var/www/html/index.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434397/gunnarholwerda_pw/var/www/html/inc/header.inc",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434715/gunnarholwerda_pw/var/www/html/navbar/RecentMatches.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434838/gunnarholwerda_pw/var/www/html/inc/playermatch/DispMatchDetails.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435004/gunnarholwerda_pw/var/www/html/inc/playermatch/PubMatchClasses.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434961/gunnarholwerda_pw/var/www/html/inc/autoloader.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435565/gunnarholwerda_pw/var/www/html/scripts/finance.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425435495/gunnarholwerda_pw/var/www/html/navbar/stocks.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1425434245/gunnarholwerda_pw/var/www/html/content.php",
+		"/D/Documents/Programming/Non-School-Projects/finGameScript/array_example.txt",
+		"/D/Documents/Programming/Non-School-Projects/finGameScript/map_example.txt",
+		"/D/Downloads/90775.txt",
+		"/D/343ddd7568cadf7d22adac2d09/Strings.xml",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424919433/gunnarholwerda_pw/var/www/html/excelMaps/MSU_map.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424919705/gunnarholwerda_pw/var/www/html/upload.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424918051/gunnarholwerda_pw/var/www/html/finGame.php",
+		"/C/AdwCleaner/AdwCleaner[S11].txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424919411/gunnarholwerda_pw/var/www/html/excelMaps/copy.txt",
+		"/D/Downloads/254339.txt",
+		"/D/Downloads/700463.txt",
+		"/D/Downloads/1788.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424919116/gunnarholwerda_pw/var/www/html/excelMaps/MSU_map.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424244533/gunnarholwerda_pw/var/www/html/upload.php",
+		"/D/Documents/Programming/Non-School-Projects/finGameScript/scrapeHistoricalData.php",
+		"/D/Downloads/917520.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424226583/gunnarholwerda_pw/var/www/html/helpfulCommands.txt",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424225511/gunnarholwerda_pw/var/www/html/finGame.php",
+		"/C/users/gunnar/appdata/local/temp/sublime-sftp-browse-1424225485/gunnarholwerda_pw/var/www/html/upload.php",
+		"/D/Downloads/gunnar_holwerda.txt",
+		"/D/Downloads/import (2).txt",
+		"/D/Downloads/import (1).txt",
+		"/D/Downloads/import.txt",
+		"/C/Users/Gunnar/AppData/Roaming/Sublime Text 3/Packages/SFTP/SFTP.sublime-settings",
+		"/C/Users/Gunnar/AppData/Roaming/Sublime Text 3/Packages/SFTP/Default (Windows).sublime-keymap",
+		"/C/Users/Gunnar/AppData/Roaming/Sublime Text 3/Packages/User/sftp_servers/gunnarholwerda_pw"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\\section",
+			"Queen Victoria",
+			"Prince William, Duke of Cambridge",
+			"’",
+			">\n",
+			"src",
+			"\\",
+			"ass",
+			"string\\(.\\) ",
+			"string\\(.\\)",
+			"[",
+			"bond",
+			"["
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"href",
+			"/",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "HolwerdaGunnar.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								789,
+								789
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "Final_Test.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
