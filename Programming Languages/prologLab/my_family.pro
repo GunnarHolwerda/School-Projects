@@ -15,6 +15,8 @@ male('Davis Woerner').
 male('Steven Blando').
 male('Rich Brooks Dad').
 male('Karen Brooks Dad').
+male('Rich Brooks Dad Dad').
+male('Karen Brooks Dad Dad').
 
 female('Sina Holwerda').
 female('Kisky Holwerda').
@@ -31,6 +33,8 @@ female('Ellie Woerner').
 female('Mary Blando').
 female('Karen Brooks Mom').
 female('Rich Brooks Mom').
+female('Rich Brooks Mom Mom').
+female('Karen Brooks Mom Mom').
 
 parent('Steve Holwerda', 'Gunnar Holwerda').
 parent('Kasey Holwerda', 'Gunnar Holwerda').
@@ -70,6 +74,10 @@ parent('Rich Brooks Dad', 'Rich Brooks').
 parent('Rich Brooks Mom', 'Rich Brooks').
 parent('Karen Brooks Dad', 'Karen Brooks').
 parent('Karen Brooks Mom', 'Karen Brooks').
+parent('Rich Brooks Dad Dad', 'Rich Brooks Dad').
+parent('Rich Brooks Mom Mom', 'Rich Brooks Dad').
+parent('Karen Brooks Dad Dad', 'Karen Brooks Mom').
+parent('Karen Brooks Mom Mom', 'Karen Brooks Mom').
 
 married('Steve Holwerda', 'Kasey Holwerda').
 married('Rich Brooks', 'Karen Brooks').
@@ -80,3 +88,5 @@ married('Jim Holwerda', 'Luella Holwerda').
 married('Brent Robinson', 'Kerri Robinson').
 married('Rich Brooks Dad', 'Rich Brooks Mom').
 married('Karen Brooks Dad', 'Karent Brooks Mom').
+married('Rich Brooks Dad Dad', 'Rich Brooks Mom Mom').
+married('Karen Brooks Dad Dad', 'Karent Brooks Mom Mom').
