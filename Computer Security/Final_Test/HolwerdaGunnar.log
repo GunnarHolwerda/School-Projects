@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  4 MAY 2015 13:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  4 MAY 2015 15:48
 entering extended mode
 **D:/Documents/Programming/School-Projects/Computer*Security/Final_Test/Holwerd
 aGunnar.tex
@@ -143,58 +143,41 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
 
  []
 
-<DiscoveredIn1655.png, id=14, 824.07875pt x 517.935pt>
-File: DiscoveredIn1655.png Graphic file (type png)
+<img/DiscoveredIn1655.png, id=14, 824.07875pt x 517.935pt>
+File: img/DiscoveredIn1655.png Graphic file (type png)
 
-<use DiscoveredIn1655.png>
-Package pdftex.def Info: DiscoveredIn1655.png used on input line 34.
+<use img/DiscoveredIn1655.png>
+Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 36.
 (pdftex.def)             Requested size: 271.94682pt x 170.91907pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--36
+Underfull \hbox (badness 10000) in paragraph at lines 35--38
 
  []
 
 [3
 
 
-] <Th1sT1m3ItsAMoon.png, id=19, 823.075pt x 513.92pt>
-File: Th1sT1m3ItsAMoon.png Graphic file (type png)
+] <img/Th1sT1m3ItsAMoon.png, id=19, 823.075pt x 513.92pt>
+File: img/Th1sT1m3ItsAMoon.png Graphic file (type png)
 
-<use Th1sT1m3ItsAMoon.png>
-Package pdftex.def Info: Th1sT1m3ItsAMoon.png used on input line 42.
+<use img/Th1sT1m3ItsAMoon.png>
+Package pdftex.def Info: img/Th1sT1m3ItsAMoon.png used on input line 44.
 (pdftex.def)             Requested size: 271.61559pt x 169.59412pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--44
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
-[4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/Disco
-veredIn1655.png>]
-
-LaTeX Warning: File `nessus_scan.PNG' not found on input line 46.
-
-
-! Package pdftex.def Error: File `nessus_scan.PNG' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.46 ...e=0.33, width=\linewidth]{nessus_scan.PNG}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[5 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/Th1sT
-1m3ItsAMoon.png>] [6]
+[4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/D
+iscoveredIn1655.png>] [5 <D:/Documents/Programming/School-Projects/Computer Sec
+urity/Final_Test/img/Th1sT1m3ItsAMoon.png>]
 
 LaTeX Warning: File `blank_password_check_output.PNG' not found on input line 5
-7.
+2.
 
 
 ! Package pdftex.def Error: File `blank_password_check_output.PNG' not found.
@@ -203,52 +186,69 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.57 ...inewidth]{blank_password_check_output.PNG}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[7]
-
-LaTeX Warning: File `success.PNG' not found on input line 64.
-
-
-! Package pdftex.def Error: File `success.PNG' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.64 ...scale=0.33, width=\linewidth]{success.PNG}
+l.52 ...inewidth]{blank_password_check_output.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--66
+Underfull \hbox (badness 10000) in paragraph at lines 51--54
 
  []
 
+[6
 
-LaTeX Warning: File `successful_sql_login.PNG' not found on input line 71.
+]
+Overfull \vbox (25.30597pt too high) has occurred while \output is active []
 
 
-! Package pdftex.def Error: File `successful_sql_login.PNG' not found.
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
-See the pdftex.def package documentation for explanation.
+ []
+
+<img/ciph3rfunhtml.PNG, id=36, 851.18pt x 254.9525pt>
+File: img/ciph3rfunhtml.PNG Graphic file (type png)
+
+<use img/ciph3rfunhtml.PNG>
+Package pdftex.def Info: img/ciph3rfunhtml.PNG used on input line 61.
+(pdftex.def)             Requested size: 280.89026pt x 84.13457pt.
+
+Overfull \hbox (17.64206pt too wide) in paragraph at lines 61--62
+[][] 
+ []
+
+<img/nextlevel.PNG, id=37, 363.3575pt x 527.9725pt>
+File: img/nextlevel.PNG Graphic file (type png)
+ <use img/nextlevel.PNG>
+Package pdftex.def Info: img/nextlevel.PNG used on input line 64.
+(pdftex.def)             Requested size: 119.90834pt x 174.23146pt.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.71 ...idth=\linewidth]{successful_sql_login.PNG}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+l.66 \newline
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[9
+
+ <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/cip
+h3rfunhtml.PNG>]
+Overfull \vbox (18.19356pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: File `_etc_password.PNG' not found on input line 74.
+[10 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
+nextlevel.PNG>]
+
+LaTeX Warning: File `_etc_password.PNG' not found on input line 68.
 
 
 ! Package pdftex.def Error: File `_etc_password.PNG' not found.
@@ -257,15 +257,15 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 ...0.33, width=\linewidth]{_etc_password.PNG}
+l.68 ...0.33, width=\linewidth]{_etc_password.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[8] [9] [10]
+[11]
 
-LaTeX Warning: File `weird_output.PNG' not found on input line 87.
+LaTeX Warning: File `weird_output.PNG' not found on input line 81.
 
 
 ! Package pdftex.def Error: File `weird_output.PNG' not found.
@@ -274,25 +274,25 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.87 ...=0.33, width=\linewidth]{weird_output.PNG}
+l.81 ...=0.33, width=\linewidth]{weird_output.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--91
+Underfull \hbox (badness 10000) in paragraph at lines 80--85
 
  []
 
-[11]
-Overfull \hbox (165.75027pt too wide) in paragraph at lines 95--95
+[12]
+Overfull \hbox (165.75027pt too wide) in paragraph at lines 92--92
 []\OT1/cmtt/m/n/12 # hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/m
 etasploit/namelist.txt -v -t 8[] 
  []
 
 
-LaTeX Warning: File `find_the_login.PNG' not found on input line 96.
+LaTeX Warning: File `find_the_login.PNG' not found on input line 93.
 
 
 ! Package pdftex.def Error: File `find_the_login.PNG' not found.
@@ -301,37 +301,37 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.96 ....33, width=\linewidth]{find_the_login.PNG}
+l.93 ....33, width=\linewidth]{find_the_login.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[12] [13] [14
+[13] [14] [15
 
 
-] [15
+] [16
 
 
 ]
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux") ) 
 Here is how much of TeX's memory you used:
- 2359 strings out of 493921
- 33571 string characters out of 3144873
+ 2367 strings out of 493921
+ 33789 string characters out of 3144873
  86129 words of memory out of 3000000
- 5669 multiletter control sequences out of 15000+200000
+ 5677 multiletter control sequences out of 15000+200000
  9276 words of font info for 33 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,32p,548b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,32p,548b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on HolwerdaGunnar.pdf (16 pages, 257084 bytes).
+Output written on HolwerdaGunnar.pdf (17 pages, 316215 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

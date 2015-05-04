@@ -33,7 +33,7 @@ When starting out I was given the information that the members of mhk had been d
 	$	nmap -sS -p1-65535 titan.mthack.me -v -T4
 	\end{verbatim}
 The nmap returned that port 22 and 23 were open. I attempted to ssh, but found that a public key was needed. Next I used telnet to connect to port 23 and was presented with my first flag ``DiscoveredIn1655''.\\
-\includegraphics[scale=0.33, width=\linewidth]{DiscoveredIn1655.png}
+\includegraphics[scale=0.33, width=\linewidth]{img/DiscoveredIn1655.png}
 \newline
 \section{Th1sT1m3ItsAMoon}
 In addition to titan.mthack.me, I was able to find the europa.mthack.me subdomain. After an nmap on europa I saw that port 7870 was open. There was no information about this port, so I used NetCat to connect to it, it returned ``SSH-2.0-OpenSSH\_6.6.1''. After seeing this I knew that I should use SSH to connect to europa.mthack.me on this port.
@@ -41,7 +41,7 @@ In addition to titan.mthack.me, I was able to find the europa.mthack.me subdomai
 	$	ssh europa.mthack.me -p 7870
 	\end{verbatim}
 After adding europa to my known\_hosts I was presented with my second flag ``Th1sT1m3ItsAMoon''.\\
-\includegraphics[scale=0.33, width=\linewidth]{Th1sT1m3ItsAMoon.png}
+\includegraphics[scale=0.33, width=\linewidth]{img/Th1sT1m3ItsAMoon.png}
 \newline
 
 % Begin Round 2
@@ -58,10 +58,10 @@ Everything is broken!\\
 \section{nextlevel}
 Given the binary for round three, I first ran strings on the file using grep to try to find ``password'' or something along those lines. These attempts were unsuccessful, so I moved onto editing the binary using radare2. I was able to find the location of a ``jnz'' instruction right after asking for the number. I edited that instruction to be a ``jz'' instead and was presented with ``ciph3rfun.html''.\\
 
-\includegraphics[scale=0.33, width=\linewidth]{ciph3rfunhtml.PNG}
+\includegraphics[scale=0.33, width=\linewidth]{img/ciph3rfunhtml.PNG}
 
 I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of enocded flag. It looked like ROT, so I went to a ROT decoder, entered the cipher text and was presented with the flag ``nextlevel''.\\
-\includegraphics[scale=0.33, width=\linewidth]{nextlevel.PNG}
+\includegraphics[scale=0.33, width=\linewidth]{img/nextlevel.PNG}
 
 \newline
 I ran a ``show grants;'' to find out how much power the user I now controlled has. Turns out I had access to everything in MySQL! What if I tried to open the ``/etc/passwd'' file?\\

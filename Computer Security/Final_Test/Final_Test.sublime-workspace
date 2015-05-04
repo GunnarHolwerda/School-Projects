@@ -23,7 +23,7 @@
 			"file": "HolwerdaGunnar.tex",
 			"settings":
 			{
-				"buffer_size": 5528,
+				"buffer_size": 5343,
 				"line_ending": "Windows"
 			}
 		}
@@ -117,9 +117,9 @@
 	],
 	"file_history":
 	[
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.pdf",
 		"/C/Users/Gunnar/Desktop/hobbes.pub",
 		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/Final_Test.sublime-project",
-		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.pdf",
 		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.tex",
 		"/D/Documents/Programming/School-Projects/Computer Security/HW3/Write Up.tex",
 		"/C/Users/Gunnar/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
@@ -279,15 +279,27 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5528,
+						"buffer_size": 5343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								789,
-								789
+								1161,
+								1161
+							],
+							[
+								1782,
+								1782
+							],
+							[
+								2506,
+								2506
+							],
+							[
+								2792,
+								2792
 							]
 						],
 						"settings":
@@ -299,7 +311,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
