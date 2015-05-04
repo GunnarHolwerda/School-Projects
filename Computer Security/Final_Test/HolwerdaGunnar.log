@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  3 MAY 2015 15:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  4 MAY 2015 13:21
 entering extended mode
 **D:/Documents/Programming/School-Projects/Computer*Security/Final_Test/Holwerd
 aGunnar.tex
@@ -91,51 +91,20 @@ File: listings.cfg 2014/09/06 1.5e listings configuration
 ))
 Package: listings 2014/09/06 1.5e (Carsten Heinz)
 
-! Undefined control sequence.
-l.6 \client
-           {mthack.me}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \client{m
-             thack.me}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Undefined control sequence.
-l.8 \reportType
-               {Hint, Blackbox/Redteam}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count97
@@ -151,14 +120,13 @@ LaTeX Font Info:    ... okay on input line 18.
 \everyMPtoPDFconversion=\toks17
 )
 \c@lstlisting=\count103
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 17.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 19.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
- [1]
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -175,50 +143,39 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
-LaTeX Warning: File `list_of_ports.PNG' not found on input line 36.
+ []
 
+<DiscoveredIn1655.png, id=14, 824.07875pt x 517.935pt>
+File: DiscoveredIn1655.png Graphic file (type png)
 
-! Package pdftex.def Error: File `list_of_ports.PNG' not found.
+<use DiscoveredIn1655.png>
+Package pdftex.def Info: DiscoveredIn1655.png used on input line 34.
+(pdftex.def)             Requested size: 271.94682pt x 170.91907pt.
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 ...0.33, width=\linewidth]{list_of_ports.PNG}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Underfull \hbox (badness 10000) in paragraph at lines 33--36
+
+ []
 
 [3
 
 
-]
+] <Th1sT1m3ItsAMoon.png, id=19, 823.075pt x 513.92pt>
+File: Th1sT1m3ItsAMoon.png Graphic file (type png)
 
-LaTeX Warning: File `ncat_sql_return_info.PNG' not found on input line 43.
+<use Th1sT1m3ItsAMoon.png>
+Package pdftex.def Info: Th1sT1m3ItsAMoon.png used on input line 42.
+(pdftex.def)             Requested size: 271.61559pt x 169.59412pt.
 
-
-! Package pdftex.def Error: File `ncat_sql_return_info.PNG' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.43 ...idth=\linewidth]{ncat_sql_return_info.PNG}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--45
+Underfull \hbox (badness 10000) in paragraph at lines 41--44
 
  []
 
-[4]
+[4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/Disco
+veredIn1655.png>]
 
-LaTeX Warning: File `nessus_scan.PNG' not found on input line 47.
+LaTeX Warning: File `nessus_scan.PNG' not found on input line 46.
 
 
 ! Package pdftex.def Error: File `nessus_scan.PNG' not found.
@@ -227,16 +184,17 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.47 ...e=0.33, width=\linewidth]{nessus_scan.PNG}
+l.46 ...e=0.33, width=\linewidth]{nessus_scan.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[5] [6]
+[5 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/Th1sT
+1m3ItsAMoon.png>] [6]
 
 LaTeX Warning: File `blank_password_check_output.PNG' not found on input line 5
-8.
+7.
 
 
 ! Package pdftex.def Error: File `blank_password_check_output.PNG' not found.
@@ -245,7 +203,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58 ...inewidth]{blank_password_check_output.PNG}
+l.57 ...inewidth]{blank_password_check_output.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -253,7 +211,7 @@ If that doesn't work, type  X <return>  to quit.
 
 [7]
 
-LaTeX Warning: File `success.PNG' not found on input line 65.
+LaTeX Warning: File `success.PNG' not found on input line 64.
 
 
 ! Package pdftex.def Error: File `success.PNG' not found.
@@ -262,19 +220,19 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.65 ...scale=0.33, width=\linewidth]{success.PNG}
+l.64 ...scale=0.33, width=\linewidth]{success.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
 
  []
 
 
-LaTeX Warning: File `successful_sql_login.PNG' not found on input line 72.
+LaTeX Warning: File `successful_sql_login.PNG' not found on input line 71.
 
 
 ! Package pdftex.def Error: File `successful_sql_login.PNG' not found.
@@ -283,14 +241,14 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 ...idth=\linewidth]{successful_sql_login.PNG}
+l.71 ...idth=\linewidth]{successful_sql_login.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: File `_etc_password.PNG' not found on input line 75.
+LaTeX Warning: File `_etc_password.PNG' not found on input line 74.
 
 
 ! Package pdftex.def Error: File `_etc_password.PNG' not found.
@@ -299,7 +257,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 ...0.33, width=\linewidth]{_etc_password.PNG}
+l.74 ...0.33, width=\linewidth]{_etc_password.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -307,7 +265,7 @@ If that doesn't work, type  X <return>  to quit.
 
 [8] [9] [10]
 
-LaTeX Warning: File `weird_output.PNG' not found on input line 88.
+LaTeX Warning: File `weird_output.PNG' not found on input line 87.
 
 
 ! Package pdftex.def Error: File `weird_output.PNG' not found.
@@ -316,25 +274,25 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.88 ...=0.33, width=\linewidth]{weird_output.PNG}
+l.87 ...=0.33, width=\linewidth]{weird_output.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 86--91
 
  []
 
 [11]
-Overfull \hbox (165.75027pt too wide) in paragraph at lines 96--96
+Overfull \hbox (165.75027pt too wide) in paragraph at lines 95--95
 []\OT1/cmtt/m/n/12 # hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/m
 etasploit/namelist.txt -v -t 8[] 
  []
 
 
-LaTeX Warning: File `find_the_login.PNG' not found on input line 97.
+LaTeX Warning: File `find_the_login.PNG' not found on input line 96.
 
 
 ! Package pdftex.def Error: File `find_the_login.PNG' not found.
@@ -343,7 +301,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.97 ....33, width=\linewidth]{find_the_login.PNG}
+l.96 ....33, width=\linewidth]{find_the_login.PNG}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -359,10 +317,10 @@ If that doesn't work, type  X <return>  to quit.
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux") ) 
 Here is how much of TeX's memory you used:
- 2350 strings out of 493921
- 33362 string characters out of 3144873
- 86159 words of memory out of 3000000
- 5661 multiletter control sequences out of 15000+200000
+ 2359 strings out of 493921
+ 33571 string characters out of 3144873
+ 86129 words of memory out of 3000000
+ 5669 multiletter control sequences out of 15000+200000
  9276 words of font info for 33 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,6n,32p,548b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -371,9 +329,9 @@ m/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on HolwerdaGunnar.pdf (17 pages, 71471 bytes).
+Output written on HolwerdaGunnar.pdf (16 pages, 257084 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

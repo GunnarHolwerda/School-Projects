@@ -3,9 +3,7 @@
 \usepackage{listings}
 
 \title{CSCI-476 Final Test}
-\client{mthack.me}
 \date{May 6, 2015}
-\reportType{Hint, Blackbox/Redteam}
 \author{Gunnar Holwerda}
 \renewcommand*\contentsname{Table of Contents}
 \newcommand{\mychapter}[2]{
@@ -26,45 +24,37 @@
 
 \clearpage
 
-\mychapter{2}{Attack Narrative}
-\section{Round 1}
-I started with an nmap of the ip address:
+% Begin Round 1
+
+\mychapter{2}{Round 1}
+\section{DiscoveredIn1655}
+When starting out I was given the information that the members of mhk had been discussing RFC2100. This RFC mentions a few names, so I began using the names mentioned as subdomains of mthack.me and quickly found titan.mthack.me. I ran nmap on the host to see what ports were open.\\
 	\begin{verbatim}
-	# nmap 192.168.2.12
+	$	nmap -sS -p1-65535 titan.mthack.me -v -T4
 	\end{verbatim}
-Which gave me a list of available ports:\\
-\includegraphics[scale=0.33, width=\linewidth]{list_of_ports.PNG}
+The nmap returned that port 22 and 23 were open. I attempted to ssh, but found that a public key was needed. Next I used telnet to connect to port 23 and was presented with my first flag ``DiscoveredIn1655''.\\
+\includegraphics[scale=0.33, width=\linewidth]{DiscoveredIn1655.png}
 \newline
-I decided that I would try to investigate the MySQL port and see if that could give me any sort of access to the system. I decided to run an NetCat on the port:
+\section{Th1sT1m3ItsAMoon}
+In addition to titan.mthack.me, I was able to find the europa.mthack.me subdomain. After an nmap on europa I saw that port 7870 was open. There was no information about this port, so I used NetCat to connect to it, it returned ``SSH-2.0-OpenSSH\_6.6.1''. After seeing this I knew that I should use SSH to connect to europa.mthack.me on this port.
 	\begin{verbatim}
-	# ncat 192.168.2.12 3306
+	$	ssh europa.mthack.me -p 7870
 	\end{verbatim}
-This gave me some very weird output that I could not understand. It was at this point I decided to wait until Nessus finished installing. Then I could run a basic network scan of the system and see if there were any MySQL vulnerabilities on the system.\\
-\includegraphics[scale=0.33, width=\linewidth]{ncat_sql_return_info.PNG}
+After adding europa to my known\_hosts I was presented with my second flag ``Th1sT1m3ItsAMoon''.\\
+\includegraphics[scale=0.33, width=\linewidth]{Th1sT1m3ItsAMoon.png}
 \newline
 
-\section{Round 2}
-\includegraphics[scale=0.33, width=\linewidth]{nessus_scan.PNG}
-The Nessus scan of the virtual machine returned many errors, but since I was interested in attacking the MySQL service I started to check if there were any errors associated with it. I was able to find a vulnerability associated with MySQL of ``MySQL Unpassworded Account Check''.\\
-After finding this vulnerability I decided that it was time to load up msfconsole and start to try to exploit it. After searching for MySQL I was able to find a tool called ``mysql\_login''. I decided to try it out as I figured I would try to login to the MySQL service using a blank password like Nessus suggested there was. 
-	\begin{verbatim}
-	> use auxiliary/scanner/mysql/mysql_login
-	> info
-	> set RHOSTS 192.168.2.12
-	> set BLANK_PASSWORDS true
-	> exploit
-	\end{verbatim}
-After running the tool with the options set as above, I received the output:\
+% Begin Round 2
+
+\mychapter{Round 2}
+\section{SOMEFLAG}
+Everything is broken!\\
 \includegraphics[scale=0.33, width=\linewidth]{blank_password_check_output.PNG}
 \newline
-I was confused at first as I had thought that Nessus had said the password was blank. Then I remembered that I had forgotten to set a username, so I set the username to root and ran it again:
-	\begin{verbatim}
-	> set USERNAME root
-	> exploit
-	\end{verbatim}
-\includegraphics[scale=0.33, width=\linewidth]{success.PNG}
-\newline
-\section{Round 3}
+
+% Begin Round 3
+
+\mychapter{Round 3}
 I now have the username and password to the MySQL service. I decided to attempt to log into the service remotely through my machine to see what I could do from there:
 	\begin{verbatim}
 	# mysql -h 192.168.2.12 -u root -p
