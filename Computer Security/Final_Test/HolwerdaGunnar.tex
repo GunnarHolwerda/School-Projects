@@ -46,7 +46,7 @@ After adding europa to my known\_hosts I was presented with my second flag ``Th1
 
 % Begin Round 2
 
-\mychapter{Round 2}
+\mychapter{3}{Round 2}
 \section{SOMEFLAG}
 Everything is broken!\\
 \includegraphics[scale=0.33, width=\linewidth]{blank_password_check_output.PNG}
@@ -54,12 +54,15 @@ Everything is broken!\\
 
 % Begin Round 3
 
-\mychapter{Round 3}
-I now have the username and password to the MySQL service. I decided to attempt to log into the service remotely through my machine to see what I could do from there:
-	\begin{verbatim}
-	# mysql -h 192.168.2.12 -u root -p
-	\end{verbatim}
-\includegraphics[scale=0.33, width=\linewidth]{successful_sql_login.PNG}
+\mychapter{4}{Round 3}
+\section{nextlevel}
+Given the binary for round three, I first ran strings on the file using grep to try to find ``password'' or something along those lines. These attempts were unsuccessful, so I moved onto editing the binary using radare2. I was able to find the location of a ``jnz'' instruction right after asking for the number. I edited that instruction to be a ``jz'' instead and was presented with ``ciph3rfun.html''.\\
+
+\includegraphics[scale=0.33, width=\linewidth]{ciph3rfunhtml.PNG}
+
+I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of enocded flag. It looked like ROT, so I went to a ROT decoder, entered the cipher text and was presented with the flag ``nextlevel''.\\
+\includegraphics[scale=0.33, width=\linewidth]{nextlevel.PNG}
+
 \newline
 I ran a ``show grants;'' to find out how much power the user I now controlled has. Turns out I had access to everything in MySQL! What if I tried to open the ``/etc/passwd'' file?\\
 \includegraphics[scale=0.33, width=\linewidth]{_etc_password.PNG}
@@ -79,7 +82,10 @@ When I selected everything from the user table, I got a very messy printout of t
 \newline
 I then attempted to try to use the mysql\_hashdump tool from msfconsole, unfortunately it was unable to provide me with anything. Next I decided to see if there were any known exploits for the current MySQL version that was running on the system. That search turned up nothing as well. I went into MySQL again and grabbed the print out of the ``/etc/passwd'' file from before to use it as a user list to try to brute force an SSH account.
 \newline
-\section{Round 4}
+
+% Begin Round 4
+
+\section{5}{Round 4}
 I determined that I was going to try to brute force an SSH account using the users from the ``/etc/passwd'' file I was able to print out from MySQL. AFter waiting for a long time as Hydra attempted to test multiple passwords for the large user list, I decided to just focus on one user. I picked the user ``user'' and decided to try to brute force it using the namelist.txt wordlist from ``/usr/share/wordlists/metasploit/'' built into Kali. 
 	\begin{verbatim}
 	# hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/metasploit/namelist.txt -v -t 8
@@ -89,10 +95,10 @@ I determined that I was going to try to brute force an SSH account using the use
 I was able to successfully find the password for ``user'' and thus login to an SSH account with shell access.
 \clearpage
 
-\mychapter{3}{Summary}
+\mychapter{6}{Summary}
 
 \clearpage
 
-\mychapter{4}{Biography}
+\mychapter{7}{Biography}
 
 \end{document}
