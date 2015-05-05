@@ -48,18 +48,26 @@ After adding europa to my known\_hosts I was presented with my second flag ``Th1
 \includegraphics[scale=0.33, width=\linewidth]{Th1sT1m3ItsAMoon.png}
 \newline
 \section{SocialContract}
-%
-%	Text for SocialContractFlag
-%
+Another subdomain that I found during my investigation was hobbes.mthack.me. When visiting the subdomain in a browser you are presented with a webpage that says ``hi''. I decided to try to run dirbuster to see if there were any files that were accessible on the server through the browser. After many attempts with the built in directory wordlists in Kali, I downloaded a new set and ran the ``Crazy'' version of the wordlist. This returned that /~root/ssh was accessible. There was a file in the directory leading me to the ``.ssh'' folder. I downloaded the private key from the server using:\\
+	\begin{verbatim}
+	$	wget hobbes.mthack.me/~root/.ssh/id_rsa
+	\end{verbatim}
+
+I then moved the key to my .ssh directory and ran:
+	\begin{verbatim}
+	$	ssh thomas@hobbes.mthack.me
+	\end{verbatim}
+
+There was a text file in the home directory, I opened it up, and found the final flag in Round 1 ``SocialContract''.\\
 \includegraphics[scale=0.33, width=\linewidth]{SocialContract.png}
+\clearpage
 
 % Begin Round 2
 
 \mychapter{3}{Round 2}
 \section{TomcatIsAVulnerability}
-%
-%	Text for TomcatIsAVulnerability
-%
+The information for Round 2 led me to mercury.mthack.me. I used nmap on the host and discovered that port 8089 was open, but was unknown. After using netcat to try to tell what the service was, I opened up mercury.mthack.me:8089 in my browser. I was then presented with the Tomcat homepage. I tried to login as the manager with ``tomcat'', ``tomcat'' as my username and password and was successful in logging in.\\
+After trying multiple exploits and payloads through metasploit, I eventually found a website that provided me with a payload that I could upload which gave me a shell through the browser. I uploaded that file and started navigating the filesystem looking for a file. After about 20 minutes of unsuccessul searches I decided to start listing everything ordered by time. I figured that the flag would be in a directory that had been modified most recently. This strategy led me to /opt/ where the flag.txt file was residing. I opened the file and was presented with the flag from round 2, ``TomcatIsAVulnerability''.\\
 \includegraphics[scale=0.33, width=\linewidth]{TomcatIsAVulnerability.png}
 \newline
 
@@ -79,9 +87,7 @@ I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of 
 
 \mychapter{5}{Round 4}
 \section{FSInc3ption}
-%
-%	Text for FSInc3ption
-%
+
 	\begin{verbatim}
 	# hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/metasploit/namelist.txt -v -t 8
 	\end{verbatim}
@@ -95,6 +101,9 @@ I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of 
 \newline
 
 \mychapter{6}{Round 5}
+\section{haxtheplanet}
+\includegraphics[scale=0.33, width=\linewidth]{haxtheplanet.png}
+
 
 \mychapter{7}{Misc. Flags}
 \section{mylittlepwnie}

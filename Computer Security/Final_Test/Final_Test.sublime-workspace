@@ -23,7 +23,7 @@
 			"file": "HolwerdaGunnar.tex",
 			"settings":
 			{
-				"buffer_size": 5343,
+				"buffer_size": 3677,
 				"line_ending": "Windows"
 			}
 		}
@@ -117,6 +117,7 @@
 	],
 	"file_history":
 	[
+		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.log",
 		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/HolwerdaGunnar.pdf",
 		"/C/Users/Gunnar/Desktop/hobbes.pub",
 		"/D/Documents/Programming/School-Projects/Computer Security/Final_Test/Final_Test.sublime-project",
@@ -236,6 +237,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"img/",
+			"\\img",
 			"\\section",
 			"Queen Victoria",
 			"Prince William, Duke of Cambridge",
@@ -279,27 +282,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5343,
+						"buffer_size": 3677,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1161,
-								1161
-							],
-							[
-								1782,
-								1782
-							],
-							[
-								2506,
-								2506
-							],
-							[
-								2792,
-								2792
+								400,
+								400
 							]
 						],
 						"settings":
@@ -311,7 +302,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
