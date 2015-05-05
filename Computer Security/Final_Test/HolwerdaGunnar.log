@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  5 MAY 2015 01:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  5 MAY 2015 11:44
 entering extended mode
 **D:/Documents/Programming/School-Projects/Computer*Security/Final_Test/Holwerd
 aGunnar.tex
@@ -93,18 +93,18 @@ Package: listings 2014/09/06 1.5e (Carsten Heinz)
 
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count97
@@ -121,9 +121,9 @@ LaTeX Font Info:    ... okay on input line 17.
 )
 \c@lstlisting=\count103
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 18.
+(Font)              <14.4> on input line 21.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 18.
+(Font)              <7> on input line 21.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
@@ -143,7 +143,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
  []
 
@@ -151,10 +151,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 File: img/DiscoveredIn1655.png Graphic file (type png)
 
 <use img/DiscoveredIn1655.png>
-Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 37.
+Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 40.
 (pdftex.def)             Requested size: 271.94682pt x 170.91907pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--39
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
 
  []
 
@@ -165,19 +165,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--39
 File: img/Th1sT1m3ItsAMoon.png Graphic file (type png)
 
 <use img/Th1sT1m3ItsAMoon.png>
-Package pdftex.def Info: img/Th1sT1m3ItsAMoon.png used on input line 45.
+Package pdftex.def Info: img/Th1sT1m3ItsAMoon.png used on input line 48.
 (pdftex.def)             Requested size: 271.61559pt x 169.59412pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 
  []
 
 [4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/D
-iscoveredIn1655.png>] <img/SocialContract.png, id=23, 737.75626pt x 497.86pt>
+iscoveredIn1655.png>]
+Overfull \hbox (16.92781pt too wide) in paragraph at lines 51--52
+\OT1/cmr/m/n/12 Another sub-do-main that I found dur-ing my in-ves-ti-ga-tion w
+as hobbes.mthack.me.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+<img/SocialContract.png, id=23, 737.75626pt x 497.86pt>
 File: img/SocialContract.png Graphic file (type png)
 
 <use img/SocialContract.png>
-Package pdftex.def Info: img/SocialContract.png used on input line 51.
+Package pdftex.def Info: img/SocialContract.png used on input line 62.
 (pdftex.def)             Requested size: 243.46031pt x 164.2943pt.
  [5 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
 Th1sT1m3ItsAMoon.png>] [6 <D:/Documents/Programming/School-Projects/Computer Se
@@ -186,18 +197,19 @@ curity/Final_Test/img/SocialContract.png>]
 File: img/TomcatIsAVulnerability.png Graphic file (type png)
 
 <use img/TomcatIsAVulnerability.png>
-Package pdftex.def Info: img/TomcatIsAVulnerability.png used on input line 60.
+Package pdftex.def Info: img/TomcatIsAVulnerability.png used on input line 71.
 (pdftex.def)             Requested size: 241.47289pt x 80.49095pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
+Underfull \hbox (badness 10000) in paragraph at lines 69--73
 
  []
 
 [7
 
+
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/Tom
 catIsAVulnerability.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
@@ -205,20 +217,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
 File: img/ciph3rfunhtml.PNG Graphic file (type png)
 
 <use img/ciph3rfunhtml.PNG>
-Package pdftex.def Info: img/ciph3rfunhtml.PNG used on input line 69.
+Package pdftex.def Info: img/ciph3rfunhtml.PNG used on input line 80.
 (pdftex.def)             Requested size: 280.89026pt x 84.13457pt.
 
-Overfull \hbox (17.64206pt too wide) in paragraph at lines 69--70
+Overfull \hbox (17.64206pt too wide) in paragraph at lines 80--81
 [][] 
  []
 
 <img/nextlevel.PNG, id=36, 363.3575pt x 527.9725pt>
 File: img/nextlevel.PNG Graphic file (type png)
  <use img/nextlevel.PNG>
-Package pdftex.def Info: img/nextlevel.PNG used on input line 72.
+Package pdftex.def Info: img/nextlevel.PNG used on input line 83.
 (pdftex.def)             Requested size: 119.90834pt x 174.23146pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--74
+Underfull \hbox (badness 10000) in paragraph at lines 82--85
 
  []
 
@@ -230,47 +242,61 @@ Overfull \vbox (18.19356pt too high) has occurred while \output is active []
 
 
 [9 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/n
-extlevel.PNG>] [10]
-Overfull \hbox (165.75027pt too wide) in paragraph at lines 84--84
-[]\OT1/cmtt/m/n/12 # hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/m
-etasploit/namelist.txt -v -t 8[] 
- []
-
-<img/FSInc3ption.PNG, id=46, 1195.46625pt x 1192.455pt>
+extlevel.PNG>] [10] <img/FSInc3ption.PNG, id=46, 1195.46625pt x 1192.455pt>
 File: img/FSInc3ption.PNG Graphic file (type png)
 
 <use img/FSInc3ption.PNG>
-Package pdftex.def Info: img/FSInc3ption.PNG used on input line 85.
+Package pdftex.def Info: img/FSInc3ption.PNG used on input line 91.
 (pdftex.def)             Requested size: 394.50508pt x 393.51137pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
+Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
 [11
 
-] <img/deaddrop.png, id=50, 929.4725pt x 188.705pt>
-File: img/deaddrop.png Graphic file (type png)
- <use img/deaddrop.png>
-Package pdftex.def Info: img/deaddrop.png used on input line 91.
-(pdftex.def)             Requested size: 306.72687pt x 62.27283pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+]
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[12 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
-FSInc3ption.PNG> <D:/Documents/Programming/School-Projects/Computer Security/Fi
-nal_Test/img/deaddrop.png>] [13] [14
 
-]
-<img/mylittlepwnie.png, id=61, 1300.86pt x 633.36626pt>
+Overfull \hbox (171.92528pt too wide) in paragraph at lines 98--98
+[]\OT1/cmtt/m/n/12 $ fcrack -v -D -p /usr/share/wordlists/metasploit-jtr/passwo
+rd.lst mhk-warez-login-info.zip[] 
+ []
+
+[12 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
+FSInc3ption.PNG>] <img/deaddrop.png, id=54, 929.4725pt x 188.705pt>
+File: img/deaddrop.png Graphic file (type png)
+
+<use img/deaddrop.png>
+Package pdftex.def Info: img/deaddrop.png used on input line 100.
+(pdftex.def)             Requested size: 306.72687pt x 62.27283pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
+
+ []
+
+[13 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
+deaddrop.png>] <img/haxtheplanet.png, id=58, 660.4675pt x 74.2775pt>
+File: img/haxtheplanet.png Graphic file (type png)
+
+<use img/haxtheplanet.png>
+Package pdftex.def Info: img/haxtheplanet.png used on input line 106.
+(pdftex.def)             Requested size: 217.95494pt x 24.51164pt.
+ [14
+
+ <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/hax
+theplanet.png>]
+<img/mylittlepwnie.png, id=62, 1300.86pt x 633.36626pt>
 File: img/mylittlepwnie.png Graphic file (type png)
 
 <use img/mylittlepwnie.png>
-Package pdftex.def Info: img/mylittlepwnie.png used on input line 101.
+Package pdftex.def Info: img/mylittlepwnie.png used on input line 112.
 (pdftex.def)             Requested size: 429.28513pt x 209.0115pt.
  [15
+
 
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/myl
 ittlepwnie.png>] [16
@@ -283,21 +309,21 @@ ittlepwnie.png>] [16
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux") ) 
 Here is how much of TeX's memory you used:
- 2388 strings out of 493921
- 34338 string characters out of 3144873
+ 2393 strings out of 493921
+ 34453 string characters out of 3144873
  87139 words of memory out of 3000000
- 5697 multiletter control sequences out of 15000+200000
+ 5701 multiletter control sequences out of 15000+200000
  9276 words of font info for 33 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,32p,498b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,32p,708b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
 17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on HolwerdaGunnar.pdf (18 pages, 629975 bytes).
+Output written on HolwerdaGunnar.pdf (18 pages, 647901 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

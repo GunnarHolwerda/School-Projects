@@ -87,29 +87,28 @@ I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of 
 
 \mychapter{5}{Round 4}
 \section{FSInc3ption}
-
-	\begin{verbatim}
-	# hydra ssh://192.168.2.12 -l user -P /usr/share/wordlists/metasploit/namelist.txt -v -t 8
-	\end{verbatim}
+I downloaded mhk.exe from mthack.me/test, and ran file on it to see what sort of file it was. The output told me that it was a file system. I decided to use DFF GUI on it for my forensic tool and saw that in the file system there were two files: .mhk-warez-login-info.zip and m0ar-secrets.dd. I extracted the .dd file from mhk.exe and opened that in DFF GUI to find flag.txt. Giving me my first flag of round 4: ``FSInc3ption''.\\
 \includegraphics[scale=0.33, width=\linewidth]{FSInc3ption.PNG}
 \newline
+
 \section{deaddrop}
-%
-%	Text for deaddrop
-%
+I switched my attention towards the .mhk-warez-login-info.zip file. When trying to unzip it, I was presented with a prompt to enter the password. I thought that the file may be encrypted using true encrypt, I ran truecrack on it but the password wasn't cracked. Eventually I found the fcrack tool which is used to brute force passworded zip files.\\
+	\begin{verbatim}
+	$	fcrack -v -D -p /usr/share/wordlists/metasploit-jtr/password.lst mhk-warez-login-info.zip
+	\end{verbatim}
+AFter an hour of looking at the help text, and setting up the correct flags It was able to find the correct password of ``blessed''. After it unzipped I had the flag.txt file and opened it up to find my second flag of Round 4: ``deaddrop''.\\
 \includegraphics[scale=0.33, width=\linewidth]{deaddrop.png}
 \newline
 
 \mychapter{6}{Round 5}
 \section{haxtheplanet}
+Given the pcap for Round 5, I ran strings on the file using grep to filter out for ``flag:'', this gave me another flag: ``haxtheplanet''.\\
 \includegraphics[scale=0.33, width=\linewidth]{haxtheplanet.png}
-
+\clearpage
 
 \mychapter{7}{Misc. Flags}
 \section{mylittlepwnie}
-%
-%	Text for mylittlepwnie
-%
+On the second day of the test, the homepage for mthack.me was updated to include a username and password login form. I knew from before that the source of the webpage contained some comments so I decided to view the source of the page. I found the <script> tag linking the login form to login.js. In the javascript it was directly comparing if the login was ``root:toor''. I used those credentials to login to the site and was presented with my 9th and final flag: ``mylittlepwnie''.\\
 \includegraphics[scale=0.33, width=\linewidth]{mylittlepwnie.png}
 \clearpage
 
