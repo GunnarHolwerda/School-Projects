@@ -18,7 +18,30 @@
 % Begin actual report
 
 \begin{document}
-\maketitle
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+\textsc{\LARGE Montana State University}\\[1.5cm] % Name of your university/college
+\textsc{\Large Hint, BlackBox, RedTeam}\\[0.5cm] % Major heading such as course name
+\textsc{\large mthack.me}\\[0.5cm] % Minor heading such as course title
+
+
+\HRule \\[0.4cm]
+{ \huge \bfseries CSCI-476 Final Practicum}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+
+\Large \emph{Author:}\\
+Gunnar \textsc{Holwerda}\\[3cm] % Your name
+
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
 
 \tableofcontents
 \clearpage
@@ -37,7 +60,7 @@ When starting out I was given the information that the members of mhk had been d
 	$	nmap -sS -p1-65535 titan.mthack.me -v -T4
 	\end{verbatim}
 The nmap returned that port 22 and 23 were open. I attempted to ssh, but found that a public key was needed. Next I used telnet to connect to port 23 and was presented with my first flag ``DiscoveredIn1655''.\\
-\includegraphics[scale=0.33, width=\linewidth]{DiscoveredIn1655.png}
+\includegraphics[height=200px, width=\linewidth]{DiscoveredIn1655.png}
 \newline
 \section{Th1sT1m3ItsAMoon}
 In addition to titan.mthack.me, I was able to find the europa.mthack.me subdomain. After an nmap on europa I saw that port 7870 was open. There was no information about this port, so I used NetCat to connect to it, it returned ``SSH-2.0-OpenSSH\_6.6.1''. After seeing this I knew that I should use SSH to connect to europa.mthack.me on this port.
@@ -60,7 +83,6 @@ I then moved the key to my .ssh directory and ran:
 
 There was a text file in the home directory, I opened it up, and found the final flag in Round 1 ``SocialContract''.\\
 \includegraphics[scale=0.33, width=\linewidth]{SocialContract.png}
-\clearpage
 
 % Begin Round 2
 
