@@ -1,6 +1,7 @@
 \documentclass[12pt]{report}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{cite}
 
 % Document setup
 \graphicspath{ {img/} }
@@ -47,8 +48,13 @@ Gunnar \textsc{Holwerda}\\[3cm] % Your name
 \clearpage
 
 \mychapter{0}{Executive Summary}
-
-
+Over the course of my time exploring the MHK's domains I was able to find many exploits. In my first phase of exploration there were open ssh and telnet ports on a couple subdomains that I was able to exploit. Then on a certain subdomain I was able to download the private ssh key from the server through my web browser.\\
+\newline
+During phase two I was able to find a subdomain with tomcat installed and open to the public. It had default credentials which allowed me to upload a payload to the site and get a reverse shell. In phase 3 I was able to edit a binary, using radare2, to edit the assembly of a binary to get me past a password check and allowed me to find the name to a secret html file.\\
+\newline
+Phase 4 involved me sifting through a file system using the DFF GUI to extract sensitive data that was witheld within. Finally, in phase 5 I was able to filter the strings out of a pcap file using strings to find the last bit of sensitive data I needed to complete this report.\\
+\newline
+Overall I feel that the MHK have not protected their servers well from outside attack and would give them and overall ranking of 3 / 10.
 \clearpage
 
 % Begin Round 1
@@ -78,7 +84,7 @@ After adding europa to my known\_hosts I was presented with my second flag ``Th1
 \end{center}
 \section{SocialContract}
 
-Another subdomain that I found during my investigation was hobbes.mthack.me. When visiting the subdomain in a browser you are presented with a webpage that says ``hi''. I decided to try to run dirbuster to see if there were any files that were accessible on the server through the browser. After many attempts with the built in directory wordlists in Kali, I downloaded a new set and ran the ``Crazy'' version of the wordlist. This returned that /~root/ssh was accessible. There was a file in the directory leading me to the ``.ssh'' folder. I downloaded the private key from the server using:
+Another subdomain that I found during my investigation was hobbes.mthack.me. When visiting the subdomain in a browser you are presented with a webpage that says ``hi''. I decided to try to run dirbuster to see if there were any files that were accessible on the server through the browser. After many attempts with the built in directory wordlists in Kali, I downloaded a new set \cite{jrivard2009} and ran the ``Crazy'' version of the wordlist. This returned that /~root/ssh was accessible. There was a file in the directory leading me to the ``.ssh'' folder. I downloaded the private key from the server using:
 	\begin{verbatim}
 	$	wget hobbes.mthack.me/~root/.ssh/id_rsa
 	\end{verbatim}
@@ -99,7 +105,7 @@ There was a text file in the home directory, I opened it up, and found the final
 
 The information for Round 2 led me to mercury.mthack.me. I used nmap on the host and discovered that port 8089 was open, but was unknown. After using netcat to try to tell what the service was, I opened up mercury.mthack.me:8089 in my browser. I was then presented with the Tomcat homepage. I tried to login as the manager with ``tomcat'', ``tomcat'' as my username and password and was successful in logging in.\\
 \newline
-After trying multiple exploits and payloads through metasploit, I eventually found a website that provided me with a payload that I could upload which gave me a shell through the browser. I uploaded that file and started navigating the filesystem looking for a file. After about 20 minutes of unsuccessul searches I decided to start listing everything ordered by time. I figured that the flag would be in a directory that had been modified most recently. This strategy led me to /opt/ where the flag.txt file was residing. I opened the file and was presented with the flag from round 2, ``TomcatIsAVulnerability''.\\
+After trying multiple exploits and payloads through metasploit, I eventually found a website \cite{tonylee2012} that provided me with a payload that I could upload which gave me a shell through the browser. I uploaded that file and started navigating the filesystem looking for a file. After about 20 minutes of unsuccessul searches I decided to start listing everything ordered by time. I figured that the flag would be in a directory that had been modified most recently. This strategy led me to /opt/ where the flag.txt file was residing. I opened the file and was presented with the flag from round 2, ``TomcatIsAVulnerability''.\\
 \newline
 \begin{center}
 \includegraphics[scale=0.33]{TomcatIsAVulnerability.png}
@@ -153,9 +159,12 @@ On the second day of the test, the homepage for mthack.me was updated to include
 \end{center}
 
 \mychapter{7}{Summary}
-
+The MHK domain has many vulnerabilities that I was able to exploit in order to find the flags dispersed throughout. My overall reccomendation is to never have Tomcat available to the public as it is a very vulnerable service, so that should be removed from mercury.mthack.me at all costs. It is also important to check the permissions on files in your file systems so that they can't be accessed through a web browser if the server has apache installed.\\
+\newline
+When compiling programs it is important to make sure that the compiler being used does not present the code in such an easy format for attackers to be able to exploit. File systems containing sensitive data should be encrypted to avoid it being stolen by an untrustworthy party. Lastly, WiFi traffic needs to be encrypted, preferably by WPA2. Finding the sensitive data in the pcap traffic was far too simple and could have been avoided if it was encrypted.
 \clearpage
 
-\mychapter{8}{Bibliography}
+\bibliography{mybib}{}
+\bibliographystyle{plain}
 
 \end{document}
