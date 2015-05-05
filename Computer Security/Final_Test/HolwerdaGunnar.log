@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  5 MAY 2015 13:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.29)  5 MAY 2015 16:06
 entering extended mode
 **D:/Documents/Programming/School-Projects/Computer*Security/Final_Test/Holwerd
 aGunnar.tex
@@ -126,11 +126,11 @@ LaTeX Font Info:    ... okay on input line 20.
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.toc"
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+(Font)              <6> on input line 3.
 )
 \tf@toc=\write3
  [1
@@ -139,7 +139,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
 
  []
 
@@ -147,170 +157,198 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--59
 File: img/DiscoveredIn1655.png Graphic file (type png)
 
 <use img/DiscoveredIn1655.png>
-Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 63.
-(pdftex.def)             Requested size: 389.9954pt x 200.75305pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
-
- []
-
-[3
+Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 66.
+(pdftex.def)             Requested size: 271.94682pt x 170.91907pt.
+ [3
 
 
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/Dis
-coveredIn1655.png>] <img/Th1sT1m3ItsAMoon.png, id=21, 823.075pt x 513.92pt>
-File: img/Th1sT1m3ItsAMoon.png Graphic file (type png)
-
-<use img/Th1sT1m3ItsAMoon.png>
-Package pdftex.def Info: img/Th1sT1m3ItsAMoon.png used on input line 71.
-(pdftex.def)             Requested size: 271.61559pt x 169.59412pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--73
+coveredIn1655.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
 
-Overfull \hbox (16.92781pt too wide) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+
+ []
+
+<img/Th1sT1m3ItsAMoon.png, id=21, 823.075pt x 513.92pt>
+File: img/Th1sT1m3ItsAMoon.png Graphic file (type png)
+
+<use img/Th1sT1m3ItsAMoon.png>
+Package pdftex.def Info: img/Th1sT1m3ItsAMoon.png used on input line 77.
+(pdftex.def)             Requested size: 271.61559pt x 169.59412pt.
+
+Overfull \hbox (16.92781pt too wide) in paragraph at lines 81--82
 \OT1/cmr/m/n/12 Another sub-do-main that I found dur-ing my in-ves-ti-ga-tion w
 as hobbes.mthack.me.
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+[4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/T
+h1sT1m3ItsAMoon.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
 
  []
 
-[4 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/T
-h1sT1m3ItsAMoon.png>] <img/SocialContract.png, id=25, 737.75626pt x 497.86pt>
-File: img/SocialContract.png Graphic file (type png)
 
-<use img/SocialContract.png>
-Package pdftex.def Info: img/SocialContract.png used on input line 85.
-(pdftex.def)             Requested size: 243.46031pt x 164.2943pt.
- [5 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
-SocialContract.png>]
-<img/TomcatIsAVulnerability.png, id=29, 731.73375pt x 243.91125pt>
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+
+ []
+
+File: img/DiscoveredIn1655.png Graphic file (type png)
+<use img/DiscoveredIn1655.png>
+Package pdftex.def Info: img/DiscoveredIn1655.png used on input line 92.
+(pdftex.def)             Requested size: 271.94682pt x 170.91907pt.
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 100--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--104
+
+ []
+
+<img/TomcatIsAVulnerability.png, id=28, 731.73375pt x 243.91125pt>
 File: img/TomcatIsAVulnerability.png Graphic file (type png)
 
 <use img/TomcatIsAVulnerability.png>
-Package pdftex.def Info: img/TomcatIsAVulnerability.png used on input line 93.
+Package pdftex.def Info: img/TomcatIsAVulnerability.png used on input line 105.
+
 (pdftex.def)             Requested size: 241.47289pt x 80.49095pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--95
-
- []
-
-[6
+ [6
 
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/Tom
 catIsAVulnerability.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
-<img/ciph3rfunhtml.PNG, id=34, 851.18pt x 254.9525pt>
-File: img/ciph3rfunhtml.PNG Graphic file (type png)
 
-<use img/ciph3rfunhtml.PNG>
-Package pdftex.def Info: img/ciph3rfunhtml.PNG used on input line 102.
-(pdftex.def)             Requested size: 280.89026pt x 84.13457pt.
-
-Overfull \hbox (17.64206pt too wide) in paragraph at lines 102--103
-[][] 
- []
-
-<img/nextlevel.PNG, id=35, 363.3575pt x 527.9725pt>
-File: img/nextlevel.PNG Graphic file (type png)
- <use img/nextlevel.PNG>
-Package pdftex.def Info: img/nextlevel.PNG used on input line 105.
-(pdftex.def)             Requested size: 119.90834pt x 174.23146pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
+
+ []
+
+<img/nextlevel.png, id=33, 363.3575pt x 127.47626pt>
+File: img/nextlevel.png Graphic file (type png)
+ <use img/nextlevel.png>
+Package pdftex.def Info: img/nextlevel.png used on input line 117.
+(pdftex.def)             Requested size: 272.51744pt x 95.60695pt.
 
 [7
 
- <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/cip
-h3rfunhtml.PNG>]
-Overfull \vbox (18.19356pt too high) has occurred while \output is active []
-
-
-[8 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/n
-extlevel.PNG>] [9] <img/FSInc3ption.PNG, id=45, 1195.46625pt x 1192.455pt>
-File: img/FSInc3ption.PNG Graphic file (type png)
-
-<use img/FSInc3ption.PNG>
-Package pdftex.def Info: img/FSInc3ption.PNG used on input line 113.
-(pdftex.def)             Requested size: 394.50508pt x 393.51137pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
-
- []
-
-[10
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+ <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/nex
+tlevel.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 123--125
 
  []
 
 
-Overfull \hbox (171.92528pt too wide) in paragraph at lines 120--120
-[]\OT1/cmtt/m/n/12 $ fcrack -v -D -p /usr/share/wordlists/metasploit-jtr/passwo
-rd.lst mhk-warez-login-info.zip[] 
+Underfull \hbox (badness 10000) in paragraph at lines 123--125
+
  []
 
-[11 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
-FSInc3ption.PNG>] <img/deaddrop.png, id=52, 929.4725pt x 188.705pt>
+<img/FSInc3ption.png, id=37, 769.87625pt x 305.14pt>
+File: img/FSInc3ption.png Graphic file (type png)
+ <use img/FSInc3ption.png>
+Package pdftex.def Info: img/FSInc3ption.png used on input line 126.
+(pdftex.def)             Requested size: 254.05995pt x 100.6965pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
+
+ []
+
+
+Overfull \hbox (42.25021pt too wide) in paragraph at lines 133--133
+[]\OT1/cmtt/m/n/12 $ fcrack -v -D -p metasploit-jtr/password.lst mhk-warez-logi
+n-info.zip[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+[8
+
+ <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/FSI
+nc3ption.png (PNG copy)>] <img/deaddrop.png, id=41, 929.4725pt x 188.705pt>
 File: img/deaddrop.png Graphic file (type png)
 
 <use img/deaddrop.png>
-Package pdftex.def Info: img/deaddrop.png used on input line 122.
+Package pdftex.def Info: img/deaddrop.png used on input line 136.
 (pdftex.def)             Requested size: 306.72687pt x 62.27283pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+ [9 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
+deaddrop.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
 
-[12 <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/
-deaddrop.png>] <img/haxtheplanet.png, id=57, 660.4675pt x 74.2775pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+ []
+
+<img/haxtheplanet.png, id=45, 660.4675pt x 74.2775pt>
 File: img/haxtheplanet.png Graphic file (type png)
 
 <use img/haxtheplanet.png>
-Package pdftex.def Info: img/haxtheplanet.png used on input line 128.
-(pdftex.def)             Requested size: 217.95494pt x 24.51164pt.
- [13
+Package pdftex.def Info: img/haxtheplanet.png used on input line 144.
+(pdftex.def)             Requested size: 330.23294pt x 37.13866pt.
+ [10
 
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/hax
 theplanet.png>]
-<img/mylittlepwnie.png, id=61, 1300.86pt x 633.36626pt>
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
+
+ []
+
+<img/mylittlepwnie.png, id=49, 1300.86pt x 633.36626pt>
 File: img/mylittlepwnie.png Graphic file (type png)
 
 <use img/mylittlepwnie.png>
-Package pdftex.def Info: img/mylittlepwnie.png used on input line 134.
+Package pdftex.def Info: img/mylittlepwnie.png used on input line 152.
 (pdftex.def)             Requested size: 429.28513pt x 209.0115pt.
- [14
 
+Overfull \hbox (39.28513pt too wide) in paragraph at lines 152--153
+ [] 
+ []
+
+[11
 
  <D:/Documents/Programming/School-Projects/Computer Security/Final_Test/img/myl
-ittlepwnie.png>] [15
+ittlepwnie.png>] [12
 
-
-] [16
+] [13
 
 
 ]
 ("D:\Documents\Programming\School-Projects\Computer Security\Final_Test\Holwerd
 aGunnar.aux") ) 
 Here is how much of TeX's memory you used:
- 2396 strings out of 493921
- 34475 string characters out of 3144873
+ 2385 strings out of 493921
+ 34226 string characters out of 3144873
  87139 words of memory out of 3000000
- 5702 multiletter control sequences out of 15000+200000
+ 5694 multiletter control sequences out of 15000+200000
  9913 words of font info for 35 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,5n,32p,708b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,5n,32p,708b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
@@ -318,9 +356,9 @@ mr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
 7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.
 pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pf
 b>
-Output written on HolwerdaGunnar.pdf (17 pages, 668865 bytes).
+Output written on HolwerdaGunnar.pdf (14 pages, 401372 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
