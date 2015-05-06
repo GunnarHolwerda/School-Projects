@@ -1,8 +1,36 @@
 \begin{thebibliography}{1}
 
+\bibitem{jayr.ashworth1997}
+Jay~R. Ashworth.
+\newblock The naming of hosts.
+\newblock {\em Network Working Group}, 1997.
+\newblock https://www.ietf.org/rfc/rfc2100.txt.
+
+\bibitem{jrivard2009}
+jrivard.
+\newblock Wordlist for pwm.
+\newblock {\em Google Code}, 2009.
+\newblock
+  https://code.google.com/p/pwm/downloads/detail?name=wordlist.zip\&can=2\&q=.
+
 \bibitem{tonylee2012}
 Tony Lee.
 \newblock Manually exploiting tomcat manager.
 \newblock {\em Open Security Research}, 2012.
+\newblock
+  http://blog.opensecurityresearch.com/2012/09/manually-exploiting-tomcat-manager.html.
+
+\bibitem{dff2012}
+None.
+\newblock Digital forensics framework gui.
+\newblock {\em Digital Forensics Framework Wiki}, 2012.
+\newblock http://wiki.digital-forensic.org/index.php/GUI.
+
+\bibitem{shredder122010}
+shredder12.
+\newblock How to crack zip file passwords on linux using fcrackzip.
+\newblock {\em linuxers}, 2010.
+\newblock
+  http://linuxers.org/article/how-crack-zip-file-passwords-linux-using-fcrackzip.
 
 \end{thebibliography}

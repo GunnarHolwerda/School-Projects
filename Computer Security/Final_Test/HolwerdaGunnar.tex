@@ -62,7 +62,7 @@ Overall I feel that the MHK have not protected their servers well from outside a
 \mychapter{1}{Round 1}
 \section{DiscoveredIn1655}
 
-When starting out I was given the information that the members of mhk had been discussing RFC2100. This RFC mentions a few names, so I began using the names mentioned as subdomains of mthack.me and quickly found titan.mthack.me. I ran nmap on the host to see what ports were open.\\
+When starting out I was given the information that the members of mhk had been discussing RFC2100 \cite{jayr.ashworth1997}. This RFC mentions a few names, so I began using the names mentioned as subdomains of mthack.me and quickly found titan.mthack.me. I ran nmap on the host to see what ports were open.\\
 	\begin{verbatim}
 	$	nmap -sS -p1-65535 titan.mthack.me -v -T4
 	\end{verbatim}
@@ -126,16 +126,16 @@ I then visited www.mthack.me/ciph3rfun.html and was presented with some sort of 
 
 \mychapter{4}{Round 4}
 \section{FSInc3ption}
-I downloaded mhk.exe from mthack.me/test, and ran file on it to see what sort of file it was. The output told me that it was a file system. I decided to use DFF GUI on it for my forensic tool and saw that in the file system there were two files: .mhk-warez-login-info.zip and m0ar-secrets.dd. I extracted the .dd file from mhk.exe and opened that in DFF GUI to find flag.txt. Giving me my first flag of round 4: ``FSInc3ption''.\\
+I downloaded mhk.exe from mthack.me/test, and ran file on it to see what sort of file it was. The output told me that it was a file system. I decided to use DFF GUI \cite{dff2012} on it for my forensic tool and saw that in the file system there were two files: .mhk-warez-login-info.zip and m0ar-secrets.dd. I extracted the .dd file from mhk.exe and opened that in DFF GUI to find flag.txt. Giving me my first flag of round 4: ``FSInc3ption''.\\
 \newline
 \begin{center}
 \includegraphics[scale=0.33]{FSInc3ption.png}
 \end{center}
 
 \section{deaddrop}
-I switched my attention towards the .mhk-warez-login-info.zip file. When trying to unzip it, I was presented with a prompt to enter the password. I thought that the file may be encrypted using true encrypt, I ran truecrack on it but the password wasn't cracked. Eventually I found the fcrack tool which is used to brute force passworded zip files.\\
+I switched my attention towards the .mhk-warez-login-info.zip file. When trying to unzip it, I was presented with a prompt to enter the password. I thought that the file may be encrypted using true encrypt, I ran truecrack on it but the password wasn't cracked. Eventually I found the fcrackzip tool \cite{shredder122010} which is used to brute force passworded zip files.\\
 	\begin{verbatim}
-	$	fcrack -v -D -p metasploit-jtr/password.lst mhk-warez-login-info.zip
+	$	fcrackzip -v -D -p metasploit-jtr/password.lst mhk-warez-login-info.zip
 	\end{verbatim}
 After an hour of looking at the help text, and setting up the correct flags It was able to find the correct password of ``blessed''. After it unzipped I had the flag.txt file and opened it up to find my second flag of Round 4: ``deaddrop''.\\
 \begin{center}
