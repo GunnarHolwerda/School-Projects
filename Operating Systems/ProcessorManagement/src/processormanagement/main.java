@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package processormanagement;
+import java.util.ArrayList;
 
 /**
  *
@@ -20,18 +16,19 @@ public class main {
         runSimulation(generateTestingInfo(), NUM_PROCESSORS);
     }
     
-    public static Job[] generateTestingInfo() {
-        Job[] testingData = new Job[1000];
-        for (int i = 0; i < testingData.length; i++) {
-            testingData[i] = new Job((long)(Math.random() * 1000 + 1));
+    public static ArrayList<Job> generateTestingInfo() {
+        ArrayList<Job> testingData = new ArrayList();
+        for (int i = 0; i < testingData.size(); i++) {
+            testingData.add(new Job((long)(Math.random() * 1000 + 1)));
         }
         
         return testingData;
     }
     
-    public static void runSimulation(Job[] testingData, int numberOfProcessors) {
+    public static void runSimulation(ArrayList<Job> testingData, int numberOfProcessors) {
         // Initialize processors
         Processor[] processors = generateProcessors(NUM_PROCESSORS);
+        Thread[] threads = generateThreads(processors);
         
 //        // Iterate over processors and start each processor
 //        for (Processor p: processors) {
@@ -39,11 +36,9 @@ public class main {
 //            new Thread(p).start();
 //        }
         
-        Thread thread = new Thread(processors[0]);
-        thread.start();
-        
-        Job j = testingData[0];
-        processors[0].addJob(j);
+        while (!testingData.isEmpty()) {
+            
+        }
     }
     
     public static Processor[] generateProcessors(int numProcessors) {
@@ -53,5 +48,14 @@ public class main {
         }
         
         return processors;
+    }
+    
+    public static Thread[] generateThreads(Processor[] processors) {
+        Thread[] threads = new Thread[processors.length];
+        for (int i = 0; i < processors.length; i++) {
+            threads[i] = new Thread(processors[i]);
+        }
+        
+        return threads;
     }
 }
