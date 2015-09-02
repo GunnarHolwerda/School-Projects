@@ -41,3 +41,13 @@ Icon
 /Software Engineering/Projects/SingletonNetBeans/nbproject/private/
 /Software Engineering/Projects/SingletonNetBeans/build/
 /Software Engineering/Projects/SingletonNetBeans/dist/
+/Operating Systems/ProcessorManagement/nbproject/private/
+/Operating Systems/ProcessorManagement/build/
+
+# Ignore NetBeans Project folders
+.idea/
+build/
+dist/
+nbproject/
+build.xml
+manifest.mf
