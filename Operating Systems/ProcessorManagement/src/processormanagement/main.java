@@ -16,7 +16,7 @@ public class main {
      */
     public static void main(String[] args) {
         try {
-            runSimulation(generateTestingInfo(), NUM_PROCESSORS);   
+            runRoundRobinSimulation(generateTestingInfo(), NUM_PROCESSORS);   
         }
         catch (InterruptedException e) {
             System.out.println("There was an interruption in the Matrix");
@@ -26,15 +26,15 @@ public class main {
     public static ArrayList<Job> generateTestingInfo() {
         ArrayList<Job> testingData = new ArrayList();
         for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
-            testingData.add(new Job((long)(Math.random() * 1000 + 1)));
+            testingData.add(new Job((long)(Math.random() * 500 + 1)));
         }
         
         return testingData;
     }
     
-    public static void runSimulation(ArrayList<Job> testingData, int numberOfProcessors) throws InterruptedException {
+    public static void runRoundRobinSimulation(ArrayList<Job> testingData, int numberOfProcessors) throws InterruptedException {
         // Initialize processors
-        Processor[] processors = generateProcessors(NUM_PROCESSORS);
+        ProcessorRoundRobin[] processors = generateProcessors(NUM_PROCESSORS);
         Thread[] threads = generateThreads(processors);
         
         // Start all of the threads holding the processors
@@ -56,16 +56,16 @@ public class main {
         }
     }
     
-    public static Processor[] generateProcessors(int numProcessors) {
-        Processor[] processors = new Processor[numProcessors];
+    public static ProcessorRoundRobin[] generateProcessors(int numProcessors) {
+        ProcessorRoundRobin[] processors = new ProcessorRoundRobin[numProcessors];
         for (int i = 0; i < numProcessors; i++) {
-            processors[i] = new Processor("Processor " + i);
+            processors[i] = new ProcessorRoundRobin("Processor " + i);
         }
         
         return processors;
     }
     
-    public static Thread[] generateThreads(Processor[] processors) {
+    public static Thread[] generateThreads(ProcessorRoundRobin[] processors) {
         Thread[] threads = new Thread[processors.length];
         for (int i = 0; i < processors.length; i++) {
             threads[i] = new Thread(processors[i]);

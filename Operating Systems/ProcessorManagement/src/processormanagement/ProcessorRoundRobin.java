@@ -9,11 +9,11 @@ import java.util.logging.Logger;
  *
  * @author Gunnar
  */
-public class Processor implements Runnable {
+public class ProcessorRoundRobin implements Runnable {
     ArrayList<Job> jobList;
     String name;
     
-    Processor(String name) {
+    ProcessorRoundRobin(String name) {
         this.jobList = new ArrayList();
         this.name = name;
     }
@@ -42,7 +42,7 @@ public class Processor implements Runnable {
                     // Sleep for 1ms to simulate the job running
                     sleep(1);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(Processor.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println(this.name + " Getting job " + i + " with job.size() = " + this.jobList.size());
                 Job job = this.jobList.get(i);
