@@ -11,12 +11,14 @@ import java.util.logging.Logger;
  */
 public class Processor implements Runnable {
     ArrayList<Job> jobList;
+    String name;
     
-    Processor() {
+    Processor(String name) {
         this.jobList = new ArrayList();
+        this.name = name;
     }
     
-    public void addJob(Job j) {
+    public synchronized void addJob(Job j) {
         this.jobList.add(j);
     }
     
@@ -33,17 +35,16 @@ public class Processor implements Runnable {
             for (int i = this.jobList.size() - 1; i >= 0; i--) {
                 // Check if the size of the list has changed, if so we have new job, run that
                 if (this.jobList.size() > previousSize) {
-                    i = this.jobList.size();
+                    i = this.jobList.size() - 1;
                 }
                 
                 try {
                     // Sleep for 1ms to simulate the job running
-                    System.out.println("Sleeping");
                     sleep(1);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Processor.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+                System.out.println(this.name + " Getting job " + i + " with job.size() = " + this.jobList.size());
                 Job job = this.jobList.get(i);
                 // Subtract 1 from the sleep counter of the job
                 job.sleepTime -= 1;
