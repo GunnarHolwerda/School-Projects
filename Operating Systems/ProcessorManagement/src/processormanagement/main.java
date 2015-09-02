@@ -5,10 +5,6 @@
  */
 package processormanagement;
 
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Gunnar
@@ -26,11 +22,28 @@ public class main {
     
     public static Job[] generateTestingInfo() {
         Job[] testingData = new Job[1000];
+        for (int i = 0; i < testingData.length; i++) {
+            testingData[i] = new Job((long)(Math.random() * 1000 + 1));
+        }
+        
         return testingData;
     }
     
     public static void runSimulation(Job[] testingData, int numberOfProcessors) {
+        // Initialize processors
         Processor[] processors = generateProcessors(NUM_PROCESSORS);
+        
+//        // Iterate over processors and start each processor
+//        for (Processor p: processors) {
+//            System.out.println("Starting processor...");
+//            new Thread(p).start();
+//        }
+        
+        Thread thread = new Thread(processors[0]);
+        thread.start();
+        
+        Job j = testingData[0];
+        processors[0].addJob(j);
     }
     
     public static Processor[] generateProcessors(int numProcessors) {
