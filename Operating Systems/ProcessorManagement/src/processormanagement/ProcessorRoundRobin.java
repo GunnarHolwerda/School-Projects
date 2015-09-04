@@ -24,11 +24,11 @@ public class ProcessorRoundRobin implements Runnable {
     
     @Override
     public void run() {
-        System.out.println("Starting processor");
+        //System.out.println("Starting processor");
         // Infinite wait until the jobList has a Job in it
         while (this.jobList.isEmpty()) {}
         
-        System.out.println("A job has arrived");
+        //System.out.println("A job has arrived");
         // While we have jobs, keep processing them
         while (!jobList.isEmpty()) {
             int previousSize = jobList.size();
@@ -44,7 +44,7 @@ public class ProcessorRoundRobin implements Runnable {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                System.out.println(this.name + " Getting job " + i + " with job.size() = " + this.jobList.size());
+                //System.out.println(this.name + " Getting job " + i + " with job.size() = " + this.jobList.size());
                 Job job = this.jobList.get(i);
                 // Subtract 1 from the sleep counter of the job
                 job.sleepTime -= 1;
