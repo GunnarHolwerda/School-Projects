@@ -12,6 +12,9 @@ import java.io.FileNotFoundException;
 
 public class Change
 {
+    private int solutions[][];
+    private Scanner in;
+    
     Change (String inputFile) throws FileNotFoundException
     {
         in = new Scanner (new File (inputFile) );
@@ -22,45 +25,41 @@ public class Change
         int numberCoins;
         int maxChange;
         
+        // Read in the number of coins
         numberCoins = in.nextInt();
-        System.out.println("Number of coins = " + numberCoins);
-        coins = new int[numberCoins];
-        
-        for (int i = 0; i < numberCoins; i++)
-        {
-            coins[i] = in.nextInt();
-            System.out.println("Coin " + i + "'s value = " + coins[i]);
-        }
-        
+        // Read in the max sum we need to calculate for
         maxChange = in.nextInt();
-        System.out.println("Max change = " + maxChange);
         
-        solutions = new int [maxChange + 1][numberCoins];
+        /*
+            Initialize the solutions array with numberCoins + 1 rows and 
+            maxChange + 1 columns. To leave [0][0] to be 0;
+        */
+        solutions = new int[numberCoins + 1][maxChange + 2];
         
-        for (int i = 0; i <= maxChange; i++)
+        // Initialize the first value in each row to the coin value
+        for (int i = 1; i <= numberCoins; i++)
         {
-            solutions[i][0] = i;
+            solutions[i][0] = in.nextInt();
         }
         
-        for (int i = 0; i <= maxChange; i++)
-        {
-            for (int j = 1; j < numberCoins; j++)
-            {
-                solutions[i][j] = 0;
-            }
+        // Fill the top column with the values through maxChange
+        // Start at 2 to leave a column for 0 and go to maxChange + 1
+        // To get to the total maxChange
+        for (int i = 2; i <= maxChange + 1; i++) {
+            solutions[0][i] = i - 1;
         }
         
         printTable();
-        }
+    }
     
     private void printTable()
     {
         System.out.println("Table");
         for (int i = 0; i < solutions.length; i++)
         {
-            for (int j = 0; j < coins.length; j++)
+            for (int j = 0; j < solutions[0].length; j++)
             {
-                System.out.print(solutions[i][j] + " ");
+                System.out.printf("%2d ", solutions[i][j]);
             }
             System.out.println();
         }
@@ -70,39 +69,26 @@ public class Change
     
     public void fillTable()
     {
-        for (int column = 1; column < coins.length; column++)
-        {
-            for (int row = 0; row < solutions.length; row++)
-            {
-                // Dynamic Programming
-                if (coins[column] > row)
-                {
-                    solutions[row][column] = solutions[row][column - 1];
+        // Iterate over each row, start at 1 to skip the [0][0] = 0 location
+        for (int row = 1; row < solutions.length; row++) {
+            int currentCoinValue = solutions[row][0];
+            // Iterate over each column, start at 1 to skip the [0][0] = 0 location
+            for (int col = 2; col < solutions[0].length; col++) {
+                int currentSum = solutions[0][col];
+                
+                if (currentCoinValue > currentSum) {
+                    solutions[row][col] = solutions[row - 1][col];
                 }
-                else
-                {
-                    solutions[row][column] = Math.min (
-                      solutions[row][column - 1],
-                      solutions[row - coins[column]][column] + 1 );
+                else {
+                    // Get the solution from the above row
+                    int aboveColumn = solutions[row - 1][col];
+                    // Get the new solution:
+                    // Solution for the currentSum - currentCoinValue + 1
+                    int newCalculation = solutions[row][col - currentCoinValue] + 1;
+                    solutions[row][col] = Math.min(aboveColumn, newCalculation);
                 }
             }
         }
         printTable();
     }
-    
-    public void solveProblems()
-    {
-        int changeAmount;
-        
-        while (in.hasNext())
-        {
-            changeAmount = in.nextInt();
-            System.out.println("The least number of coins for " +
-               changeAmount + " is " + solutions[changeAmount][coins.length - 1]);
-        }
-    }
-    
-    private int coins[];
-    private int solutions[][];
-    private Scanner in;
 }
