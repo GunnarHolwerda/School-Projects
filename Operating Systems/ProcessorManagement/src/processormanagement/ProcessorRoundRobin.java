@@ -24,13 +24,12 @@ public class ProcessorRoundRobin implements Runnable {
     
     @Override
     public void run() {
-        //System.out.println("Starting processor");
         // Infinite wait until the jobList has a Job in it
         while (this.jobList.isEmpty()) {}
         
         //System.out.println("A job has arrived");
         // While we have jobs, keep processing them
-        while (!jobList.isEmpty()) {
+        while (!this.jobList.isEmpty()) {
             int previousSize = jobList.size();
             for (int i = this.jobList.size() - 1; i >= 0; i--) {
                 // Check if the size of the list has changed, if so we have new job, run that
