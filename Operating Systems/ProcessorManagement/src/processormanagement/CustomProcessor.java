@@ -1,7 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package processormanagement;
 
 import static java.lang.Thread.sleep;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,22 +13,17 @@ import java.util.logging.Logger;
  *
  * @author Gunnar
  */
-public class ProcessorRoundRobin extends Processor {
-   
-    ProcessorRoundRobin(String name) {
+public class CustomProcessor extends Processor {
+    
+    CustomProcessor(String name) {
         super(name);
     }
     
     @Override
     public void run() {
-        while (!this.jobList.isEmpty()) {
-            int previousSize = jobList.size();
+        while(!this.jobList.isEmpty()) {
             for (int i = this.jobList.size() - 1; i >= 0; i--) {
-                // Check if the size of the list has changed, if so we have new job, run that
-                if (this.jobList.size() > previousSize) {
-                    i = this.jobList.size() - 1;
-                }
-                
+                //System.out.println(this.name + " is still running with " + this.jobList.size() + " jobs");
                 try {
                     // Sleep for 1ms to simulate the job running
                     sleep(1);

@@ -11,20 +11,29 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 100;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 5;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("Custom Processor");
+        simulateProcessor(generateCustomProcessors(), false);
+        System.out.println("Round Robin");
+        simulateProcessor(generateRoundRobinProcessors(), false);
+    }
+    
+    public static void simulateProcessor(Processor[] processors, boolean useRandomTestData) {
         try {
             long minRuntime = -1, maxRuntime = 0, currentRuntime = 0;
             long[] runTimes = new long[NUMBER_OF_SIMULATIONS_TO_RUN];
             for (int i = 1; i <= NUMBER_OF_SIMULATIONS_TO_RUN; i ++) {
-                ProcessorRoundRobin[] processors = generateRoundRobinProcessors();
-                currentRuntime = runSimulation(generateTestingInfo(), processors);
+                ArrayList<Job> testingInfo = useRandomTestData ? generateTestingInfo() : generateTestJobs();
+                currentRuntime = runSimulation(testingInfo, processors);
+                
                 // Determine the max runtime that has occured
                 maxRuntime = (currentRuntime > maxRuntime) ? currentRuntime : maxRuntime;
+                
                 // Determine the min runtime that has occured
                 if (minRuntime == -1) {
                     minRuntime = currentRuntime;
@@ -34,11 +43,8 @@ public class main {
                 }
                 //Increase the total runtime of the simulation
                 runTimes[i - 1] = currentRuntime;
-                System.out.println("Finished simulation #" + i);
             }
-            double mean = calculateMean(runTimes);
-            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\nMin runtime: %d\nStdev: %.2f\n",
-                    mean, maxRuntime, minRuntime, calculateStandardDeviation(runTimes, mean));
+            printStatistics(runTimes, maxRuntime, minRuntime);
         }
         catch (InterruptedException e) {
             System.out.println("There was an interruption in the Matrix");
@@ -55,10 +61,8 @@ public class main {
     }
     
     public static long runSimulation(ArrayList<Job> testingData, Processor[] processors) throws InterruptedException {
-        System.out.println("0002 Received " + processors.length + " processors");
         Thread[] threads = generateThreads(processors);
-        System.out.println("0003 Received " + threads.length + " threads");
-        
+ 
         // Start all of the threads holding the processors
         for (Thread t: threads) {
             t.start();
@@ -81,18 +85,26 @@ public class main {
         
         // Join threads back in
         for (Thread t: threads) {
-            System.out.println("Waiting on join.");
             t.join();
         }
         
         // return the turnaround time for the simulation
         return (new Date().getTime()) - startTime;
     }
-    
+        
     public static ProcessorRoundRobin[] generateRoundRobinProcessors() {
         ProcessorRoundRobin[] processors = new ProcessorRoundRobin[NUM_PROCESSORS];
         for (int i = 0; i < processors.length; i++) {
             processors[i] = new ProcessorRoundRobin("Processor " + i);
+        }
+        
+        return processors;
+    }
+    
+    public static CustomProcessor[] generateCustomProcessors() {
+        CustomProcessor[] processors = new CustomProcessor[NUM_PROCESSORS];
+        for (int i = 0; i < processors.length; i++) {
+            processors[i] = new CustomProcessor("Processor " + i);
         }
         
         return processors;
@@ -105,6 +117,12 @@ public class main {
         }
         
         return threads;
+    }
+    
+    public static void printStatistics(long[] runTimes, long maxRuntime, long minRuntime) {
+        double mean = calculateMean(runTimes);
+            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\nMin runtime: %d\nStdev: %.2f\n",
+                    mean, maxRuntime, minRuntime, calculateStandardDeviation(runTimes, mean));
     }
     
     private static double calculateStandardDeviation(long[] array, double mean) {
@@ -127,7 +145,7 @@ public class main {
         return sum / array.length;
     }
     
-    public ArrayList<Job> generateTestJobs() {
+    public static ArrayList<Job> generateTestJobs() {
         ArrayList<Job> testingData = new ArrayList();
         testingData.add(new Job(9));
         testingData.add(new Job(2));

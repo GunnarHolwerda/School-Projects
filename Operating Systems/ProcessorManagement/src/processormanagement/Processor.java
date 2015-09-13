@@ -22,16 +22,14 @@ public class Processor implements Runnable{
     
     public synchronized void addJob(Job j) {
         this.jobList.add(j);
-        //System.out.println(name + " now contains " + this.jobList.size() + " jobs");
     }
     
     public synchronized void removeJob(Job j) {
         this.jobList.remove(j);
-        //System.out.println(name + " now contains " + this.jobList.size() + " jobs");
     }
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
