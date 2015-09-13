@@ -11,7 +11,7 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 10;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 100;
 
     /**
      * @param args the command line arguments
@@ -21,7 +21,8 @@ public class main {
             long minRuntime = -1, maxRuntime = 0, currentRuntime = 0;
             long[] runTimes = new long[NUMBER_OF_SIMULATIONS_TO_RUN];
             for (int i = 1; i <= NUMBER_OF_SIMULATIONS_TO_RUN; i ++) {
-                currentRuntime = runRoundRobinSimulation(generateTestingInfo(), NUM_PROCESSORS);
+                ProcessorRoundRobin[] processors = generateRoundRobinProcessors();
+                currentRuntime = runSimulation(generateTestingInfo(), processors);
                 // Determine the max runtime that has occured
                 maxRuntime = (currentRuntime > maxRuntime) ? currentRuntime : maxRuntime;
                 // Determine the min runtime that has occured
@@ -36,7 +37,7 @@ public class main {
                 System.out.println("Finished simulation #" + i);
             }
             double mean = calculateMean(runTimes);
-            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\nMin runtime: %d\n Stdev: %.2f\n",
+            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\nMin runtime: %d\nStdev: %.2f\n",
                     mean, maxRuntime, minRuntime, calculateStandardDeviation(runTimes, mean));
         }
         catch (InterruptedException e) {
@@ -47,23 +48,23 @@ public class main {
     public static ArrayList<Job> generateTestingInfo() {
         ArrayList<Job> testingData = new ArrayList();
         for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
-            testingData.add(new Job((long)(Math.random() * 500 + 1)));
+            testingData.add(new Job((int)(Math.random() * 500 + 1)));
         }
         
         return testingData;
     }
     
-    public static long runRoundRobinSimulation(ArrayList<Job> testingData, int numberOfProcessors) throws InterruptedException {
-        // Initialize processors
-        ProcessorRoundRobin[] processors = generateProcessors(NUM_PROCESSORS);
+    public static long runSimulation(ArrayList<Job> testingData, Processor[] processors) throws InterruptedException {
+        System.out.println("0002 Received " + processors.length + " processors");
         Thread[] threads = generateThreads(processors);
-        long startTime = new Date().getTime();
+        System.out.println("0003 Received " + threads.length + " threads");
         
         // Start all of the threads holding the processors
         for (Thread t: threads) {
             t.start();
         }
         
+        long startTime = new Date().getTime();
         // Start the first job on processor 0
         Job curJob = testingData.get(0);
         int curProcessor = 0;
@@ -80,6 +81,7 @@ public class main {
         
         // Join threads back in
         for (Thread t: threads) {
+            System.out.println("Waiting on join.");
             t.join();
         }
         
@@ -87,16 +89,16 @@ public class main {
         return (new Date().getTime()) - startTime;
     }
     
-    public static ProcessorRoundRobin[] generateProcessors(int numProcessors) {
-        ProcessorRoundRobin[] processors = new ProcessorRoundRobin[numProcessors];
-        for (int i = 0; i < numProcessors; i++) {
+    public static ProcessorRoundRobin[] generateRoundRobinProcessors() {
+        ProcessorRoundRobin[] processors = new ProcessorRoundRobin[NUM_PROCESSORS];
+        for (int i = 0; i < processors.length; i++) {
             processors[i] = new ProcessorRoundRobin("Processor " + i);
         }
         
         return processors;
     }
     
-    public static Thread[] generateThreads(ProcessorRoundRobin[] processors) {
+    public static Thread[] generateThreads(Processor[] processors) {
         Thread[] threads = new Thread[processors.length];
         for (int i = 0; i < processors.length; i++) {
             threads[i] = new Thread(processors[i]);
@@ -123,5 +125,23 @@ public class main {
         }
         
         return sum / array.length;
+    }
+    
+    public ArrayList<Job> generateTestJobs() {
+        ArrayList<Job> testingData = new ArrayList();
+        testingData.add(new Job(9));
+        testingData.add(new Job(2));
+        testingData.add(new Job(16));
+        testingData.add(new Job(3));
+        testingData.add(new Job(29));
+        testingData.add(new Job(198));
+        testingData.add(new Job(7));
+        testingData.add(new Job(170));
+        testingData.add(new Job(180));
+        testingData.add(new Job(178));
+        testingData.add(new Job(73));
+        testingData.add(new Job(8));
+        
+        return testingData;
     }
 }

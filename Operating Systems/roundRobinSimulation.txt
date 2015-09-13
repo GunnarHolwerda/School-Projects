@@ -1,0 +1,5 @@
+Round Robin:
+Average turnaround time: 104975.57
+Max runtime: 113728
+Min runtime: 96543
+Stdev: 3287.51

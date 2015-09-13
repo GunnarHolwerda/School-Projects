@@ -5,9 +5,9 @@ package processormanagement;
  * @author Gunnar
  */
 public class Job {
-    long sleepTime;
+    int sleepTime;
     
-    Job(long sleepTime) {
+    Job(int sleepTime) {
         this.sleepTime = sleepTime;
     }
 }
