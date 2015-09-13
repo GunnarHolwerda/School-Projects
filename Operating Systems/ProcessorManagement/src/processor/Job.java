@@ -1,13 +1,13 @@
-package processormanagement;
+package processor;
 
 /**
  *
  * @author Gunnar
  */
 public class Job {
-    int sleepTime;
+    public int sleepTime;
     
-    Job(int sleepTime) {
+    public Job(int sleepTime) {
         this.sleepTime = sleepTime;
     }
 }

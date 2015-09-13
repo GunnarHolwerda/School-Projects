@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package processormanagement;
+package processor;
 
+import processor.ProcessorRoundRobin;
+import processor.Processor;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class CustomProcessor extends Processor {
     
-    CustomProcessor(String name) {
+    public CustomProcessor(String name) {
         super(name);
     }
     
