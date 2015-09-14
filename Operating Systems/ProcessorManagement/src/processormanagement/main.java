@@ -59,7 +59,7 @@ public class main {
     public static ArrayList<Job> generateTestingInfo() {
         ArrayList<Job> testingData = new ArrayList();
         for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
-            testingData.add(new Job((int)(Math.random() * 500 + 1)));
+            testingData.add(new Job((int)(Math.random() * 125 + 1)));
         }
         
         return testingData;
