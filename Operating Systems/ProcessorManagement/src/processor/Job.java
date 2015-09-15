@@ -26,4 +26,9 @@ public class Job implements Comparable{
             return -1;
         }
     }
+    
+    @Override
+    public String toString() {
+        return "Job sleep: " + this.sleepTime + " arrivalTime: " + this.arrivalTime;
+    }
 }

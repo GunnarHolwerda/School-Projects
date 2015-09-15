@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Processor implements Runnable{
     ArrayList<Job> jobList;
     String name;
-    boolean notified;
+    volatile boolean notified;
     
     Processor (String name) {
         this.jobList = new ArrayList();
@@ -24,15 +24,28 @@ public class Processor implements Runnable{
     
     public synchronized void addJob(Job j) {
         this.jobList.add(j);
-        this.notified = true;
     }
     
     public synchronized void removeJob(Job j) {
         this.jobList.remove(j);
     }
+    
+    public synchronized void notifyReadyToFinish() {
+        this.notified = true;
+    }
 
+    public void dumpJobList() {
+        for (Job j: jobList) {
+            System.out.print(j + " ");
+        }
+    }
+    
     @Override
     public void run() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public String getName() {
+        return name;
     }
 }
