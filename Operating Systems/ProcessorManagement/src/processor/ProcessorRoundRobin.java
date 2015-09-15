@@ -18,28 +18,20 @@ public class ProcessorRoundRobin extends Processor {
     public void run() {
         while (!this.notified) {
             while (!this.jobList.isEmpty()) {
-                int previousSize = jobList.size();
-                for (int i = this.jobList.size() - 1; i >= 0; i--) {
-                    // Check if the size of the list has changed, if so we have new job, run that
-                    if (this.jobList.size() > previousSize) {
-                        previousSize = this.jobList.size();
-                        i = this.jobList.size() - 1;
-                    }
+                Job job = this.getJob(this.getJobListSize() - 1);
 
-                    try {
-                        // Sleep for 1ms to simulate the job running
-                        sleep(1);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    Job job = this.jobList.get(i);
-                    // Subtract 1 from the sleep counter of the job
-                    job.sleepTime -= 1;
+                try {
+                    // Sleep for 1ms to simulate the job running
+                    sleep(1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                // Subtract 1 from the sleep counter of the job
+                job.decrementSleepTime();
 
-                    // If the job has no computing time left, remove it from the list
-                    if (job.sleepTime == 0) {
-                        this.removeJob(job);
-                    }
+                // If the job has no computing time left, remove it from the list
+                if (job.isFinished()) {
+                    this.removeJob(0);
                 }
             }
        }

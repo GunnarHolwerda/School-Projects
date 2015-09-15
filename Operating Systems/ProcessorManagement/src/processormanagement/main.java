@@ -15,11 +15,8 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 100;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 10;
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // Run simulation for the custom processor
         System.out.println("Custom Processor");

@@ -28,19 +28,14 @@ public class CustomProcessor extends Processor {
     @Override
     public synchronized void addJob(Job j) {
         super.addJob(j);
-        Collections.sort(this.jobList);
+        //Collections.sort(this.jobList);
     }
     
     @Override
     public void run() {
         while (!this.notified) {
             while (!this.jobList.isEmpty()) {
-                // Grab the first job, which will be the top job
-                Job job = this.jobList.get(0);
-                if (job == null) {
-                    break;
-                }
-
+                Job job = this.getJob(0);
                 //Run complete job
                 while (job.sleepTime > 0) {
                     try {
@@ -49,11 +44,13 @@ public class CustomProcessor extends Processor {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    job.sleepTime -= 1;
+                    job.decrementSleepTime();
                 }
 
                 // Job is finished remove from list
-                this.removeJob(job);
+                if (job.isFinished()) {
+                    this.removeJob(0);
+                }
             }
             //System.out.println(this.name + " has no jobs and notified is " + this.notified);
         }

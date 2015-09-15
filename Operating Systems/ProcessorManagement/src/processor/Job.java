@@ -12,6 +12,14 @@ public class Job implements Comparable{
         this.sleepTime = sleepTime;
         this.arrivalTime = arrivalTime;
     }
+    
+    public synchronized void decrementSleepTime() {
+        this.sleepTime -= 1;
+    }
+    
+    public synchronized boolean isFinished() {
+        return this.sleepTime <= 0;
+    }
 
     @Override
     public int compareTo(Object o) {

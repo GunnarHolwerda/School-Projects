@@ -12,8 +12,10 @@ import java.util.ArrayList;
  * @author Gunnar
  */
 public class Processor implements Runnable{
-    ArrayList<Job> jobList;
     String name;
+    
+    // Variables that will be changed while the thread processes
+    volatile ArrayList<Job> jobList;
     volatile boolean notified;
     
     Processor (String name) {
@@ -26,18 +28,28 @@ public class Processor implements Runnable{
         this.jobList.add(j);
     }
     
-    public synchronized void removeJob(Job j) {
-        this.jobList.remove(j);
+    public synchronized Job getJob(int index) {
+        return this.jobList.get(index);
+    }
+    
+    public synchronized void removeJob(int index) {
+        this.jobList.remove(index);
     }
     
     public synchronized void notifyReadyToFinish() {
         this.notified = true;
     }
+    
+    public synchronized int getJobListSize() {
+        return this.jobList.size();
+    }
 
     public void dumpJobList() {
+        System.out.println(this.name);
         for (Job j: jobList) {
             System.out.print(j + " ");
         }
+        System.out.println();
     }
     
     @Override
