@@ -15,7 +15,7 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 100;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 1;
 
     /**
      * @param args the command line arguments
@@ -47,7 +47,7 @@ public class main {
                 }
                 //Increase the total runtime of the simulation
                 runTimes[i - 1] = currentRuntime;
-                System.out.print("\r" + i + "/" + NUMBER_OF_SIMULATIONS_TO_RUN);
+                //System.out.print("\r" + i + "/" + NUMBER_OF_SIMULATIONS_TO_RUN);
             }
             Statistics.printStatistics(runTimes, maxRuntime, minRuntime);
         }
@@ -59,7 +59,7 @@ public class main {
     public static ArrayList<Job> generateTestingInfo() {
         ArrayList<Job> testingData = new ArrayList();
         for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
-            testingData.add(new Job((int)(Math.random() * 125 + 1)));
+            testingData.add(new Job(i + 1, (int)(Math.random() * 125 + 1)));
         }
         
         return testingData;
@@ -77,15 +77,17 @@ public class main {
         // Start the first job on processor 0
         Job curJob = testingData.get(0);
         int curProcessor = 0;
+        sleep(curJob.arrivalTime);
         processors[curProcessor].addJob(curJob);
         testingData.remove(0);
         
         while (!testingData.isEmpty()) {
             curProcessor = (curProcessor + 1) % NUM_PROCESSORS;
+            int prevArrivalTime = curJob.arrivalTime;
             curJob = testingData.get(0);
             processors[curProcessor].addJob(curJob);
             testingData.remove(0);
-            sleep(1);
+            sleep(curJob.arrivalTime - prevArrivalTime);
         }
         
         // Join threads back in
@@ -126,18 +128,18 @@ public class main {
     
     public static ArrayList<Job> generateTestJobs() {
         ArrayList<Job> testingData = new ArrayList();
-        testingData.add(new Job(9));
-        testingData.add(new Job(2));
-        testingData.add(new Job(16));
-        testingData.add(new Job(3));
-        testingData.add(new Job(29));
-        testingData.add(new Job(198));
-        testingData.add(new Job(7));
-        testingData.add(new Job(170));
-        testingData.add(new Job(180));
-        testingData.add(new Job(178));
-        testingData.add(new Job(73));
-        testingData.add(new Job(8));
+        testingData.add(new Job(4,9));
+        testingData.add(new Job(15, 2));
+        testingData.add(new Job(18, 16));
+        testingData.add(new Job(20, 3));
+        testingData.add(new Job(26, 29));
+        testingData.add(new Job(29, 198));
+        testingData.add(new Job(35, 7));
+        testingData.add(new Job(45, 170));
+        testingData.add(new Job(57, 180));
+        testingData.add(new Job(83, 178));
+        testingData.add(new Job(88, 73));
+        testingData.add(new Job(95, 8));
         
         return testingData;
     }

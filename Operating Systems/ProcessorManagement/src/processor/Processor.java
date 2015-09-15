@@ -14,14 +14,17 @@ import java.util.ArrayList;
 public class Processor implements Runnable{
     ArrayList<Job> jobList;
     String name;
+    boolean notified;
     
     Processor (String name) {
         this.jobList = new ArrayList();
         this.name = name;
+        this.notified = false;
     }
     
     public synchronized void addJob(Job j) {
         this.jobList.add(j);
+        this.notified = true;
     }
     
     public synchronized void removeJob(Job j) {

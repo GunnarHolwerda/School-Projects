@@ -6,9 +6,11 @@ package processor;
  */
 public class Job implements Comparable{
     public int sleepTime;
+    public int arrivalTime;
     
-    public Job(int sleepTime) {
+    public Job(int arrivalTime, int sleepTime) {
         this.sleepTime = sleepTime;
+        this.arrivalTime = arrivalTime;
     }
 
     @Override

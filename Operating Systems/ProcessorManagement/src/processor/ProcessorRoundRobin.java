@@ -18,6 +18,7 @@ public class ProcessorRoundRobin extends Processor {
     
     @Override
     public void run() {
+        while (!this.notified) {}
         while (!this.jobList.isEmpty()) {
             int previousSize = jobList.size();
             for (int i = this.jobList.size() - 1; i >= 0; i--) {
