@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package processormanagement;
 
 /**
- *
+ *  Class that holds static methods to calculate the statistics
  * @author Gunnar
  */
 public class Statistics {

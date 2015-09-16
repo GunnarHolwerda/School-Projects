@@ -13,10 +13,11 @@ import java.util.logging.Logger;
  */
 public class CustomProcessor extends Processor {
     
-    int totalTime = 0;
+    private int totalTime;
     
     public CustomProcessor(String name) {
         super(name);
+        this.totalTime = 0;
     }
     
     public int getTotalTime() {
@@ -32,12 +33,6 @@ public class CustomProcessor extends Processor {
     public synchronized void addJob(Job j) {
         super.addJob(j);
         this.totalTime += j.sleepTime;
-    }
-    
-    @Override
-    public synchronized void removeJob(int index) {
-        // Then call super to remove the job
-        super.removeJob(index);
     }
     
     private synchronized void decrementTotalTime() {
