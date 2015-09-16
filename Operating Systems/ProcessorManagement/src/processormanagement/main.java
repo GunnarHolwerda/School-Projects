@@ -15,7 +15,7 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 10;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 1;
 
     public static void main(String[] args) {
         // Run simulation for the custom processor
@@ -46,7 +46,9 @@ public class main {
                 // testingInfo will either be Benhai's data or random jobs
                 ArrayList<Job> testingInfo = useRandomTestData ? generateTestingInfo() : generateTestJobs();
                 // Run the simulation with the testData on the processors
-                currentRuntime = runSimulation(testingInfo, processors);
+                currentRuntime = procType.equals("RR") ? 
+                        runRRSimulation(testingInfo, generateRoundRobinProcessors()) : 
+                        runCPSimulation(testingInfo, generateCustomProcessors());
                 
                 // Determine the max runtime that has occured
                 maxRuntime = (currentRuntime > maxRuntime) ? currentRuntime : maxRuntime;
@@ -77,7 +79,64 @@ public class main {
         return testingData;
     }
     
-    public static long runSimulation(ArrayList<Job> testingData, Processor[] processors) throws InterruptedException {
+    public static long runCPSimulation(ArrayList<Job> testingData, CustomProcessor[] processors) throws InterruptedException {
+        Thread[] threads = generateThreads(processors);
+        
+        for (Thread t: threads) {
+            t.start();
+        }
+        
+        Job jobToAdd = testingData.get(0);
+        sleep(jobToAdd.arrivalTime);
+        CustomProcessor p = findShortestProcessor(processors);
+        p.addJob(jobToAdd);
+        long startTime = new Date().getTime();
+        int prevArrivalTime = jobToAdd.arrivalTime;
+        
+        for (int i = 1; i < testingData.size(); i++) {
+            // Get the job at the current index
+            jobToAdd = testingData.get(i);
+            System.out.println(jobToAdd);
+            
+            // Sleep until the jobToAdd actually arrives
+            sleep(jobToAdd.arrivalTime - prevArrivalTime);
+            
+            // Find the processor with the shortest total sleepTime
+            p = findShortestProcessor(processors);
+            
+            //Add the job to that processor
+            p.addJob(jobToAdd);
+            
+            //Set the previous arrival time to the current job's
+            prevArrivalTime = jobToAdd.arrivalTime;
+        }
+        
+        notifyAllProcessors(processors);
+        
+        for (Thread t: threads) {
+            t.join();
+        }
+        
+        return (new Date().getTime()) - startTime;
+    }
+    
+    /**
+     * Returns the processor with the smallest amount of sleep time
+     * @param processors
+     * @return the CustomProcessor with the shortest total wait time
+     */
+    public static CustomProcessor findShortestProcessor(CustomProcessor[] processors) {
+        CustomProcessor minProcessor = processors[0];
+        for (int i = 1; i < processors.length; i++) {
+            if (processors[i].getTotalTime() < minProcessor.getTotalTime()) {
+                minProcessor = processors[i];
+            }            
+        }
+        
+        return minProcessor;
+    }
+    
+    public static long runRRSimulation(ArrayList<Job> testingData, ProcessorRoundRobin[] processors) throws InterruptedException {
         Thread[] threads = generateThreads(processors);
  
         // Start all of the threads holding the processors
@@ -85,7 +144,6 @@ public class main {
             t.start();
         }
         
-        long startTime = new Date().getTime();
         // Start the first job on processor 0
         Job curJob = testingData.get(0);
         int curProcessor = 0;
@@ -93,6 +151,7 @@ public class main {
         sleep(curJob.arrivalTime);
         // Add the job to the first processor and then remove it
         processors[curProcessor].addJob(curJob);
+        long startTime = new Date().getTime();
         testingData.remove(0);
         
         while (!testingData.isEmpty()) {
@@ -104,13 +163,14 @@ public class main {
             
             // Get the new job
             curJob = testingData.get(0);
+            System.out.println(curJob);
+            
+            //Sleep until the next job will arrive
+            sleep(curJob.arrivalTime - prevArrivalTime);
             
             // Add the job to the currentProcessor
             processors[curProcessor].addJob(curJob);
             testingData.remove(0);
-            
-            //Sleep until the next job will arrive
-            sleep(curJob.arrivalTime - prevArrivalTime);
         }
         
         // Notify all processors that they will receive no more jobs

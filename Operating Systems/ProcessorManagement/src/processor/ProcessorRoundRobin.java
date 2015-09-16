@@ -18,7 +18,9 @@ public class ProcessorRoundRobin extends Processor {
     public void run() {
         while (!this.notified) {
             while (!this.jobList.isEmpty()) {
+                // Get the most recent job added to the list
                 Job job = this.getJob(this.getJobListSize() - 1);
+                //System.out.println("Running job " + job + " on processor " + this.getName());
 
                 try {
                     // Sleep for 1ms to simulate the job running

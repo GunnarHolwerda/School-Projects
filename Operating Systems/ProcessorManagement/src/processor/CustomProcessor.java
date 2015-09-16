@@ -13,11 +13,19 @@ import java.util.logging.Logger;
 /**
  *
  * @author Gunnar
+ * 
+ * This is a custom processor that keeps track of its total sleep time
  */
 public class CustomProcessor extends Processor {
     
+    int totalTime = 0;
+    
     public CustomProcessor(String name) {
         super(name);
+    }
+    
+    public int getTotalTime() {
+        return this.totalTime;
     }
     
     /**
@@ -28,7 +36,17 @@ public class CustomProcessor extends Processor {
     @Override
     public synchronized void addJob(Job j) {
         super.addJob(j);
-        //Collections.sort(this.jobList);
+        this.totalTime += j.sleepTime;
+    }
+    
+    @Override
+    public synchronized void removeJob(int index) {
+        // Then call super to remove the job
+        super.removeJob(index);
+    }
+    
+    private synchronized void decrementTotalTime() {
+        this.totalTime--;
     }
     
     @Override
@@ -37,20 +55,16 @@ public class CustomProcessor extends Processor {
             while (!this.jobList.isEmpty()) {
                 Job job = this.getJob(0);
                 //Run complete job
-                while (job.sleepTime > 0) {
+                for (int i = 0; i < job.sleepTime; i++) {
                     try {
                         // Sleep for 1ms to simulate the job running
                         sleep(1);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    job.decrementSleepTime();
+                   this.decrementTotalTime();
                 }
-
-                // Job is finished remove from list
-                if (job.isFinished()) {
-                    this.removeJob(0);
-                }
+                this.removeJob(0);
             }
             //System.out.println(this.name + " has no jobs and notified is " + this.notified);
         }
