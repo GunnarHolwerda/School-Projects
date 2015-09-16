@@ -1,8 +1,5 @@
 package processormanagement;
-import processor.Job;
-import processor.CustomProcessor;
-import processor.ProcessorRoundRobin;
-import processor.Processor;
+import processor.*;
 import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,33 +12,37 @@ public class main {
     
     public static final int NUM_PROCESSORS = 3;
     public static final int NUMBER_OF_TEST_JOBS = 1000;
-    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 1;
+    public static final int NUMBER_OF_SIMULATIONS_TO_RUN = 100;
 
     public static void main(String[] args) {
         // Run simulation for the custom processor
+        System.out.println("======= GIVEN DATA ========");
         System.out.println("Custom Processor");
         simulateProcessor("CP", false);
         // Run the simulation for the Round Robin processor
         System.out.println("Round Robin");
         simulateProcessor("RR", false);
+        
+        System.out.println("======= RANDOM DATA ======");
+        System.out.println("Custom Processor");
+        simulateProcessor("CP", true);
+        // Run the simulation for the Round Robin processor
+        System.out.println("Round Robin");
+        simulateProcessor("RR", true);
     }
     
+    /**
+     * Runs the simulation for the type of processor passed in
+     * @param procType
+     * @param useRandomTestData 
+     */
     public static void simulateProcessor(String procType, boolean useRandomTestData) {
         try {
             long minRuntime = -1, maxRuntime = 0, currentRuntime = 0;
             long[] runTimes = new long[NUMBER_OF_SIMULATIONS_TO_RUN];
-            Processor[] processors = new Processor[NUM_PROCESSORS];
             for (int i = 1; i <= NUMBER_OF_SIMULATIONS_TO_RUN; i ++) {
                 // Print to console which simulation we are on currently
-                System.out.print(i + "\r");
-                
-                // Determine which processors to use for the simulation based on procType
-                if (procType.equals("RR")) {
-                    processors = generateRoundRobinProcessors();
-                }
-                else {
-                    processors = generateCustomProcessors();
-                }
+                System.out.print(i + "/" + NUMBER_OF_SIMULATIONS_TO_RUN + "\r");
                 
                 // testingInfo will either be Benhai's data or random jobs
                 ArrayList<Job> testingInfo = useRandomTestData ? generateTestingInfo() : generateTestJobs();
@@ -70,15 +71,14 @@ public class main {
         }
     }
     
-    public static ArrayList<Job> generateTestingInfo() {
-        ArrayList<Job> testingData = new ArrayList();
-        for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
-            testingData.add(new Job(i + 1, (int)(Math.random() * 125 + 1)));
-        }
-        
-        return testingData;
-    }
-    
+    /**
+     * Runs the simulation on the CP, will find the processor with the lowest total
+     * sleep time on it and place the new job there
+     * @param testingData
+     * @param processors
+     * @return how long in milliseconds the simulation took
+     * @throws InterruptedException 
+     */
     public static long runCPSimulation(ArrayList<Job> testingData, CustomProcessor[] processors) throws InterruptedException {
         Thread[] threads = generateThreads(processors);
         
@@ -135,6 +135,13 @@ public class main {
         return minProcessor;
     }
     
+    /**
+     * Runs the simulation on the Round Robin processor as described in the assignment
+     * @param testingData
+     * @param processors
+     * @return how long in milliseconds the simulation took
+     * @throws InterruptedException 
+     */
     public static long runRRSimulation(ArrayList<Job> testingData, ProcessorRoundRobin[] processors) throws InterruptedException {
         Thread[] threads = generateThreads(processors);
  
@@ -156,7 +163,6 @@ public class main {
         while (!testingData.isEmpty()) {
             // The next processor will be the (currentProcessor  + 1) % total number of processors
             curProcessor = (curProcessor + 1) % NUM_PROCESSORS;
-            System.out.print(curProcessor);
             
             // Take note of the arrivale time of the previous job
             int prevArrivalTime = curJob.arrivalTime;
@@ -222,6 +228,19 @@ public class main {
         }
         
         return threads;
+    }
+    
+        /**
+     * Generates an ArrayList of random jobs
+     * @return ArrayList<Job>
+     */
+    public static ArrayList<Job> generateTestingInfo() {
+        ArrayList<Job> testingData = new ArrayList();
+        for (int i = 0; i < NUMBER_OF_TEST_JOBS; i++) {
+            testingData.add(new Job(i + 1, (int)(Math.random() * 500 + 1)));
+        }
+        
+        return testingData;
     }
     
     /**

@@ -10,9 +10,11 @@ import java.util.ArrayList;
 /**
  *
  * @author Gunnar
+ * 
+ * The is a parent class for processors
  */
 public class Processor implements Runnable{
-    String name;
+    private final String name;
     
     // Variables that will be changed while the thread processes
     volatile ArrayList<Job> jobList;
@@ -42,14 +44,6 @@ public class Processor implements Runnable{
     
     public synchronized int getJobListSize() {
         return this.jobList.size();
-    }
-
-    public void dumpJobList() {
-        System.out.println(this.name);
-        for (Job j: jobList) {
-            System.out.print(j + " ");
-        }
-        System.out.println();
     }
     
     @Override

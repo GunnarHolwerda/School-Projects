@@ -3,9 +3,11 @@ package processor;
 /**
  *
  * @author Gunnar
+ * 
+ * This class represents a job
  */
-public class Job implements Comparable{
-    private int originalSleepTime;
+public class Job{
+    private final int originalSleepTime;
     public int sleepTime;
     public int arrivalTime;
     
@@ -21,24 +23,6 @@ public class Job implements Comparable{
     
     public synchronized boolean isFinished() {
         return this.sleepTime <= 0;
-    }
-    
-    public int getOriginalSleepTime() {
-        return this.originalSleepTime;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        Job comparator = (Job) o;
-        if (this.sleepTime > comparator.sleepTime) {
-            return 1;
-        }
-        else if (this.sleepTime == comparator.sleepTime) {
-            return 0;
-        }
-        else {
-            return -1;
-        }
     }
     
     @Override

@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 /**
  *
  * @author Gunnar
+ * 
+ * This is the round robin processor
  */
 public class ProcessorRoundRobin extends Processor {
    
