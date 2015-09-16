@@ -6,14 +6,17 @@ package processormanagement;
  */
 public class Statistics {
     
-    public static void printStatistics(long[] runTimes, long maxRuntime, long minRuntime) {
+    public static void printStatistics(long[] runTimes,
+            long maxRuntime,
+            long minRuntime) {
         double mean = calculateMean(runTimes);
         double stdDev = calculateStandardDeviation(runTimes, mean);
-            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\nMin runtime: %d\nStdev: %.2f\n\n",
+            System.out.printf("Average turnaround time: %.2f\nMax runtime: %d\n"
+                    + "Min runtime: %d\nStdev: %.2f\n\n",
                     mean, maxRuntime, minRuntime, stdDev);
     }
     
-    private static double calculateStandardDeviation(long[] array, double mean) {
+    private static double calculateStandardDeviation(long[] array, double mean){
         int sum = 0;
         
         for (long num: array) {

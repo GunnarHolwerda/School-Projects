@@ -45,7 +45,8 @@ public class main {
                 System.out.print(i + "/" + NUMBER_OF_SIMULATIONS_TO_RUN + "\r");
                 
                 // testingInfo will either be Benhai's data or random jobs
-                ArrayList<Job> testingInfo = useRandomTestData ? generateTestingInfo() : generateTestJobs();
+                ArrayList<Job> testingInfo = useRandomTestData ? 
+                        generateTestingInfo() : generateTestJobs();
                 // Run the simulation with the testData on the processors
                 currentRuntime = procType.equals("RR") ? 
                         runRRSimulation(testingInfo, generateRoundRobinProcessors()) : 
@@ -59,7 +60,8 @@ public class main {
                     minRuntime = currentRuntime;
                 }
                 else {
-                    minRuntime = (currentRuntime < minRuntime) ? currentRuntime : minRuntime;   
+                    minRuntime = (currentRuntime < minRuntime) ?
+                            currentRuntime : minRuntime;   
                 }
                 //Increase the total runtime of the simulation
                 runTimes[i - 1] = currentRuntime;
@@ -79,7 +81,9 @@ public class main {
      * @return how long in milliseconds the simulation took
      * @throws InterruptedException 
      */
-    public static long runCPSimulation(ArrayList<Job> testingData, CustomProcessor[] processors) throws InterruptedException {
+    public static long runCPSimulation(ArrayList<Job> testingData,
+            CustomProcessor[] processors) 
+            throws InterruptedException {
         Thread[] threads = generateThreads(processors);
         
         for (Thread t: threads) {
@@ -142,7 +146,9 @@ public class main {
      * @return how long in milliseconds the simulation took
      * @throws InterruptedException 
      */
-    public static long runRRSimulation(ArrayList<Job> testingData, ProcessorRoundRobin[] processors) throws InterruptedException {
+    public static long runRRSimulation(ArrayList<Job> testingData,
+            ProcessorRoundRobin[] processors) 
+            throws InterruptedException {
         Thread[] threads = generateThreads(processors);
  
         // Start all of the threads holding the processors
@@ -161,7 +167,8 @@ public class main {
         testingData.remove(0);
         
         while (!testingData.isEmpty()) {
-            // The next processor will be the (currentProcessor  + 1) % total number of processors
+            // The next processor will be the 
+            // (currentProcessor  + 1) % total number of processors
             curProcessor = (curProcessor + 1) % NUM_PROCESSORS;
             
             // Take note of the arrivale time of the previous job

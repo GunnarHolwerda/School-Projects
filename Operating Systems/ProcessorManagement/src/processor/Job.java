@@ -27,6 +27,7 @@ public class Job{
     
     @Override
     public String toString() {
-        return "Job sleep: " + this.originalSleepTime + " arrivalTime: " + this.arrivalTime;
+        return "Job sleep: " + this.originalSleepTime + " arrivalTime: " 
+                + this.arrivalTime;
     }
 }

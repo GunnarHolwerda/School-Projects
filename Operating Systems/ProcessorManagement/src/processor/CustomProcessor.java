@@ -24,11 +24,6 @@ public class CustomProcessor extends Processor {
         return this.totalTime;
     }
     
-    /**
-     * Override parent class addJob so that we sort the jobList every 
-     * time we add a job
-     * @param j The job to be added to the list
-     */
     @Override
     public synchronized void addJob(Job j) {
         super.addJob(j);
@@ -50,13 +45,13 @@ public class CustomProcessor extends Processor {
                         // Sleep for 1ms to simulate the job running
                         sleep(1);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(ProcessorRoundRobin.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ProcessorRoundRobin.class.getName())
+                                .log(Level.SEVERE, null, ex);
                     }
                    this.decrementTotalTime();
                 }
                 this.removeJob(0);
             }
-            //System.out.println(this.name + " has no jobs and notified is " + this.notified);
         }
     }
 }
