@@ -5,11 +5,13 @@ package processor;
  * @author Gunnar
  */
 public class Job implements Comparable{
+    private int originalSleepTime;
     public int sleepTime;
     public int arrivalTime;
     
     public Job(int arrivalTime, int sleepTime) {
         this.sleepTime = sleepTime;
+        this.originalSleepTime = sleepTime;
         this.arrivalTime = arrivalTime;
     }
     
@@ -19,6 +21,10 @@ public class Job implements Comparable{
     
     public synchronized boolean isFinished() {
         return this.sleepTime <= 0;
+    }
+    
+    public int getOriginalSleepTime() {
+        return this.originalSleepTime;
     }
 
     @Override
@@ -37,6 +43,6 @@ public class Job implements Comparable{
     
     @Override
     public String toString() {
-        return "Job sleep: " + this.sleepTime + " arrivalTime: " + this.arrivalTime;
+        return "Job sleep: " + this.originalSleepTime + " arrivalTime: " + this.arrivalTime;
     }
 }

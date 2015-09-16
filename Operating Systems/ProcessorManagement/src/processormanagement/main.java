@@ -96,7 +96,6 @@ public class main {
         for (int i = 1; i < testingData.size(); i++) {
             // Get the job at the current index
             jobToAdd = testingData.get(i);
-            System.out.println(jobToAdd);
             
             // Sleep until the jobToAdd actually arrives
             sleep(jobToAdd.arrivalTime - prevArrivalTime);
@@ -157,13 +156,13 @@ public class main {
         while (!testingData.isEmpty()) {
             // The next processor will be the (currentProcessor  + 1) % total number of processors
             curProcessor = (curProcessor + 1) % NUM_PROCESSORS;
+            System.out.print(curProcessor);
             
             // Take note of the arrivale time of the previous job
             int prevArrivalTime = curJob.arrivalTime;
             
             // Get the new job
             curJob = testingData.get(0);
-            System.out.println(curJob);
             
             //Sleep until the next job will arrive
             sleep(curJob.arrivalTime - prevArrivalTime);

@@ -33,7 +33,7 @@ public class ProcessorRoundRobin extends Processor {
 
                 // If the job has no computing time left, remove it from the list
                 if (job.isFinished()) {
-                    this.removeJob(0);
+                    this.removeJob(this.getJobListSize() - 1);
                 }
             }
        }
