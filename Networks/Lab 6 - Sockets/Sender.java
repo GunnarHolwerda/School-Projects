@@ -2,7 +2,6 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.DatagramPacket;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.net.UnknownHostException;
 
 public class Sender {
@@ -27,44 +26,58 @@ public class Sender {
         this.data = generateDataToBeSent();
     }
 
+    /**
+        Starts the Selective repeat protocol
+    */
     public void startSender() throws Exception {
 
         // Create the socket to send data through
         DatagramSocket senderSocket = new DatagramSocket(this.sendPort);
 
-        //Create loop that runs until all data has been acknowledged
+        // Get the current window
         int winPosition = 0;
-        while(!dataAcknowledged()) {
-            // Get the current window
-            Data[] win = determineWindow();
+        Data[] win = determineWindow();
 
+        //Create loop that runs until all data has been acknowledged
+        while(!dataAcknowledged()) {
             byte[] sendData = new byte[1024];
             // Move through the data until all has been sent
             if (winPosition < win.length) {
-                    sendData[0] = (byte) win[winPosition++].value;
+                //TODO figure out what to do if packets acknowledged out of order
+                // so we don't send a packet twice
+                sendData[0] = (byte) win[winPosition].value;
+                win[winPosition].sent = true;
+                winPosition++;
             }
 
             DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
-            //TODO: Implement a timeout for the packets
             senderSocket.send(sendPkt);
+            //TODO: Implement a timeout for the packets
+
             // The window position is the current packet being sent
             printPacketInfo(winPosition, win, false);
 
+            // Prepare to receive acknowledgement
             byte[] ackData = new byte[1024];
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length);
             senderSocket.receive(ackPkt);
+
+            // Get the value for the acknowledgement
             int ackValue = (int) ackPkt.getData()[0];
-            printPacketInfo(ackValue, win, true);
+
+            // Check to see if we need to move the window
             if (checkPacketInWindow(win, ackValue)) {
-                System.out.println("Did I find a packet?" + ackValue);
                 // Acknowledge the packet
                 this.data[ackValue].acknowledged = true;
-                /*
-                 Here I need to mark which packets in the window I have
-                 acknowledged, and then check if I can move the window
-                */
-                // TODO make check for if whole window acknowledged if so,
-                // set winPosition to 0
+                printPacketInfo(ackValue, win, true);
+
+                //Determine if the window needs to change after this acknowledgment
+                Data[] newWin = determineWindow();
+                if (windowHasChanged(win, newWin)) {
+                    win = newWin;
+                    // Reset window position to 0 to start iterating over
+                    winPosition = 0;
+                }
             }
         }
 
@@ -87,8 +100,11 @@ public class Sender {
             }
         }
 
-        for (int i = startPos; i < window.length; i++) {
-            window[i - startPos] = this.data[i];
+        //TODO figure out the case when the window overflows the data size
+        for (int i = 0; i < window.length; i++) {
+            if (startPos + i < this.data.length) {
+                window[i] = this.data[startPos + i];
+            }
         }
 
         return window;
@@ -177,9 +193,15 @@ public class Sender {
         return data;
     }
 
+    private boolean windowHasChanged(Data[] oldWin, Data[] newWin) {
+        // A new window can be determined if the first element of the window is
+        // different than the first
+        return oldWin[0] != newWin[0];
+    }
+
     // Private class to represent data
     private class Data {
-        boolean acknowledged;
+        boolean acknowledged, sent;
         int value;
 
         public Data(int value) {

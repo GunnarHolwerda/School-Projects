@@ -7,7 +7,7 @@ public class Receiver {
     public static void main(String[] args) throws Exception {
         DatagramSocket receiverSocket = new DatagramSocket(9877);
         int value = 0;
-        while(value < 1) {
+        while(value < 7) {
             byte[] rcvData = new byte[1024];
 
             DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
