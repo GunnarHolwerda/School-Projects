@@ -107,6 +107,9 @@ public class Sender {
             if (startPos + i < this.data.length) {
                 window[i] = this.data[startPos + i];
             }
+            else {
+                window[i] = new Data(-1);
+            }
         }
 
         return window;
@@ -134,6 +137,7 @@ public class Sender {
 
         System.out.print(startStr);
 
+        //TODO print an _ for the -1 value
         for (int i = 0; i < window.length; i++) {
             // If packet acknowledged add * to print
             String curWinStr = !window[i].acknowledged ? "%d*" : "%d";
