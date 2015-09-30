@@ -36,6 +36,7 @@ public class Sender {
 
         // Get the current window
         int winPosition = 0;
+        int sendValue = 0;
         Data[] win = determineWindow();
 
         //Create loop that runs until all data has been acknowledged
@@ -45,7 +46,8 @@ public class Sender {
             if (winPosition < win.length) {
                 //TODO figure out what to do if packets acknowledged out of order
                 // so we don't send a packet twice
-                sendData[0] = (byte) win[winPosition].value;
+                sendValue = win[winPosition].value;
+                sendData[0] = (byte) sendValue;
                 win[winPosition].sent = true;
                 winPosition++;
             }
@@ -55,7 +57,7 @@ public class Sender {
             //TODO: Implement a timeout for the packets
 
             // The window position is the current packet being sent
-            printPacketInfo(winPosition, win, false);
+            printPacketInfo(sendValue, win, false);
 
             // Prepare to receive acknowledgement
             byte[] ackData = new byte[1024];
@@ -69,7 +71,6 @@ public class Sender {
             if (checkPacketInWindow(win, ackValue)) {
                 // Acknowledge the packet
                 this.data[ackValue].acknowledged = true;
-                printPacketInfo(ackValue, win, true);
 
                 //Determine if the window needs to change after this acknowledgment
                 Data[] newWin = determineWindow();
@@ -78,6 +79,7 @@ public class Sender {
                     // Reset window position to 0 to start iterating over
                     winPosition = 0;
                 }
+                printPacketInfo(ackValue, win, true);
             }
         }
 
