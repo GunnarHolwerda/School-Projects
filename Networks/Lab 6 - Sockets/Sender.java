@@ -36,31 +36,12 @@ public class Sender {
 
         // Get the current window
         int winPosition = 0;
-        int sendValue = 0;
         Data[] win = determineWindow();
 
         //Create loop that runs until all data has been acknowledged
         while(!dataAcknowledged()) {
-            byte[] sendData = new byte[1024];
-            // Move through the data until all has been sent
-            if (winPosition < win.length) {
-                for (int i = winPosition; i < win.length; i++) {
-                    // If the packet we are going to send has already been sent,
-                    // don't send again, look for the next
-                    if (!win[i].acknowledged) {
-                        sendValue = win[winPosition].value;
-                        sendData[0] = (byte) sendValue;
-                        win[winPosition].sent = true;
-                        winPosition++;
-
-                        // We have found an unacknowledged packt to send
-                        break;
-                    }
-                    else {
-                        winPosition++;
-                    }
-                }
-            }
+            byte[] sendData = getPacketToSend(win);
+            int sendValue = (int) sendData[0];
 
             DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
             senderSocket.send(sendPkt);
@@ -94,6 +75,42 @@ public class Sender {
         }
 
         senderSocket.close();
+    }
+
+    private byte[] getPacketToSend(Data[] win) {
+        int winPosition = 0;
+        int sendValue = 0;
+        byte[] sendData = new byte[1];
+
+        // Check if any packet has timed out
+        for (Data pkt: win) {
+            if (pkt.hasTimedOut()) {
+                sendData[0] = (byte) pkt.value;
+                // Set the packet sent again to restart the timeout
+                pkt.setSent(true);
+                return sendData;
+            }
+        }
+
+        // If no packet has timed out, then move through the window
+        for (int i = winPosition; i < win.length; i++) {
+            // If the packet we are going to send has already been sent,
+            // don't send again, look for the next
+            if (!win[i].acknowledged) {
+                sendValue = win[winPosition].value;
+                sendData[0] = (byte) sendValue;
+                win[winPosition].setSent(true);
+                winPosition++;
+
+                // We have found an unacknowledged packt to send
+                break;
+            }
+            else {
+                winPosition++;
+            }
+        }
+
+        return sendData;
     }
 
     /**
@@ -223,10 +240,23 @@ public class Sender {
     private class Data {
         boolean acknowledged, sent;
         int value;
+        long timeSent;
 
         public Data(int value) {
             this.acknowledged = false;
             this.value = value;
+        }
+
+        public void setSent(boolean val) {
+            this.sent = val;
+
+            // Set the timeSent which will be used in the timeout
+            this.timeSent = System.currentTimeMillis();
+        }
+
+        public boolean hasTimedOut() {
+            // REturn if the current time is less than timeSent - 2 sec
+            return (System.currentTimeMillis() < this.timeSent + 2000);
         }
     }
 
