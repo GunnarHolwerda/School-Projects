@@ -53,6 +53,7 @@ public class Sender {
             // Prepare to receive acknowledgement
             byte[] ackData = new byte[1];
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length);
+            // TODO: Make it so that we don't hang when we wait for ack
             senderSocket.receive(ackPkt);
 
             // Get the value for the acknowledgement
@@ -272,17 +273,7 @@ public class Sender {
         System.out.print("Enter the maximum sequence number on the sender: ");
         int maxSeqNum = in.nextInt();
 
-        // System.out.print("Enter the packet(s) that will be dropped (csv format for multiple): ");
-        // String packets = in.nextLine();
-
-        // Parse the packets into an ArrayList by comma
-        // String[] packetArray = packets.split(",");
-        // ArrayList<Integer> pktToDrop = new ArrayList<Integer>();
-        // for (String pkt: packetArray) {
-        //     pktToDrop.add(Integer.parseInt(pkt));
-        // }
-
-        //TODO: Figure out what to do with packets to drop
+        //Handling of dropping packets is on the receiver side
 
         Sender sender = new Sender(winSize, maxSeqNum);
         sender.startSender();
