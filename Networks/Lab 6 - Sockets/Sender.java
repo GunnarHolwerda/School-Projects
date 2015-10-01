@@ -102,7 +102,6 @@ public class Sender {
             }
         }
 
-        //TODO figure out the case when the window overflows the data size
         for (int i = 0; i < window.length; i++) {
             if (startPos + i < this.data.length) {
                 window[i] = this.data[startPos + i];
@@ -136,12 +135,17 @@ public class Sender {
 
 
         System.out.print(startStr);
-
-        //TODO print an _ for the -1 value
         for (int i = 0; i < window.length; i++) {
             // If packet acknowledged add * to print
             String curWinStr = !window[i].acknowledged ? "%d*" : "%d";
-            System.out.printf(curWinStr, window[i].value);
+
+            // Check if we have a window value that is past maxSeqNum
+            // We will print a _ in this case, the value is signified by -1
+            if (window[i].value == -1) {
+                curWinStr = "%s";
+            }
+
+            System.out.printf(curWinStr, (window[i].value != -1) ? window[i].value : "_");
 
             // If we aren't the final print add a comma
             if (i < window.length - 1) {
