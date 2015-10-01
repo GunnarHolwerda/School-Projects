@@ -1,34 +1,68 @@
 import java.net.InetAddress;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.util.Scanner;
 
 public class Receiver {
+    private int windowSize, maxSeqNum, portNum;
 
-    public static void main(String[] args) throws Exception {
-        DatagramSocket receiverSocket = new DatagramSocket(9877);
+    public Receiver(int windowSize, int maxSeqNum) {
+        this.windowSize = windowSize;
+        this.maxSeqNum = maxSeqNum;
+        this.portNum = 9877;
+    }
+
+    public void startReceiver() throws Exception {
+        DatagramSocket receiverSocket = new DatagramSocket(this.portNum);
         int value = 0;
 
         // TODO: Implement window for this side
         while(value < 7) {
-            byte[] rcvData = new byte[1024];
+            byte[] rcvData = new byte[1];
 
             DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
 
             receiverSocket.receive(rcvPkt);
-            InetAddress IPAddress = rcvPkt.getAddress();
+            InetAddress senderIP = rcvPkt.getAddress();
             int port = rcvPkt.getPort();
             value = (int) rcvPkt.getData()[0];
             printPacketInfo(value, new int[8], false);
             Thread.sleep(5000);
 
-            byte[] ackData = new byte[1024];
+            byte[] ackData = new byte[1];
             ackData[0] = (byte) value;
 
-            DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length, IPAddress, port);
+            DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length, senderIP, port);
             receiverSocket.send(ackPkt);
             printPacketInfo(value, new int[8], true);
         }
         receiverSocket.close();
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner in = new Scanner(System.in);
+        // Get the window size
+        System.out.print("Enter the window's size on the sender: ");
+        int winSize = in.nextInt();
+
+        // Get the sequence number
+        System.out.print("Enter the maximum sequence number on the sender: ");
+        int maxSeqNum = in.nextInt();
+
+        // System.out.print("Enter the packet(s) that will be dropped (csv format for multiple): ");
+        // String packets = in.nextLine();
+
+        // Parse the packets into an ArrayList by comma
+        // String[] packetArray = packets.split(",");
+        // ArrayList<Integer> pktToDrop = new ArrayList<Integer>();
+        // for (String pkt: packetArray) {
+        //     pktToDrop.add(Integer.parseInt(pkt));
+        // }
+
+        //TODO: Figure out what to do with packets to drop
+
+        Receiver receiver = new Receiver(winSize, maxSeqNum);
+        receiver.startReceiver();
     }
 
     /**

@@ -60,7 +60,7 @@ public class Sender {
             printPacketInfo(sendValue, win, false);
 
             // Prepare to receive acknowledgement
-            byte[] ackData = new byte[1024];
+            byte[] ackData = new byte[1];
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length);
             senderSocket.receive(ackPkt);
 
