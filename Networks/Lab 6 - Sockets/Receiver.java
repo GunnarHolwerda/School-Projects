@@ -21,7 +21,7 @@ public class Receiver {
         int value = 0;
 
         // TODO: Implement window for this side
-        while(value < 7) {
+        while(!dataAcknowledged()) {
             // Set up to receive data
             byte[] rcvData = new byte[1];
             DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
@@ -31,7 +31,10 @@ public class Receiver {
             InetAddress senderIP = rcvPkt.getAddress();
             int port = rcvPkt.getPort();
             value = (int) rcvPkt.getData()[0];
-            printPacketInfo(value, new Data[8], false);
+
+            // We have received packet set acknowledged to true
+            this.data[value].acknowledged = true;
+            printPacketInfo(value, this.data, false);
 
             // Sleep to simulate delay
             Thread.sleep(1000);
@@ -41,7 +44,7 @@ public class Receiver {
             ackData[0] = (byte) value;
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length, senderIP, port);
             receiverSocket.send(ackPkt);
-            printPacketInfo(value, new Data[8], true);
+            printPacketInfo(value, this.data, true);
         }
         receiverSocket.close();
     }
@@ -69,6 +72,21 @@ public class Receiver {
             this.acknowledged = false;
             this.value = value;
         }
+    }
+
+    /**
+        Determines whether all data has been acknowledged
+
+        @return: true if all data is acknowledged, else false
+    */
+    private boolean dataAcknowledged() {
+        for (Data d: this.data) {
+            if (!d.acknowledged) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**

@@ -44,12 +44,22 @@ public class Sender {
             byte[] sendData = new byte[1024];
             // Move through the data until all has been sent
             if (winPosition < win.length) {
-                //TODO figure out what to do if packets acknowledged out of order
-                // so we don't send a packet twice
-                sendValue = win[winPosition].value;
-                sendData[0] = (byte) sendValue;
-                win[winPosition].sent = true;
-                winPosition++;
+                for (int i = winPosition; i < win.length; i++) {
+                    // If the packet we are going to send has already been sent,
+                    // don't send again, look for the next
+                    if (!win[i].acknowledged) {
+                        sendValue = win[winPosition].value;
+                        sendData[0] = (byte) sendValue;
+                        win[winPosition].sent = true;
+                        winPosition++;
+
+                        // We have found an unacknowledged packt to send
+                        break;
+                    }
+                    else {
+                        winPosition++;
+                    }
+                }
             }
 
             DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
