@@ -9,7 +9,6 @@ public class Receiver {
     private Data[] data;
     private ArrayList<Integer> pktToDrop;
 
-    //TODO: implement dropped packet
     public Receiver(int windowSize, int maxSeqNum, ArrayList<Integer> pktToDrop) {
         this.windowSize = windowSize;
         this.maxSeqNum = maxSeqNum;
@@ -162,8 +161,6 @@ public class Receiver {
         for (String pkt: packetArray) {
             pktToDrop.add(Integer.parseInt(pkt));
         }
-
-        //TODO: Figure out what to do with packets to drop
 
         Receiver receiver = new Receiver(winSize, maxSeqNum, pktToDrop);
         receiver.startReceiver();

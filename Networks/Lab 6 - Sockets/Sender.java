@@ -45,7 +45,6 @@ public class Sender {
 
             DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
             senderSocket.send(sendPkt);
-            //TODO: Implement a timeout for the packets
 
             // The window position is the current packet being sent
             printPacketInfo(sendValue, win, false);
