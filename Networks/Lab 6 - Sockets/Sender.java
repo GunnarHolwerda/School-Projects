@@ -40,10 +40,9 @@ public class Sender {
 
         //Create loop that runs until all data has been acknowledged
         while(!dataAcknowledged()) {
-            while (!fullWindowSent(win)) {
-                byte[] sendData = getPacketToSend(win);
+            byte[] sendData;
+            while ((sendData = getPacketToSend(win)) != null) {
                 int sendValue = (int) sendData[0];
-
                 DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
                 senderSocket.send(sendPkt);
 
@@ -54,7 +53,16 @@ public class Sender {
             // Prepare to receive acknowledgement
             byte[] ackData = new byte[1];
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length);
-            senderSocket.receive(ackPkt);
+            try {
+                // Set a timeout on connection so that we don't need to thread
+                // the receiving of the ACKs
+                senderSocket.setSoTimeout(1500);
+                senderSocket.receive(ackPkt);
+            }
+            catch (Exception e) {
+                // If socket times out restart loop to check if packets have timedout
+                continue;
+            }
 
             // Get the value for the acknowledgement
             int ackValue = (int) ackPkt.getData()[0];
@@ -79,20 +87,6 @@ public class Sender {
     }
 
     /**
-        Returns true if the full window has been sent, else returns false
-
-        @parma: win, the current window
-    */
-    private boolean fullWindowSent(Data[] win) {
-        for (Data d: win) {
-            if (d.sent == false) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
         Determines and returns which packet needs to be sent next
 
         @param: win, the window for which we are sending packets for
@@ -105,7 +99,7 @@ public class Sender {
 
         // Check if any packet has timed out
         for (Data pkt: win) {
-            if (pkt.sent && pkt.hasTimedOut()) {
+            if (pkt.sent && pkt.hasTimedOut() && pkt.value != -1) {
                 sendData[0] = (byte) pkt.value;
                 System.out.printf("Packet %d times out, resend packet %d\n", pkt.value, pkt.value);
                 // Set the packet sent again to restart the timeout
