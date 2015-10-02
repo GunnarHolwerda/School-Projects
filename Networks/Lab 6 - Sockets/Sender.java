@@ -40,19 +40,20 @@ public class Sender {
 
         //Create loop that runs until all data has been acknowledged
         while(!dataAcknowledged()) {
-            byte[] sendData = getPacketToSend(win);
-            int sendValue = (int) sendData[0];
+            while (!fullWindowSent(win)) {
+                byte[] sendData = getPacketToSend(win);
+                int sendValue = (int) sendData[0];
 
-            DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
-            senderSocket.send(sendPkt);
+                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
+                senderSocket.send(sendPkt);
 
-            // The window position is the current packet being sent
-            printPacketInfo(sendValue, win, false);
+                // The window position is the current packet being sent
+                printPacketInfo(sendValue, win, false);
+            }
 
             // Prepare to receive acknowledgement
             byte[] ackData = new byte[1];
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length);
-            // TODO: Make it so that we don't hang when we wait for ack
             senderSocket.receive(ackPkt);
 
             // Get the value for the acknowledgement
@@ -77,6 +78,26 @@ public class Sender {
         senderSocket.close();
     }
 
+    /**
+        Returns true if the full window has been sent, else returns false
+
+        @parma: win, the current window
+    */
+    private boolean fullWindowSent(Data[] win) {
+        for (Data d: win) {
+            if (d.sent == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+        Determines and returns which packet needs to be sent next
+
+        @param: win, the window for which we are sending packets for
+        @return: byte[] the data for the packet to be sent
+    */
     private byte[] getPacketToSend(Data[] win) {
         int winPosition = 0;
         int sendValue = 0;
@@ -84,8 +105,9 @@ public class Sender {
 
         // Check if any packet has timed out
         for (Data pkt: win) {
-            if (pkt.hasTimedOut()) {
+            if (pkt.sent && pkt.hasTimedOut()) {
                 sendData[0] = (byte) pkt.value;
+                System.out.printf("Packet %d times out, resend packet %d\n", pkt.value, pkt.value);
                 // Set the packet sent again to restart the timeout
                 pkt.setSent(true);
                 return sendData;
@@ -96,21 +118,21 @@ public class Sender {
         for (int i = winPosition; i < win.length; i++) {
             // If the packet we are going to send has already been sent,
             // don't send again, look for the next
-            if (!win[i].acknowledged) {
+            if (!win[i].sent && !win[i].acknowledged) {
                 sendValue = win[winPosition].value;
                 sendData[0] = (byte) sendValue;
                 win[winPosition].setSent(true);
                 winPosition++;
 
-                // We have found an unacknowledged packt to send
-                break;
+                // We have found an unsent packt to send
+                return sendData;
             }
             else {
                 winPosition++;
             }
         }
 
-        return sendData;
+        return null;
     }
 
     /**
@@ -134,7 +156,10 @@ public class Sender {
                 window[i] = this.data[startPos + i];
             }
             else {
+                // Fill the empty spots with dummy packets
                 window[i] = new Data(-1);
+                window[i].sent = true;
+                window[i].acknowledged = true;
             }
         }
 
@@ -232,7 +257,7 @@ public class Sender {
 
     private boolean windowHasChanged(Data[] oldWin, Data[] newWin) {
         // A new window can be determined if the first element of the window is
-        // different than the first
+        // different than the first element in the old window
         return oldWin[0] != newWin[0];
     }
 
@@ -256,7 +281,7 @@ public class Sender {
 
         public boolean hasTimedOut() {
             // REturn if the current time is less than timeSent - 2 sec
-            return (System.currentTimeMillis() < this.timeSent + 2000);
+            return !(System.currentTimeMillis() < this.timeSent + 5000);
         }
     }
 

@@ -156,11 +156,14 @@ public class Receiver {
         String packets = in.nextLine();
 
         //Parse the packets into an ArrayList by comma
-        String[] packetArray = packets.split(",");
         ArrayList<Integer> pktToDrop = new ArrayList<Integer>();
-        for (String pkt: packetArray) {
-            pktToDrop.add(Integer.parseInt(pkt));
+        if (!packets.equals("")) {
+            String[] packetArray = packets.split(",");
+            for (String pkt: packetArray) {
+                pktToDrop.add(Integer.parseInt(pkt));
+            }
         }
+
 
         Receiver receiver = new Receiver(winSize, maxSeqNum, pktToDrop);
         receiver.startReceiver();
