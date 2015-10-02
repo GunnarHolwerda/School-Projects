@@ -13,18 +13,10 @@ public class Sender {
     Data[] data;
     private InetAddress ip;
 
-    public Sender(int windowSize, int maxSeqNum) {
+    public Sender(int windowSize, int maxSeqNum) throws Exception {
         this.windowSize = windowSize;
         this.maxSeqNum = maxSeqNum;
-
-        // Get this machine's IP address
-        try {
-            this.ip = InetAddress.getByName("localhost");
-        }
-        catch(UnknownHostException e) {
-            System.out.println("Was unable to find localhost");
-        }
-
+        this.ip = InetAddress.getByName("localhost");
         this.data = generateDataToBeSent();
     }
 
@@ -32,15 +24,12 @@ public class Sender {
         Starts the Selective repeat protocol
     */
     public void startSender() throws Exception {
-
-        // Create the socket to send data through
         DatagramSocket senderSocket = new DatagramSocket(this.sendPort);
 
         // Get the current window
         int winPosition = 0;
         Data[] win = determineWindow();
 
-        //Create loop that runs until all data has been acknowledged
         while(!dataAcknowledged()) {
             DatagramPacket sendPkt;
             while ((sendPkt = getPacketToSend(win)) != null) {
@@ -70,12 +59,10 @@ public class Sender {
             Data[] newWin = determineWindow();
             if (windowHasChanged(win, newWin)) {
                 win = newWin;
-                // Reset window position to 0 to start iterating over
                 winPosition = 0;
             }
             printPacketInfo(ackPkt, win, true);
         }
-
         senderSocket.close();
     }
 
@@ -97,8 +84,7 @@ public class Sender {
                 System.out.printf("Packet %d times out, resend packet %d\n", pkt.value, pkt.value);
                 // Set the packet sent again to restart the timeout
                 pkt.setSent(true);
-                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
-                return sendPkt;
+                return new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
             }
         }
 
@@ -107,14 +93,10 @@ public class Sender {
             // If the packet we are going to send has already been sent,
             // don't send again, look for the next
             if (!win[i].sent && !win[i].acknowledged) {
-                sendValue = win[winPosition].value;
-                sendData[0] = (byte) sendValue;
+                sendData[0] = (byte) win[winPosition].value;
                 win[winPosition].setSent(true);
-                winPosition++;
 
-                // We have found an unsent packt to send
-                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
-                return sendPkt;
+                return new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
             }
             else {
                 winPosition++;
@@ -132,7 +114,7 @@ public class Sender {
     private Data[] determineWindow() {
         Data[] window = new Data[this.windowSize];
 
-        // Iterate over data until first not acknowledged packet
+        // Iterate over data until first not acknowledged packet to find startPos
         int startPos = 0;
         for (startPos = 0; startPos < this.data.length; startPos++) {
             if (!this.data[startPos].acknowledged) {
@@ -140,6 +122,7 @@ public class Sender {
             }
         }
 
+        // Create window
         for (int i = 0; i < window.length; i++) {
             if (startPos + i < this.data.length) {
                 window[i] = this.data[startPos + i];

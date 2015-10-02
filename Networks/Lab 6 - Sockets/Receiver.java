@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 //TODO: Clean up code
+//TODO: implement window
 
 public class Receiver {
     private int windowSize, maxSeqNum, portNum;
@@ -30,7 +31,6 @@ public class Receiver {
             DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
             receiverSocket.receive(rcvPkt);
 
-            // Get the port, IP, and data of the sender packet
             InetAddress senderIP = rcvPkt.getAddress();
             int port = rcvPkt.getPort();
             value = (int) rcvPkt.getData()[0];
