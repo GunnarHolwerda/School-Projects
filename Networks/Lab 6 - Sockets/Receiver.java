@@ -4,6 +4,8 @@ import java.net.DatagramSocket;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+//TODO: Clean up code
+
 public class Receiver {
     private int windowSize, maxSeqNum, portNum;
     private Data[] data;

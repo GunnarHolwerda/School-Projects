@@ -4,6 +4,8 @@ import java.net.DatagramPacket;
 import java.util.Scanner;
 import java.net.UnknownHostException;
 
+//TODO: Clean up code
+
 public class Sender {
     private int windowSize, maxSeqNum;
     private int sendPort = 9876;
@@ -40,14 +42,10 @@ public class Sender {
 
         //Create loop that runs until all data has been acknowledged
         while(!dataAcknowledged()) {
-            byte[] sendData;
-            while ((sendData = getPacketToSend(win)) != null) {
-                int sendValue = (int) sendData[0];
-                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
+            DatagramPacket sendPkt;
+            while ((sendPkt = getPacketToSend(win)) != null) {
                 senderSocket.send(sendPkt);
-
-                // The window position is the current packet being sent
-                printPacketInfo(sendValue, win, false);
+                printPacketInfo(sendPkt, win, false);
             }
 
             // Prepare to receive acknowledgement
@@ -64,23 +62,18 @@ public class Sender {
                 continue;
             }
 
-            // Get the value for the acknowledgement
+            // Get the value for the acknowledgement and acknowledge
             int ackValue = (int) ackPkt.getData()[0];
+            this.data[ackValue].acknowledged = true;
 
-            // Check to see if we need to move the window
-            if (checkPacketInWindow(win, ackValue)) {
-                // Acknowledge the packet
-                this.data[ackValue].acknowledged = true;
-
-                //Determine if the window needs to change after this acknowledgment
-                Data[] newWin = determineWindow();
-                if (windowHasChanged(win, newWin)) {
-                    win = newWin;
-                    // Reset window position to 0 to start iterating over
-                    winPosition = 0;
-                }
-                printPacketInfo(ackValue, win, true);
+            //Determine if the window needs to change after this acknowledgment
+            Data[] newWin = determineWindow();
+            if (windowHasChanged(win, newWin)) {
+                win = newWin;
+                // Reset window position to 0 to start iterating over
+                winPosition = 0;
             }
+            printPacketInfo(ackPkt, win, true);
         }
 
         senderSocket.close();
@@ -92,19 +85,20 @@ public class Sender {
         @param: win, the window for which we are sending packets for
         @return: byte[] the data for the packet to be sent
     */
-    private byte[] getPacketToSend(Data[] win) {
+    private DatagramPacket getPacketToSend(Data[] win) {
         int winPosition = 0;
         int sendValue = 0;
         byte[] sendData = new byte[1];
 
         // Check if any packet has timed out
         for (Data pkt: win) {
-            if (pkt.sent && pkt.hasTimedOut() && pkt.value != -1) {
+            if (pkt.sent && pkt.hasTimedOut() && pkt.value != -1 && !pkt.acknowledged) {
                 sendData[0] = (byte) pkt.value;
                 System.out.printf("Packet %d times out, resend packet %d\n", pkt.value, pkt.value);
                 // Set the packet sent again to restart the timeout
                 pkt.setSent(true);
-                return sendData;
+                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
+                return sendPkt;
             }
         }
 
@@ -119,7 +113,8 @@ public class Sender {
                 winPosition++;
 
                 // We have found an unsent packt to send
-                return sendData;
+                DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
+                return sendPkt;
             }
             else {
                 winPosition++;
@@ -169,8 +164,9 @@ public class Sender {
         @param: window, a Data[] for the current window
         @param: isAck, boolean to determine if we are printing Ack or Pkt
     */
-    private void printPacketInfo(int pktNum, Data[] window, boolean isAck) {
+    private void printPacketInfo(DatagramPacket pkt, Data[] window, boolean isAck) {
         String startStr = "%s %d %s, window [";
+        int pktNum = (int)pkt.getData()[0];
         //Create Ack message or pkt message depending on isAck boolean
         if (isAck) {
             startStr = String.format(startStr, "Ack", pktNum, "received");
@@ -215,24 +211,6 @@ public class Sender {
         }
 
         return true;
-    }
-
-    /**
-        Checks if the packet is in the current window
-
-        @param: window, the current window
-        @param: value, the value to check if exists in the window
-
-        @return: true if packet is in the window, false otherwise
-    */
-    private boolean checkPacketInWindow(Data[] window, int value) {
-        for (int i = 0; i < window.length; i++) {
-            if (window[i].value == value) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
