@@ -233,7 +233,7 @@ public class Sender {
         }
 
         public boolean hasTimedOut() {
-            // REturn if the current time is less than timeSent - 2 sec
+            // Return true if the current time is less than timeSent - 5 sec
             return !(System.currentTimeMillis() < this.timeSent + 5000);
         }
     }
