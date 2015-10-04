@@ -24,8 +24,10 @@ public class Receiver {
     public void startReceiver() throws Exception {
         DatagramSocket receiverSocket = new DatagramSocket(this.portNum);
         int value = 0;
+        Data[] win;
 
         while(!dataAcknowledged()) {
+            win = determineWindow();
             // Set up to receive data
             byte[] rcvData = new byte[1];
             DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
@@ -45,7 +47,7 @@ public class Receiver {
 
             // We have received packet set acknowledged to true
             this.data[value].acknowledged = true;
-            printPacketInfo(value, this.data, false);
+            printPacketInfo(value, win, false);
 
             // Sleep to simulate delay
             Thread.sleep(1000);
@@ -55,7 +57,7 @@ public class Receiver {
             ackData[0] = (byte) value;
             DatagramPacket ackPkt = new DatagramPacket(ackData, ackData.length, senderIP, port);
             receiverSocket.send(ackPkt);
-            printPacketInfo(value, this.data, true);
+            printPacketInfo(value, win, true);
         }
         receiverSocket.close();
     }
@@ -72,6 +74,38 @@ public class Receiver {
         }
 
         return data;
+    }
+
+    /**
+        Creates the current window for the selective repeat protocol
+
+        @return: a Data[] containing the window
+    */
+    private Data[] determineWindow() {
+        Data[] window = new Data[this.windowSize];
+
+        // Iterate over data until first not acknowledged packet to find startPos
+        int startPos = 0;
+        for (startPos = 0; startPos < this.data.length; startPos++) {
+            if (!this.data[startPos].acknowledged) {
+                break;
+            }
+        }
+
+        // Create window
+        for (int i = 0; i < window.length; i++) {
+            if (startPos + i < this.data.length) {
+                window[i] = this.data[startPos + i];
+            }
+            else {
+                // Fill the empty spots with dummy packets
+                window[i] = new Data(-1);
+                window[i].sent = true;
+                window[i].acknowledged = true;
+            }
+        }
+
+        return window;
     }
 
     // Private class to represent data

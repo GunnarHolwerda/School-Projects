@@ -27,7 +27,6 @@ public class Sender {
         DatagramSocket senderSocket = new DatagramSocket(this.sendPort);
 
         // Get the current window
-        int winPosition = 0;
         Data[] win = determineWindow();
 
         while(!dataAcknowledged()) {
@@ -59,7 +58,6 @@ public class Sender {
             Data[] newWin = determineWindow();
             if (windowHasChanged(win, newWin)) {
                 win = newWin;
-                winPosition = 0;
             }
             printPacketInfo(ackPkt, win, true);
         }
