@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <pthread.h>
+#include <unistd.h>
 
 struct Node {
     int value;
@@ -22,19 +23,6 @@ struct Node* createNewNode(int val) {
   return newNode;
 }
 
-//Inserts a node at the head of the list
-void insertNodeAtHead(int val) {
-    struct Node* newNode = createNewNode(val);
-    if (head == NULL) {
-        head = newNode;
-        return;
-    }
-
-    head->prev = newNode;
-    newNode->next = head;
-    head = newNode;
-}
-
 // Insert a node at the end of the linked list
 void insertNodeAtTail(int val) {
     struct Node* temp = head;
@@ -42,6 +30,7 @@ void insertNodeAtTail(int val) {
 
     if (head == NULL) {
         head = newNode;
+        numberOfNodes++;
         return;
     }
 
@@ -52,6 +41,28 @@ void insertNodeAtTail(int val) {
     temp->next = newNode;
     newNode->prev = temp;
     numberOfNodes++;
+}
+
+void removeNodeFromHead(int removeEven) {
+    struct Node* temp = head;
+
+    if (head == NULL) {
+        return;
+    }
+
+    while (temp != NULL) {
+        if (
+            (temp->value % 2 == 0 && removeEven == 1) ||
+            (temp->value % 2 != 0 && removeEven == 0)
+        ) {
+            // Remove node by setting previous nodes next to
+            // current nodes next
+            temp->prev->next = temp->next;
+            numberOfNodes--;
+            return;
+        }
+        temp = temp->next;
+    }
 }
 
 void generateInitialValues() {
@@ -74,7 +85,9 @@ void printList() {
 void *Processor(void* genEven) {
     int randNum;
     int generateEvenNumbers = (long) genEven;
-    while (1) {
+    int numCycles = 50;
+    int curCycle;
+    for (curCycle = 0; curCycle < numCycles; curCycle++) {
         // Generate a random odd number or even number
         if (generateEvenNumbers == 1) {
             randNum = 1;
@@ -88,14 +101,39 @@ void *Processor(void* genEven) {
                 randNum = rand() % 40;
             }
         }
+
         if (numberOfNodes < 20) {
-            printf("Inserting %d into linked list, ", randNum);
             insertNodeAtTail(randNum);
-            printf("list has %d nodes.\n", numberOfNodes);
+            printf("Inserting %d into linked list, list has %d nodes\n",
+                randNum,
+                numberOfNodes
+            );
             printList();
+            sleep(3);
         }
         else {
             printf("Linked list is full. Waiting\n");
+        }
+    }
+    pthread_exit(NULL);
+}
+
+void *Consumer(void* consumeEven) {
+    int consumeEvenNumbers = (long) consumeEven;
+    int numCycles = 50;
+    int curCycle;
+    for (curCycle = 0; curCycle < numCycles; curCycle++) {
+        if (numberOfNodes > 0) {
+            removeNodeFromHead(consumeEvenNumbers);
+            printf("Removing %s number from linked list, list has %d nodes.\n",
+                consumeEvenNumbers == 1 ? "even" : "odd",
+                numberOfNodes
+            );
+            printList();
+            sleep(3);
+        }
+        else {
+            printf("Linked list is empty. Waiting\n");
         }
     }
     pthread_exit(NULL);
@@ -107,13 +145,24 @@ int main() {
     generateInitialValues();
     printList();
 
-    pthread_t threads[2];
+    pthread_t threads[4];
     int rc;
     long t;
+    // Create producers
     for(t = 0; t < 2; t++){
         printf("In main: creating thread %ld\n", t);
         rc = pthread_create(&threads[t], NULL, Processor, (void *)t);
         if (rc){
+            printf("ERROR; return code from pthread_create() is %d\n", rc);
+            exit(-1);
+        }
+    }
+
+    // Create consumers
+    for (t = 0; t < 2; t++) {
+        printf("In main: creating thread %ld\n", t + 2);
+        rc = pthread_create(&threads[t + 2], NULL, Consumer, (void *) t);
+        if (rc) {
             printf("ERROR; return code from pthread_create() is %d\n", rc);
             exit(-1);
         }
