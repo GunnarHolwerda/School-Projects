@@ -35,7 +35,13 @@ void printList() {
 
 // Insert a node at the end of the linked list
 void insertNodeAtTail(int val) {
-    pthread_mutex_lock(&mutex);printf("Inserting %d into linked list:\n",
+    pthread_mutex_lock(&mutex);
+    if (numberOfNodes > 19) {
+        printf("Linked list is full. Waiting...\n");
+        pthread_mutex_unlock(&mutex);
+        return;
+    }
+    printf("Inserting %d into linked list:\n",
         val
     );
     printList();
@@ -57,11 +63,18 @@ void insertNodeAtTail(int val) {
     newNode->prev = temp;
     numberOfNodes++;
     printList();
+    printf("Length of list is now %d\n", numberOfNodes);
     pthread_mutex_unlock(&mutex);
+    //sleep(1);
 }
 
 void removeNodeFromHead(int removeEven) {
     pthread_mutex_lock(&mutex);
+    if (numberOfNodes == 0) {
+        printf("List is empty. Waiting.");
+        pthread_mutex_unlock(&mutex);
+        return;
+    }
     printf("Removing %s number from linked list:\n",
         removeEven == 1 ? "even" : "odd"
     );
@@ -78,21 +91,35 @@ void removeNodeFromHead(int removeEven) {
             (temp->value % 2 == 0 && removeEven == 1) ||
             (temp->value % 2 != 0 && removeEven == 0)
         ) {
+            printf("Removing %d\n", temp->value);
             // Remove node by setting previous nodes next to
             // current nodes next
             if (temp->prev != NULL) {
+                printf("Prev is %d\n", temp->prev->value);
                 // We are not replacing the head
                 temp->prev->next = temp->next;
+                // Check if we are replacing the last node in the list
+                if (temp->next != NULL) {
+                    temp->next->prev = temp->prev;
+                }
             }
             else {
-                // We are replacing the head
-                temp->next->prev = NULL;
-                head = temp->next;
+                // We are removing the head
+                if (temp->next != NULL) {
+                    temp->next->prev = NULL;
+                    head = temp->next;
+                }
+                else {
+                    // Removing the only node left
+                    head = NULL;
+                }
             }
             //free(temp);
             numberOfNodes--;
             printList();
+            printf("Length of list is now %d\n", numberOfNodes);
             pthread_mutex_unlock(&mutex);
+            //sleep(1);
             return;
         }
         temp = temp->next;
@@ -111,7 +138,7 @@ void generateInitialValues() {
 void *Producer(void* genEven) {
     int randNum;
     int generateEvenNumbers = (long) genEven;
-    int numCycles = 500;
+    int numCycles = 20;
     int curCycle;
     for (curCycle = 0; curCycle < numCycles; curCycle++) {
         // Generate a random odd number or even number
@@ -129,13 +156,8 @@ void *Producer(void* genEven) {
         }
 
         //pthread_mutex_lock(&mutex);
-        if (numberOfNodes < 20) {
-            insertNodeAtTail(randNum);
-        }
-        else {
-            printf("Linked list is full. Waiting\n");
-        }
-        sleep(1);
+        insertNodeAtTail(randNum);
+        //sleep(1);
         //pthread_mutex_unlock(&mutex);
     }
     pthread_exit(NULL);
@@ -143,18 +165,13 @@ void *Producer(void* genEven) {
 
 void *Consumer(void* consumeEven) {
     int consumeEvenNumbers = (long) consumeEven;
-    int numCycles = 500;
+    int numCycles = 20;
     int curCycle;
     for (curCycle = 0; curCycle < numCycles; curCycle++) {
         // Lock
         //pthread_mutex_lock(&mutex);
-        if (numberOfNodes > 0) {
-            removeNodeFromHead(consumeEvenNumbers);
-        }
-        else {
-            printf("Linked list is empty. Waiting\n");
-        }
-        sleep(1);
+        removeNodeFromHead(consumeEvenNumbers);
+        //sleep(1);
         //pthread_mutex_lock(&mutex);
     }
     pthread_exit(NULL);
