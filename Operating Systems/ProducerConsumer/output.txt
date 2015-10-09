@@ -1,0 +1,242 @@
+21 -> 27 -> 16 ->
+Starting Producers and Consumers
+Inserting 13 into linked list:
+21 -> 27 -> 16 ->
+21 -> 27 -> 16 -> 13 ->
+Inserting 16 into linked list:
+21 -> 27 -> 16 -> 13 ->
+21 -> 27 -> 16 -> 13 -> 16 ->
+Removing odd number from linked list:
+21 -> 27 -> 16 -> 13 -> 16 ->
+27 -> 16 -> 13 -> 16 ->
+Removing even number from linked list:
+27 -> 16 -> 13 -> 16 ->
+27 -> 13 -> 16 ->
+Inserting 10 into linked list:
+27 -> 13 -> 16 ->
+27 -> 13 -> 16 -> 10 ->
+Removing odd number from linked list:
+27 -> 13 -> 16 -> 10 ->
+13 -> 16 -> 10 ->
+Inserting 29 into linked list:
+13 -> 16 -> 10 ->
+13 -> 16 -> 10 -> 29 ->
+Removing even number from linked list:
+13 -> 16 -> 10 -> 29 ->
+13 -> 10 -> 29 ->
+Removing even number from linked list:
+13 -> 10 -> 29 ->
+13 -> 29 ->
+Removing odd number from linked list:
+13 -> 29 ->
+29 ->
+Inserting 30 into linked list:
+29 ->
+29 -> 30 ->
+Inserting 3 into linked list:
+29 -> 30 ->
+29 -> 30 -> 3 ->
+Removing odd number from linked list:
+29 -> 30 -> 3 ->
+30 -> 3 ->
+Inserting 14 into linked list:
+30 -> 3 ->
+30 -> 3 -> 14 ->
+Removing even number from linked list:
+30 -> 3 -> 14 ->
+3 -> 14 ->
+Inserting 19 into linked list:
+3 -> 14 ->
+3 -> 14 -> 19 ->
+Removing even number from linked list:
+3 -> 14 -> 19 ->
+3 -> 19 ->
+Removing odd number from linked list:
+3 -> 19 ->
+19 ->
+Inserting 17 into linked list:
+19 ->
+19 -> 17 ->
+Inserting 16 into linked list:
+19 -> 17 ->
+19 -> 17 -> 16 ->
+Removing odd number from linked list:
+19 -> 17 -> 16 ->
+17 -> 16 ->
+Removing even number from linked list:
+17 -> 16 ->
+17 ->
+Inserting 8 into linked list:
+17 ->
+17 -> 8 ->
+Inserting 19 into linked list:
+17 -> 8 ->
+17 -> 8 -> 19 ->
+Inserting 5 into linked list:
+17 -> 8 -> 19 ->
+17 -> 8 -> 19 -> 5 ->
+Inserting 38 into linked list:
+17 -> 8 -> 19 -> 5 ->
+17 -> 8 -> 19 -> 5 -> 38 ->
+Removing odd number from linked list:
+17 -> 8 -> 19 -> 5 -> 38 ->
+8 -> 19 -> 5 -> 38 ->
+Removing even number from linked list:
+8 -> 19 -> 5 -> 38 ->
+19 -> 5 -> 38 ->
+Removing even number from linked list:
+19 -> 5 -> 38 ->
+19 -> 5 ->
+Removing odd number from linked list:
+19 -> 5 ->
+5 ->
+Inserting 16 into linked list:
+5 ->
+5 -> 16 ->
+Inserting 5 into linked list:
+5 -> 16 ->
+5 -> 16 -> 5 ->
+Removing odd number from linked list:
+5 -> 16 -> 5 ->
+16 -> 5 ->
+Removing even number from linked list:
+16 -> 5 ->
+5 ->
+Inserting 16 into linked list:
+5 ->
+5 -> 16 ->
+Inserting 27 into linked list:
+5 -> 16 ->
+5 -> 16 -> 27 ->
+Removing even number from linked list:
+5 -> 16 -> 27 ->
+5 -> 27 ->
+Removing odd number from linked list:
+5 -> 27 ->
+27 ->
+Inserting 37 into linked list:
+27 ->
+27 -> 37 ->
+Inserting 38 into linked list:
+27 -> 37 ->
+27 -> 37 -> 38 ->
+Removing odd number from linked list:
+27 -> 37 -> 38 ->
+37 -> 38 ->
+Removing even number from linked list:
+37 -> 38 ->
+37 ->
+Inserting 9 into linked list:
+37 ->
+37 -> 9 ->
+Inserting 12 into linked list:
+37 -> 9 ->
+37 -> 9 -> 12 ->
+Removing even number from linked list:
+37 -> 9 -> 12 ->
+37 -> 9 ->
+Removing odd number from linked list:
+37 -> 9 ->
+9 ->
+Inserting 36 into linked list:
+9 ->
+9 -> 36 ->
+Inserting 3 into linked list:
+9 -> 36 ->
+9 -> 36 -> 3 ->
+Removing even number from linked list:
+9 -> 36 -> 3 ->
+9 -> 3 ->
+Inserting 31 into linked list:
+9 -> 3 ->
+9 -> 3 -> 31 ->
+Removing odd number from linked list:
+9 -> 3 -> 31 ->
+3 -> 31 ->
+Inserting 6 into linked list:
+3 -> 31 ->
+3 -> 31 -> 6 ->
+Removing even number from linked list:
+3 -> 31 -> 6 ->
+3 -> 31 ->
+Removing odd number from linked list:
+3 -> 31 ->
+31 ->
+Inserting 21 into linked list:
+31 ->
+31 -> 21 ->
+Inserting 32 into linked list:
+31 -> 21 ->
+31 -> 21 -> 32 ->
+Removing even number from linked list:
+31 -> 21 -> 32 ->
+31 -> 21 ->
+Removing odd number from linked list:
+31 -> 21 ->
+21 ->
+Inserting 30 into linked list:
+21 ->
+21 -> 30 ->
+Inserting 17 into linked list:
+21 -> 30 ->
+21 -> 30 -> 17 ->
+Removing even number from linked list:
+21 -> 30 -> 17 ->
+21 -> 17 ->
+Removing odd number from linked list:
+21 -> 17 ->
+17 ->
+Inserting 16 into linked list:
+17 ->
+17 -> 16 ->
+Inserting 17 into linked list:
+17 -> 16 ->
+17 -> 16 -> 17 ->
+Removing odd number from linked list:
+17 -> 16 -> 17 ->
+16 -> 17 ->
+Removing even number from linked list:
+16 -> 17 ->
+17 ->
+Inserting 7 into linked list:
+17 ->
+17 -> 7 ->
+Inserting 8 into linked list:
+17 -> 7 ->
+17 -> 7 -> 8 ->
+Removing even number from linked list:
+17 -> 7 -> 8 ->
+17 -> 7 ->
+Inserting 0 into linked list:
+17 -> 7 ->
+17 -> 7 -> 0 ->
+Removing odd number from linked list:
+17 -> 7 -> 0 ->
+7 -> 0 ->
+Inserting 25 into linked list:
+7 -> 0 ->
+7 -> 0 -> 25 ->
+Removing odd number from linked list:
+7 -> 0 -> 25 ->
+0 -> 25 -> 
+Inserting 21 into linked list:
+0 -> 25 ->
+0 -> 25 -> 21 ->
+Removing even number from linked list:
+0 -> 25 -> 21 ->
+25 -> 21 ->
+Inserting 16 into linked list:
+25 -> 21 ->
+25 -> 21 -> 16 ->
+Removing odd number from linked list:
+25 -> 21 -> 16 ->
+21 -> 16 ->
+Inserting 37 into linked list:
+21 -> 16 ->
+21 -> 16 -> 37 ->
+Removing even number from linked list:
+21 -> 16 -> 37 ->
+21 -> 37 ->
+Inserting 28 into linked list:
+21 -> 37 ->
+21 -> 37 -> 28 ->
