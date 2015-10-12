@@ -4,8 +4,6 @@ import java.net.DatagramPacket;
 import java.util.Scanner;
 import java.net.UnknownHostException;
 
-//TODO: Clean up code
-
 public class Sender {
     private int windowSize, maxSeqNum;
     private int sendPort = 9876;
