@@ -63,9 +63,7 @@ void insertNodeAtTail(int val) {
     newNode->prev = temp;
     numberOfNodes++;
     printList();
-    printf("Length of list is now %d\n", numberOfNodes);
     pthread_mutex_unlock(&mutex);
-    //sleep(1);
 }
 
 void removeNodeFromHead(int removeEven) {
@@ -91,11 +89,9 @@ void removeNodeFromHead(int removeEven) {
             (temp->value % 2 == 0 && removeEven == 1) ||
             (temp->value % 2 != 0 && removeEven == 0)
         ) {
-            printf("Removing %d\n", temp->value);
             // Remove node by setting previous nodes next to
             // current nodes next
             if (temp->prev != NULL) {
-                printf("Prev is %d\n", temp->prev->value);
                 // We are not replacing the head
                 temp->prev->next = temp->next;
                 // Check if we are replacing the last node in the list
@@ -114,12 +110,10 @@ void removeNodeFromHead(int removeEven) {
                     head = NULL;
                 }
             }
-            //free(temp);
             numberOfNodes--;
             printList();
-            printf("Length of list is now %d\n", numberOfNodes);
             pthread_mutex_unlock(&mutex);
-            //sleep(1);
+            sleep(1);
             return;
         }
         temp = temp->next;
@@ -157,7 +151,7 @@ void *Producer(void* genEven) {
 
         //pthread_mutex_lock(&mutex);
         insertNodeAtTail(randNum);
-        //sleep(1);
+        sleep(1);
         //pthread_mutex_unlock(&mutex);
     }
     pthread_exit(NULL);
