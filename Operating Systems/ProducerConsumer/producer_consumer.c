@@ -24,6 +24,7 @@ struct Node* createNewNode(int val) {
   return newNode;
 }
 
+// Prints out the linked list
 void printList() {
     struct Node* temp = head;
     while (temp != NULL) {
@@ -41,9 +42,12 @@ void insertNodeAtTail(int val) {
         pthread_mutex_unlock(&mutex);
         return;
     }
+
     printf("Inserting %d into linked list:\n",
         val
     );
+
+    // Print the list before access
     printList();
     struct Node* temp = head;
     struct Node* newNode = createNewNode(val);
@@ -62,27 +66,28 @@ void insertNodeAtTail(int val) {
     temp->next = newNode;
     newNode->prev = temp;
     numberOfNodes++;
+    // Print the list after access
     printList();
     pthread_mutex_unlock(&mutex);
 }
 
+// Removes a node starting from the head of the list
 void removeNodeFromHead(int removeEven) {
     pthread_mutex_lock(&mutex);
-    if (numberOfNodes == 0) {
+    // If we have 0 nodes then we can't remove and return
+    if (numberOfNodes == 0 || head == NULL) {
         printf("List is empty. Waiting.");
         pthread_mutex_unlock(&mutex);
         return;
     }
+
     printf("Removing %s number from linked list:\n",
         removeEven == 1 ? "even" : "odd"
     );
+
+    // Print the list before we access it
     printList();
     struct Node* temp = head;
-
-    if (head == NULL) {
-        pthread_mutex_unlock(&mutex);
-        return;
-    }
 
     while (temp != NULL) {
         if (
@@ -111,9 +116,9 @@ void removeNodeFromHead(int removeEven) {
                 }
             }
             numberOfNodes--;
+            // Print the list after we access it
             printList();
             pthread_mutex_unlock(&mutex);
-            sleep(1);
             return;
         }
         temp = temp->next;
@@ -121,6 +126,7 @@ void removeNodeFromHead(int removeEven) {
     pthread_mutex_unlock(&mutex);
 }
 
+// Inserts three nodes into the list to begin with
 void generateInitialValues() {
     int i = 0;
     // Generate three nodes and insert them in the list
@@ -129,6 +135,8 @@ void generateInitialValues() {
     }
 }
 
+// Producer function that adds a random even or odd number depending on the
+// genEven paramter to the linked list
 void *Producer(void* genEven) {
     int randNum;
     int generateEvenNumbers = (long) genEven;
@@ -149,24 +157,21 @@ void *Producer(void* genEven) {
             }
         }
 
-        //pthread_mutex_lock(&mutex);
         insertNodeAtTail(randNum);
         sleep(1);
-        //pthread_mutex_unlock(&mutex);
     }
     pthread_exit(NULL);
 }
 
+// Consumer function that removes the first even or odd number depending on the
+// consumeEven paramter to the linked list
 void *Consumer(void* consumeEven) {
     int consumeEvenNumbers = (long) consumeEven;
     int numCycles = 20;
     int curCycle;
     for (curCycle = 0; curCycle < numCycles; curCycle++) {
-        // Lock
-        //pthread_mutex_lock(&mutex);
         removeNodeFromHead(consumeEvenNumbers);
-        //sleep(1);
-        //pthread_mutex_lock(&mutex);
+        sleep(1);
     }
     pthread_exit(NULL);
 }
@@ -180,6 +185,7 @@ int main() {
     pthread_t threads[4];
     int rc;
     long t;
+
     // Create producers
     for (t = 0; t < 2; t++) {
         rc = pthread_create(&threads[t], NULL, Producer, (void *)t);
