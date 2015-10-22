@@ -87,8 +87,47 @@ LEFT JOIN programming_language ON favorite_language.next_to_learn=programming_la
 WHERE programming_language.declarative = 1;
 
 /* Question 14 */
+SELECT DISTINCT least_favorite, programming_language.appeared
+FROM favorite_language, programming_language
+WHERE least_favorite=name
+ORDER BY programming_language.appeared DESC
+LIMIT 1;
+
+/* Question 15 */
+SELECT COUNT(*)
+FROM favorite_language
+LEFT JOIN programming_language ON first_learned=programming_language.name
+WHERE programming_language.object_oriented = 1;
+
+/* Question 15 */
+SELECT COUNT(*)
+FROM favorite_language
+LEFT JOIN programming_language ON easiest_to_write=programming_language.name
+WHERE programming_language.type_check = 'dynamic';
+
+/* Question 17 */
+SELECT DISTINCT least_favorite, programming_language.appeared
+FROM favorite_language, programming_language
+WHERE least_favorite=name
+ORDER BY programming_language.appeared ASC
+LIMIT 1;
+
+/* Question 18 */
 SELECT DISTINCT most_favorite, programming_language.appeared
 FROM favorite_language, programming_language
 WHERE most_favorite=name
 ORDER BY programming_language.appeared DESC
 LIMIT 1;
+
+/* Question 19 */
+SELECT COUNT(*)
+FROM msu_course
+LEFT JOIN msu_department ON dcode=department
+WHERE dname="Computer Science";
+
+/* Question 20 */
+SELECT COUNT(*)
+FROM favorite_item
+JOIN state_symbol on state_symbol.tree=favorite_item.tree;
+
+/* Question 21 */
