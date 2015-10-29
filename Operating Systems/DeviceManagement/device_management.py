@@ -135,6 +135,32 @@ def first_come_first_serve(test_data):
 
     return time_data
 
+def shortest_seek_time_first(data):
+    """
+        Runs the Shortest Seek Time First algorithm on the test data
+
+        :param data: list, list of dictionaries that represent the requests
+    """
+    #TODO: Implement this method
+    pass
+
+def look(data):
+    """
+        Runs the LOOK algorithm on the test data
+
+        :param data: list, list of dictionaries that represent the requests
+    """
+    #TODO: implement this method
+    pass
+
+def clook(data):
+    """
+        Runs the C-LOOK algorithm on the test data
+
+        :param data: list, list of dictionaries that represent the requests
+    """
+    #TODO: implement this method
+    pass
 
 test_requests = get_predetermined_test_data()
 results = first_come_first_serve(test_requests)
