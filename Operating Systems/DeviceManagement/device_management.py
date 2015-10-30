@@ -143,7 +143,10 @@ def shortest_seek_time_first(data):
         :param data: list, list of dictionaries that represent the requests
     """
     # TODO: Implement this method
-
+    # I should sort by Sector and then sort by track for each sector
+    sectors = []
+    for request in data:
+        sectors.append(request['sector'])
     pass
 
 
