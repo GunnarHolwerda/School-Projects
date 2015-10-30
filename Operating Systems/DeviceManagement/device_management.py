@@ -65,18 +65,16 @@ def calculate_seek_time(cur_position, new_position):
         :param cur_position: dict, the current position of the head
         :param new_position: dict, where the head is going to move to
     """
-    # TODO: Figure out if the track needs to wrap around like 0 -> 249 -> 0 or if it can go back and
-    # forth
     seek_time = 10 + 0.1 * (abs(new_position['track'] - cur_position['track']))
 
     # Check if we need to wrap around
-    if cur_position['sector'] < new_position['sector']:
+    if cur_position['sector'] <= new_position['sector']:
         sector_transfer_time = 1 * \
-            (cur_position['sector'] - MAX_SECTOR) + new_position['sector']
+            (new_position['sector'] - cur_position['sector'])
     else:
         sector_transfer_time = 1 * \
-            (cur_position['sector'] - new_position['sector'])
-
+            ((MAX_SECTOR - cur_position['sector']) + new_position['sector'])
+    print("Seek: {0} Sector: {1}".format(seek_time, sector_transfer_time))
     return seek_time + sector_transfer_time
 
 
@@ -119,21 +117,24 @@ def first_come_first_serve(test_data):
     cur_time = 0
     for request in test_data:
         arrival_time = request['arrival_time']
-
         # If the cur_time is zero we are on the first request set the current
         # time to that
-        if cur_time == 0:
+        if cur_time <= arrival_time:
             cur_time = arrival_time
 
         pprint(current_position)
+        pprint(request)
         cur_seek_time = calculate_seek_time(current_position, request)
-        print(cur_seek_time)
         finish_time = cur_time + cur_seek_time
         cur_time = finish_time
-        time_data.append(finish_time - arrival_time)
+        turnaround_time = finish_time - arrival_time
+        print("Turnaround time: {0}".format(turnaround_time))
+        print("Current time: {0}".format(cur_time))
+        time_data.append(turnaround_time)
         current_position = request
 
     return time_data
+
 
 def shortest_seek_time_first(data):
     """
@@ -141,8 +142,10 @@ def shortest_seek_time_first(data):
 
         :param data: list, list of dictionaries that represent the requests
     """
-    #TODO: Implement this method
+    # TODO: Implement this method
+
     pass
+
 
 def look(data):
     """
@@ -150,8 +153,9 @@ def look(data):
 
         :param data: list, list of dictionaries that represent the requests
     """
-    #TODO: implement this method
+    # TODO: implement this method
     pass
+
 
 def clook(data):
     """
@@ -159,7 +163,7 @@ def clook(data):
 
         :param data: list, list of dictionaries that represent the requests
     """
-    #TODO: implement this method
+    # TODO: implement this method
     pass
 
 test_requests = get_predetermined_test_data()
