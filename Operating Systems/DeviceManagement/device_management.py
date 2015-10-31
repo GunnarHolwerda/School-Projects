@@ -7,6 +7,9 @@
 from generation_and_calculation import *
 from pprint import pprint
 
+random_data = True if input("Use random data? (Y/N)") == "Y" else False
+print_info = True if input("Print time info? (Y/N)") == "Y" else False
+
 
 def calculate_seek_time(cur_position, new_position):
     """
@@ -68,19 +71,18 @@ def get_next_request_in_cur_direction(asc, current_position, requests):
         waiting_requests = [i for i in requests if i[
             'sector'] < current_sector or
             (i['sector'] == current_sector and i['track'] <= current_track)]
-        #print("DESC")
-        #pprint(waiting_requests)
-        closest_request = get_closest_request(current_position, waiting_requests)
+        closest_request = get_closest_request(
+            current_position, waiting_requests)
     else:
         # Get all jobs with sectors higher than the current
         waiting_requests = [i for i in requests if i[
             'sector'] > current_position['sector'] or
             (i['sector'] == current_sector and i['track'] >= current_track)]
-        #print("ASC")
-        #pprint(waiting_requests)
-        closest_request = get_closest_request(current_position, waiting_requests)
+        closest_request = get_closest_request(
+            current_position, waiting_requests)
 
     return closest_request if closest_request else None
+
 
 def first_come_first_serve(test_data):
     """
@@ -125,25 +127,30 @@ def shortest_seek_time_first(test_data):
     cur_time = 0
 
     while test_data:
-        # print("Time: {0:.2f}".format(cur_time))
-
+        if print_info:
+            print("TIME: {0:.2f}".format(cur_time))
         # Get all jobs that have arrived before the current_time
-        waiting_requests = [i for i in test_data if i['arrival_time'] <= cur_time]
+        waiting_requests = [i for i in test_data if i[
+            'arrival_time'] <= cur_time]
 
         if waiting_requests:
             # Get the closest request to this one
-            next_request = get_closest_request(current_position, waiting_requests)
-            # pprint(next_request)
+            next_request = get_closest_request(
+                current_position, waiting_requests)
+            if print_info:
+                pprint(next_request)
             test_data.remove(next_request)
             # Calcuatle the seek time to the closest request
             cur_seek_time = calculate_seek_time(current_position, next_request)
+            if print_info:
+                print("seek time: {0}".format(cur_seek_time))
 
             cur_time = cur_time + cur_seek_time
             turnaround_time = cur_time - next_request['arrival_time']
             time_data.append(turnaround_time)
             current_position = next_request
         else:
-            cur_time += 1
+            cur_time += 0.1
 
     return time_data
 
@@ -163,9 +170,11 @@ def look(test_data):
     cur_direction = True
 
     while test_data:
-        #print("TIME: {0:.2f}".format(cur_time))
+        if print_info:
+            print("TIME: {0:.2f}".format(cur_time))
         # Get all jobs that have arrived before the current_time
-        waiting_requests = [i for i in test_data if i['arrival_time'] <= cur_time]
+        waiting_requests = [i for i in test_data if i[
+            'arrival_time'] <= cur_time]
 
         if waiting_requests:
             next_request = get_next_request_in_cur_direction(
@@ -173,15 +182,18 @@ def look(test_data):
 
             if not next_request:
                 cur_direction = not cur_direction
-                # We have nothing in the current direction, check the other direction
+                # We have nothing in the current direction, check the other
+                # direction
                 next_request = get_next_request_in_cur_direction(
                     cur_direction, current_position, waiting_requests)
 
-            pprint(next_request)
+            if print_info:
+                pprint(next_request)
             test_data.remove(next_request)
             # Calcuatle the seek time to the closest request
             cur_seek_time = calculate_seek_time(current_position, next_request)
-
+            if print_info:
+                print("seek time: {0}".format(cur_seek_time))
             cur_time = cur_time + cur_seek_time
             turnaround_time = cur_time - next_request['arrival_time']
             time_data.append(turnaround_time)
@@ -192,16 +204,61 @@ def look(test_data):
     return time_data
 
 
-def clook(data):
+def clook(test_data):
     """
         Runs the C-LOOK algorithm on the test data
 
         :param data: list, list of dictionaries that represent the requests
     """
-    # TODO: implement this method
-    pass
+    current_position = {
+        'track': 0,
+        'sector': 0
+    }
+    time_data = []
+    cur_time = 0
+    cur_direction = True
 
-TEST_REQUESTS = get_predetermined_test_data()
+    while test_data:
+        if print_info:
+            print("TIME: {0:.2f}".format(cur_time))
+        # Get all jobs that have arrived before the current_time
+        waiting_requests = [i for i in test_data if i[
+            'arrival_time'] <= cur_time]
+
+        if waiting_requests:
+            next_request = get_next_request_in_cur_direction(
+                cur_direction, current_position, waiting_requests)
+
+            if not next_request:
+                # We have reached the end of the current clook go back to first job and start from
+                # there
+                waiting_requests.sort(key=lambda t: t['sector'])
+                first_request = waiting_requests[0]
+                all_jobs_in_earliest_sector = [
+                    i for i in waiting_requests if i['sector'] == first_request['sector']
+                ]
+                all_jobs_in_earliest_sector.sort(key=lambda t: t['track'])
+                next_request = all_jobs_in_earliest_sector.pop()
+
+            if print_info:
+                pprint(next_request)
+            test_data.remove(next_request)
+            # Calcuatle the seek time to the closest request
+            cur_seek_time = calculate_seek_time(current_position, next_request)
+            if print_info:
+                print("seek time: {0}".format(cur_seek_time))
+
+            cur_time = cur_time + cur_seek_time
+            turnaround_time = cur_time - next_request['arrival_time']
+            time_data.append(turnaround_time)
+            current_position = next_request
+        else:
+            cur_time += 1
+
+    return time_data
+
+TEST_REQUESTS = get_predetermined_test_data(
+) if not random_data else generate_test_data(50)
 print("********** FIRST COME FIRST SERVER  ****************")
 print_statistics(first_come_first_serve(TEST_REQUESTS))
 
@@ -209,5 +266,11 @@ print("********** SHORTEST SEEK TIME FIRST ***************")
 print_statistics(shortest_seek_time_first(TEST_REQUESTS))
 
 print("**********          LOOK            ***************")
-TEST_REQUESTS = get_predetermined_test_data()
+TEST_REQUESTS = get_predetermined_test_data(
+) if not random_data else generate_test_data(50)
 print_statistics(look(TEST_REQUESTS))
+
+print("**********          CLOOK           ***************")
+TEST_REQUESTS = get_predetermined_test_data(
+) if not random_data else generate_test_data(50)
+print_statistics(clook(TEST_REQUESTS))

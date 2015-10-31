@@ -3,7 +3,8 @@
     calculate the stats on the time_series
 """
 
-import random, math
+import random
+import math
 
 MAX_SECTOR = 8
 MAX_TRACK = 250
@@ -54,23 +55,24 @@ def get_predetermined_test_data():
 
     return test_data
 
+
 def calculate_statistics(data):
     """
         Calculates the average, variance, and stdev for a series of data
 
         :param data: list, a list of times to caluclate the stats for
     """
-    total=0
+    total = 0
     for value in data:
         total += value
-    average=total / len(data)
+    average = total / len(data)
 
-    total=0
+    total = 0
     for value in data:
         total += pow((value - average), 2)
-    variance=total / len(data)
+    variance = total / len(data)
 
-    stdev=math.sqrt(variance)
+    stdev = math.sqrt(variance)
 
     return {
         'average': average,
@@ -85,7 +87,7 @@ def print_statistics(time_series):
 
         :param results: list, time series of turnaround times for an algorithm
     """
-    stats=calculate_statistics(time_series)
+    stats = calculate_statistics(time_series)
     print("Average: {0:.2f}".format(stats['average']))
     print("Standard Deviation: {0:.2f}".format(stats['stdev']))
     print("Variance: {0:.2f}".format(stats['variance']))
