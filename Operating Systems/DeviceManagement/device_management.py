@@ -74,7 +74,9 @@ def calculate_seek_time(cur_position, new_position):
     else:
         sector_transfer_time = 1 * \
             ((MAX_SECTOR - cur_position['sector']) + new_position['sector'])
-    print("Seek: {0} Sector: {1}".format(seek_time, sector_transfer_time))
+    # print("Total seek time to track {0}, sector {1} is {2:.2f}".format(new_position[
+#       'track'], new_position['sector'], seek_time + sector_transfer_time))
+
     return seek_time + sector_transfer_time
 
 
@@ -103,6 +105,18 @@ def calculate_statistics(data):
     }
 
 
+def print_statistics(time_series):
+    """
+        Prints out the statistics for the results
+
+        :param results: list, time series of turnaround times for an algorithm
+    """
+    stats = calculate_statistics(time_series)
+    print("Average: {0:.2f}".format(stats['average']))
+    print("Standard Deviation: {0:.2f}".format(stats['stdev']))
+    print("Variance: {0:.2f}".format(stats['variance']))
+
+
 def first_come_first_serve(test_data):
     """
         Runs the First Come First Serve disk management algorithm on the test_data
@@ -122,35 +136,77 @@ def first_come_first_serve(test_data):
         if cur_time <= arrival_time:
             cur_time = arrival_time
 
-        pprint(current_position)
-        pprint(request)
         cur_seek_time = calculate_seek_time(current_position, request)
         finish_time = cur_time + cur_seek_time
         cur_time = finish_time
         turnaround_time = finish_time - arrival_time
-        print("Turnaround time: {0}".format(turnaround_time))
-        print("Current time: {0}".format(cur_time))
         time_data.append(turnaround_time)
         current_position = request
 
     return time_data
 
 
-def shortest_seek_time_first(data):
+def shortest_seek_time_first(test_data):
     """
         Runs the Shortest Seek Time First algorithm on the test data
 
         :param data: list, list of dictionaries that represent the requests
     """
-    # TODO: Implement this method
-    # I should sort by Sector and then sort by track for each sector
-    sectors = []
-    for request in data:
-        sectors.append(request['sector'])
-    pass
+    current_position = {
+        'track': 0,
+        'sector': 0
+    }
+    time_data = []
+    cur_time = 0
+
+    # Sort the data by sector
+    #test_data.sort(key=lambda t: t['sector'])
+    while test_data:
+        #print("Time: {0:.2f}".format(cur_time))
+
+        # Get all jobs that have arrived before the current_time
+        waiting_jobs = [i for i in test_data if i['arrival_time'] <= cur_time]
+
+        if waiting_jobs:
+            # Get the closest request to this one
+            next_request = get_closest_request(current_position, waiting_jobs)
+            # pprint(next_request)
+            test_data.remove(next_request)
+            # Calcuatle the seek time to the closest request
+            cur_seek_time = calculate_seek_time(current_position, next_request)
+
+            cur_time = cur_time + cur_seek_time
+            turnaround_time = cur_time - next_request['arrival_time']
+            time_data.append(turnaround_time)
+            current_position = next_request
+
+        cur_time += 1
+
+    return time_data
 
 
-def look(data):
+def get_closest_request(current_position, requests):
+    """
+        Returns the closest request to the current position
+
+        :param cur_position: dict, dictionary outlining the current position
+        :param requests: list, list of requests to find the closest in
+    """
+    closest_seek_time = 10000
+    closest_request = {}
+    for request in requests:
+        seek_time = calculate_seek_time(current_position, request)
+
+        if seek_time < closest_seek_time:
+            closest_seek_time = seek_time
+            closest_request = request
+
+    # pprint(closest_request)
+    # print("\n")
+    return closest_request
+
+
+def look(time_data):
     """
         Runs the LOOK algorithm on the test data
 
@@ -169,6 +225,15 @@ def clook(data):
     # TODO: implement this method
     pass
 
-test_requests = get_predetermined_test_data()
-results = first_come_first_serve(test_requests)
-pprint(calculate_statistics(results))
+TEST_REQUESTS = get_predetermined_test_data()
+print("********** FIRST COME FIRST SERVER  ****************")
+results = first_come_first_serve(TEST_REQUESTS)
+print_statistics(results)
+
+print("********** SHORTEST SEEK TIME FIRST ***************")
+results = shortest_seek_time_first(TEST_REQUESTS)
+print_statistics(results)
+
+print("**********          LOOK            ***************")
+results = look(TEST_REQUESTS)
+#print_statistics(results)
