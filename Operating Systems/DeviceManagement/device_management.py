@@ -259,9 +259,12 @@ def clook(test_data):
 
     return time_data
 
+random_requests = generate_test_data(50)
+
 TEST_REQUESTS = get_predetermined_test_data(
-) if not RANDOM_DATA else generate_test_data(50)
+) if not RANDOM_DATA else random_requests.copy()
 print("********** FIRST COME FIRST SERVER  ****************")
+pprint(TEST_REQUESTS)
 print_statistics(first_come_first_serve(TEST_REQUESTS))
 
 print("********** SHORTEST SEEK TIME FIRST ***************")
@@ -269,10 +272,12 @@ print_statistics(shortest_seek_time_first(TEST_REQUESTS))
 
 print("**********          LOOK            ***************")
 TEST_REQUESTS = get_predetermined_test_data(
-) if not RANDOM_DATA else generate_test_data(50)
+) if not RANDOM_DATA else random_requests.copy()
+pprint(TEST_REQUESTS)
 print_statistics(look(TEST_REQUESTS))
 
 print("**********          CLOOK           ***************")
 TEST_REQUESTS = get_predetermined_test_data(
-) if not RANDOM_DATA else generate_test_data(50)
+) if not RANDOM_DATA else random_requests.copy()
+pprint(TEST_REQUESTS)
 print_statistics(clook(TEST_REQUESTS))
