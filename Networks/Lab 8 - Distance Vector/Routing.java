@@ -4,18 +4,20 @@ import java.io.*;
 
 class Routing {
     public static final String CONFIG_FILE_NAME = "configuration.txt";
-    private HashMap<String, HashMap<String, String>> configs = new HashMap<String, HashMap<String, String>>();
+    private int[][] configsArray = new int[3][3];
+    private int[] ports = new int[3];
 
     private String routerId;
+    private int routerConfigLocation;
     private DatagramSocket socket;
 
     public Routing(String routerId) throws Exception {
         this.routerId = routerId;
+        this.routerConfigLocation = routerId.charAt(0) - (int)'X';
         // Initialize the hashmap for the current router
-        configs.put(this.routerId, new HashMap<String, String>());
         this.setUpConfigMap();
-        this.socket = new DatagramSocket(this.getPortNumber());
-        System.out.printf("Router %s is running on port %d\n", this.routerId, this.getPortNumber());
+        this.socket = new DatagramSocket(this.getMyPortNumber());
+        System.out.printf("Router %s is running on port %d\n", this.routerId, this.getMyPortNumber());
         System.out.printf("Distance vector on router %s is:\n", this.routerId);
         this.printDistanceVector();
     }
@@ -25,8 +27,18 @@ class Routing {
 
         @return int
     */
-    public int getPortNumber() {
-        return Integer.parseInt(this.configs.get(this.routerId).get("port"));
+    public int getMyPortNumber() {
+        return this.ports[(this.routerId.charAt(0) - (int)'X')];
+    }
+
+    /**
+        Returns the port number for the router with the routerId passed in
+
+        @param routerId: String, the router Id to get the port number for
+        @return int
+    */
+    public int getPortNumberForRouterId(String routerId) {
+        return this.ports[(routerId.charAt(0) - (int)'X')];
     }
 
     /**
@@ -35,16 +47,28 @@ class Routing {
     public void setUpConfigMap() throws Exception {
         BufferedReader in = new BufferedReader(new FileReader(CONFIG_FILE_NAME));
         String line;
-        String[] setting = {"port", "X", "Y", "Z"};
-        int settingPosition = 0;
+
+        // Set up the port numbers
+        line = in.readLine();
+        String[] portsFromFile = line.split("\t");
+        int router = 0;
+        for (String port: portsFromFile) {
+            this.ports[router] = Integer.parseInt(port);
+            router++;
+        }
+
+        // Set up the Distance Vectors
+        router = 0;
         while ((line = in.readLine()) != null) {
             // Each string in the file is seperated by a tab
             String[] array = line.split("\t");
-            // The position in the array that we want is the current Char - X
-            String myValue = array[routerId.charAt(0) - (int)'X'];
-            //TODO: Setup port number for other routers so that we can send them data
-            this.configs.get(this.routerId).put(setting[settingPosition], myValue);
-            settingPosition++;
+
+            // Read in each element from the line
+            for (int i = 0; i < array.length; i++) {
+                this.configsArray[router][i] = Integer.parseInt(array[i]);
+            }
+            
+            router++;
         }
     }
 
@@ -53,26 +77,32 @@ class Routing {
         and sends updates
     */
     public void start() {
-        byte[] rcvData = new byte[1];
-        DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
-        this.socket.receive(rcvPkt);
+        // while (true) {
+        //     byte[] rcvData = new byte[1];
+        //     DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
+        //     this.socket.receive(rcvPkt);
+        //
+        //     InetAddress senderIP = rcvPkt.getAddress();
+        //     int port = rcvPkt.getPort();
+        //     int value = (int) rcvPkt.getData()[0];
+        // }
+    }
 
-        InetAddress senderIP = rcvPkt.getAddress();
-        int port = rcvPkt.getPort();
-        int value = (int) rcvPkt.getData()[0];
+    public void updateOtherNodes() {
+        // for (HashMap<String, String> config: config) {
+        //
+        // }
+        // DatagramPacket sendPkt = new DatagramPacket(sendData, sendData.length, this.ip, this.rcvPort);
+        // this.socket.send(sendPkt);
     }
 
     /**
         Prints the distance vector for the current router
     */
     public void printDistanceVector() {
-        Iterator it = configs.get(this.routerId).entrySet().iterator();
         String printString = "";
-        while(it.hasNext()) {
-            Map.Entry entry = (Map.Entry) it.next();
-            if (entry.getKey() != "port") {
-                printString += entry.getValue() + ", ";
-            }
+        for (int num: this.configsArray[this.routerConfigLocation]) {
+            printString += num + ", ";
         }
         // Remove the last ', ' from the string
         printString = cutOffEnd(printString, 2);
