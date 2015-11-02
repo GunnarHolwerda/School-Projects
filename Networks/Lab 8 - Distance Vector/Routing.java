@@ -22,7 +22,6 @@ class Routing {
         this.setUpConfigMap();
         System.out.printf("Router %s is running on port %d\n", this.routerId, this.getMyPortNumber());
         System.out.printf("Distance vector on router %s is:\n", this.routerId);
-        System.out.println("routerIdConfigLocation is " + this.routerConfigLocation);
         this.printDistanceVector();
     }
 
@@ -82,8 +81,10 @@ class Routing {
     */
     public void start() throws Exception {
         while (true) {
+            // TODO: Create logic to only update other nodes when a change has occured.
             this.updateOtherNodes();
             this.receive();
+            // TODO: Create function to update the distance vectors
         }
     }
 
