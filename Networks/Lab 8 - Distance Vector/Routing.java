@@ -28,6 +28,7 @@ class Routing {
 
         // Open the socket to listen for requests
         this.socket = new DatagramSocket(getMyPortNumber());
+        Thread.sleep(5000);
     }
 
     /**
@@ -63,7 +64,14 @@ class Routing {
 
             // Read in each element from the line
             for (int i = 0; i < array.length; i++) {
-                distancesTable[router][i] = Integer.parseInt(array[i]);
+                // Only update our distance vector so we aren't cheating
+                if (router == routerId) {
+                    distancesTable[router][i] = Integer.parseInt(array[i]);
+                }
+                else {
+                    // Set value to large value because we don't know it yet.
+                    distancesTable[router][i] = 9999999;
+                }
             }
 
             router++;
@@ -191,7 +199,7 @@ class Routing {
 
     private int bellmanFord(int destination, int middleMan) {
         int directCost = this.costs[destination];
-        int middleManCost = this.costs[middleMan] + this.distancesTable[middleMan][destination];;
+        int middleManCost = this.costs[middleMan] + this.distancesTable[middleMan][destination];
 
         // Run the Belman Ford equation, compare direct cost, to cost going through other router
         //System.out.printf("Distance from %d to %d is %d\n", this.routerId, destination, directCost);
