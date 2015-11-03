@@ -13,20 +13,21 @@ class Routing {
     private DatagramSocket socket;
 
     public Routing(String routerId) throws Exception {
+        // Convert the routerId to an integer for easy indexing of arrays
         this.routerId = routerId.charAt(0) - (int)'X';
         // This program is meant to run on this machine alone, so just set the IP to localhost
         this.ip = InetAddress.getByName("localhost");
 
-        // Initialize the hashmap for the current router
-        this.setUpConfigMap();
+        // Initialize the 2D distance table array for the current router
+        setUpDistancesTable();
+        // Store the direct costs to each node
         this.costs = this.distancesTable[this.routerId];
-        for (int cost: costs) {
-            System.out.print(cost + " ");
-        }
-        System.out.println();
-        System.out.printf("Router %s is running on port %d\n", this.convertRouterIdToChar(this.routerId), this.getMyPortNumber());
-        System.out.printf("Distance vector on router %s is:\n", this.convertRouterIdToChar(this.routerId));
-        this.printDistanceVector(this.distancesTable[this.routerId]);
+        System.out.printf("Router %s is running on port %d\n", convertRouterIdToChar(this.routerId), getMyPortNumber());
+        System.out.printf("Distance vector on router %s is:\n", convertRouterIdToChar(this.routerId));
+        printDistanceVectorForRouter(this.routerId);
+
+        // Open the socket to listen for requests
+        this.socket = new DatagramSocket(getMyPortNumber());
     }
 
     /**
@@ -35,23 +36,13 @@ class Routing {
         @return int
     */
     private int getMyPortNumber() {
-        return this.ports[(this.routerId)];
-    }
-
-    /**
-        Returns the port number for the router with the routerId passed in
-
-        @param routerId: String, the router Id to get the port number for
-        @return int
-    */
-    private int getPortNumberForRouterId(int routerId) {
-        return this.ports[routerId];
+        return ports[routerId];
     }
 
     /**
         Initializes the configs Hashmap for the router
     */
-    private void setUpConfigMap() throws Exception {
+    private void setUpDistancesTable() throws Exception {
         BufferedReader in = new BufferedReader(new FileReader(CONFIG_FILE_NAME));
         String line;
 
@@ -60,7 +51,7 @@ class Routing {
         String[] portsFromFile = line.split("\t");
         int router = 0;
         for (String port: portsFromFile) {
-            this.ports[router] = Integer.parseInt(port);
+            ports[router] = Integer.parseInt(port);
             router++;
         }
 
@@ -72,7 +63,7 @@ class Routing {
 
             // Read in each element from the line
             for (int i = 0; i < array.length; i++) {
-                this.distancesTable[router][i] = Integer.parseInt(array[i]);
+                distancesTable[router][i] = Integer.parseInt(array[i]);
             }
 
             router++;
@@ -87,18 +78,19 @@ class Routing {
         boolean changed = true;
         while (true) {
             if (changed) {
-                this.updateOtherNodes();
-                // Set changed to false to stop infinite loop of updating
+                // If we have changed we need to update the other routers
+                updateOtherNodes();
+                // Set changed to false to stop an infinite loop of updating
                 changed = false;
             }
 
-            this.receive();
+            receive();
 
             // TODO: Create function to update the distance vectors
-            changed = this.update();
+            changed = update();
             if (changed) {
                 System.out.printf("Distance vector on router %c:\n", this.convertRouterIdToChar(this.routerId));
-                this.printDistanceVector(this.distancesTable[this.routerId]);
+                this.printDistanceVectorForRouter(this.routerId);
             }
             else {
                 System.out.printf("Distance vector on router %c is not updated.\n", this.convertRouterIdToChar(this.routerId));
@@ -110,41 +102,30 @@ class Routing {
         Updates other routing nodes currently known by this router
     */
     private void updateOtherNodes() throws Exception {
-        for (int router = 0; router < this.distancesTable.length; router++) {
+        for (int routerToUpdate = 0; routerToUpdate < distancesTable.length; routerToUpdate++) {
             // Make a check that we aren't updating ourself
-            if (router != this.routerId) {
+            if (routerToUpdate != this.routerId) {
                 byte[] sendData = new byte[4];
                 // The router the update is coming from is the first byte in the packet
                 sendData[0] = (byte) this.routerId;
 
                 // Distance to X, Y, Z is the second, third, and fourth byte respectively
-                for (int location = 1; location <= this.distancesTable[router].length; location++) {
-                    sendData[location] = (byte) this.distancesTable[this.routerId][location - 1];
+                for (int location = 1; location <= distancesTable[routerToUpdate].length; location++) {
+                    sendData[location] = (byte) distancesTable[this.routerId][location - 1];
                 }
 
                 // Create the packet to send using the data just created
                 DatagramPacket updatePkt = new DatagramPacket(
                     sendData,
                     sendData.length,
-                    this.ip,
-                    this.ports[router]
+                    ip,
+                    ports[routerToUpdate]
                 );
-                System.out.printf("Sending update to router %d\n", router);
+
                 // Send the packet
-                this.send(updatePkt);
+                socket.send(updatePkt);
             }
         }
-    }
-
-    /**
-        Sends a packet using UDP
-
-        @param pkt: DatagramPacket, the packet to be sent
-    */
-    private void send(DatagramPacket pkt) throws Exception {
-        this.socket = new DatagramSocket(this.getMyPortNumber());
-        this.socket.send(pkt);
-        this.socket.close();
     }
 
     /**
@@ -153,25 +134,23 @@ class Routing {
         @return int[] the updated distance vector that was sent to this router
     */
     private void receive() throws Exception {
-        this.socket = new DatagramSocket(this.getMyPortNumber());
         byte[] rcvData = new byte[4];
         DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
 
         // Wait for two updates, one from the other two nodes not this one
-        this.socket.receive(rcvPkt);
+        socket.receive(rcvPkt);
         byte[] data = rcvPkt.getData();
-
         int updatingRouter = (int) data[0];
-        System.out.printf("Receives distance vector from router %c: ", (char)('X' + updatingRouter));
+
         // Iterate over the received data and add it to the distancesTable
         // 0 -> router that sent data, 1-> distance to X, 2 -> distance to Y
         // 3 -> distance to Z
-        for (int j = 0; j < this.distancesTable[updatingRouter].length; j++) {
-            this.distancesTable[updatingRouter][j] = (int) data[j + 1];
+        for (int j = 0; j < distancesTable[updatingRouter].length; j++) {
+            distancesTable[updatingRouter][j] = (int) data[j + 1];
         }
 
-        this.printDistanceVector(this.distancesTable[updatingRouter]);
-        this.socket.close();
+        System.out.printf("Receives distance vector from router %c: ", convertRouterIdToChar(updatingRouter));
+        printDistanceVectorForRouter(updatingRouter);
     }
 
     /**
@@ -184,42 +163,26 @@ class Routing {
     private boolean update() {
         boolean changed = false;
 
-        for (int i = 0; i < this.routerId; i++) {
-            int currentValue = this.distancesTable[this.routerId][i];
+        for (int destination = 0; destination < distancesTable.length; destination++) {
+            // Skip the iteration if we are checking distance to ourself
+            if (destination != this.routerId) {
+                int currentValue = distancesTable[this.routerId][destination];
 
-            // Iterate over all nodes past the current one to use them as middle men
-            for (int j = 0; j < this.distancesTable.length; j++) {
-                if (j != this.routerId && j != i) {
-                    int updatedValue = bellmanFord(i, j);
+                // Iterate over all nodes past the current one to use them as middle men
+                for (int middleMan = 0; middleMan < distancesTable.length; middleMan++) {
+                    if (middleMan != this.routerId && middleMan != destination) {
+                        int updatedValue = bellmanFord(destination, middleMan);
 
-                    // This will keep changed as true if it gets changed to True and keep checking when
-                    // false
-                    if (currentValue != updatedValue) {
-                        this.distancesTable[this.routerId][i] = updatedValue;
-                        //this.printDistanceVector(this.distancesTable[this.routerId]);
-                        changed = true;
+                        // This will keep changed as true if it gets changed to True and keep checking when
+                        // false
+                        if (currentValue != updatedValue) {
+                            this.distancesTable[this.routerId][destination] = updatedValue;
+                            //this.printDistanceVectorForRouter(this.distancesTable[this.routerId]);
+                            changed = true;
+                        }
                     }
+
                 }
-
-            }
-        }
-
-        for (int i = this.distancesTable.length - 1; i > this.routerId; i--) {
-            int currentValue = this.distancesTable[this.routerId][i];
-
-            for (int j = 0; j < this.distancesTable.length; j++) {
-                if (j != this.routerId && j != i) {
-                    int updatedValue = bellmanFord(i, j);
-
-                    // This will keep changed as true if it gets changed to True and keep checking when
-                    // false
-                    if (currentValue != updatedValue) {
-                        this.distancesTable[this.routerId][i] = updatedValue;
-                        this.printDistanceVector(this.distancesTable[this.routerId]);
-                        changed = true;
-                    }
-                }
-
             }
         }
 
@@ -228,8 +191,8 @@ class Routing {
 
     private int bellmanFord(int destination, int middleMan) {
         int directCost = this.costs[destination];
-        //System.out.printf("Cost from %d to %d = %d\n", middleMan, destination, this.distancesTable[middleMan][destination]);
         int middleManCost = this.costs[middleMan] + this.distancesTable[middleMan][destination];;
+
         // Run the Belman Ford equation, compare direct cost, to cost going through other router
         //System.out.printf("Distance from %d to %d is %d\n", this.routerId, destination, directCost);
         //System.out.printf("Distance from %d to %d to %d is %d\n", this.routerId, middleMan, destination, middleManCost);
@@ -246,7 +209,8 @@ class Routing {
     /**
         Prints the distance vector for the current router
     */
-    private void printDistanceVector(int[] vector) {
+    private void printDistanceVectorForRouter(int routerId) {
+        int[] vector = distancesTable[routerId];
         String printString = "";
         for (int num: vector) {
             printString += num + ", ";
