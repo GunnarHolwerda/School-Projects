@@ -8,7 +8,6 @@ class Routing {
     private int[] ports = new int[3];
     private int[] costs = new int[3];
     private InetAddress ip;
-
     private int routerId;
     private DatagramSocket socket;
 
@@ -28,7 +27,9 @@ class Routing {
 
         // Open the socket to listen for requests
         this.socket = new DatagramSocket(getMyPortNumber());
-        Thread.sleep(5000);
+
+        System.out.println("Sleeping for 10 seconds to give time to get all programs running before sending data");
+        Thread.sleep(10000);
     }
 
     /**
@@ -88,13 +89,10 @@ class Routing {
             if (changed) {
                 // If we have changed we need to update the other routers
                 updateOtherNodes();
-                // Set changed to false to stop an infinite loop of updating
-                changed = false;
             }
 
             receive();
 
-            // TODO: Create function to update the distance vectors
             changed = update();
             if (changed) {
                 System.out.printf("Distance vector on router %c:\n", this.convertRouterIdToChar(this.routerId));
@@ -185,7 +183,6 @@ class Routing {
                         // false
                         if (currentValue != updatedValue) {
                             this.distancesTable[this.routerId][destination] = updatedValue;
-                            //this.printDistanceVectorForRouter(this.distancesTable[this.routerId]);
                             changed = true;
                         }
                     }
@@ -197,14 +194,17 @@ class Routing {
         return changed;
     }
 
+    /**
+        Runs the Bellman Ford equation to compute the shortest distance from itself to the
+        destination using the middleMan passed in as the alternate
+
+        @param destination: int, the id of the router that we want to compute the distance to
+        @param middleMan: int, the id of the router to use as a middleMan between source and
+                          destination
+    */
     private int bellmanFord(int destination, int middleMan) {
         int directCost = this.costs[destination];
         int middleManCost = this.costs[middleMan] + this.distancesTable[middleMan][destination];
-
-        // Run the Belman Ford equation, compare direct cost, to cost going through other router
-        //System.out.printf("Distance from %d to %d is %d\n", this.routerId, destination, directCost);
-        //System.out.printf("Distance from %d to %d to %d is %d\n", this.routerId, middleMan, destination, middleManCost);
-        //this.printTable();
 
         int updatedValue = Math.min(
             directCost,
@@ -215,7 +215,9 @@ class Routing {
     }
 
     /**
-        Prints the distance vector for the current router
+        Prints the distance vector for the router Id supplied
+
+        @param routerId: int, the routerId for which to print the distance vector for
     */
     private void printDistanceVectorForRouter(int routerId) {
         int[] vector = distancesTable[routerId];
@@ -226,15 +228,6 @@ class Routing {
         // Remove the last ', ' from the string
         printString = cutOffEnd(printString, 2);
         System.out.printf("<%s>\n", printString);
-    }
-
-    private void printTable() {
-        for (int i = 0; i < this.distancesTable.length; i++) {
-            for (int j = 0; j < this.distancesTable.length; j++) {
-                System.out.print(this.distancesTable[i][j]);
-            }
-            System.out.println();
-        }
     }
 
     private char convertRouterIdToChar(int id) {
