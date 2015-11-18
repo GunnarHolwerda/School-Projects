@@ -10,6 +10,8 @@ class Routing {
     private InetAddress ip;
     private int routerId;
     private DatagramSocket socket;
+    private boolean costUpdated = false;
+    private boolean updatedAfterCostUpdate = false;
 
     public Routing(String routerId) throws Exception {
         // Convert the routerId to an integer for easy indexing of arrays
@@ -19,8 +21,12 @@ class Routing {
 
         // Initialize the 2D distance table array for the current router
         setUpDistancesTable();
+
         // Store the direct costs to each node
-        this.costs = this.distancesTable[this.routerId];
+        for (int i = 0; i < this.distancesTable.length; i++) {
+            this.costs[i] = this.distancesTable[this.routerId][i];
+        }
+
         System.out.printf("Router %s is running on port %d\n", convertRouterIdToChar(this.routerId), getMyPortNumber());
         System.out.printf("Distance vector on router %s is:\n", convertRouterIdToChar(this.routerId));
         printDistanceVectorForRouter(this.routerId);
@@ -67,7 +73,9 @@ class Routing {
             for (int i = 0; i < array.length; i++) {
                 // Only update our distance vector so we aren't cheating
                 if (router == routerId) {
-                    distancesTable[router][i] = Integer.parseInt(array[i]);
+                    int cost = Integer.parseInt(array[i]);
+                    distancesTable[router][i] = cost;
+                    costs[i] = cost;
                 }
                 else {
                     // Set value to large value because we don't know it yet.
@@ -142,11 +150,47 @@ class Routing {
     private void receive() throws Exception {
         byte[] rcvData = new byte[4];
         DatagramPacket rcvPkt = new DatagramPacket(rcvData, rcvData.length);
+        int updatingRouter = 0;
+        byte[] data = new byte[3];
 
         // Wait for two updates, one from the other two nodes not this one
-        socket.receive(rcvPkt);
-        byte[] data = rcvPkt.getData();
-        int updatingRouter = (int) data[0];
+        try {
+            // Only set this timeout once when we have to update the cost between X and Y
+            if (this.costUpdated == false && this.routerId != 2) {
+                socket.setSoTimeout(5000);
+            }
+            else {
+                // Set back to infinite timeout
+                socket.setSoTimeout(0);
+            }
+
+            socket.receive(rcvPkt);
+            data = rcvPkt.getData();
+            updatingRouter = (int) data[0];
+        }
+        catch (Exception e) {
+            // We timed out meaning that we probably have the shortest vector.
+            // Let's update the value
+            this.costUpdated = true;
+            if (routerId == 0) {
+                System.out.println("Connection between X and Y is updated to 60");
+                this.costs[1] = 60;
+            }
+            else if (routerId == 1) {
+                System.out.println("Connection between Y and X is updated to 60");
+                this.costs[0] = 60;
+            }
+            // Update distances table to accomodate new change
+            for (int router = 0; router < distancesTable.length; router++) {
+                for (int i = 0; i < distancesTable.length; i++) {
+                    // Only update our distance vector so we aren't cheating
+                    if (router == routerId) {
+                        distancesTable[router][i] = costs[i];
+                    }
+                }
+            }
+            return;
+        }
 
         // Iterate over the received data and add it to the distancesTable
         // 0 -> router that sent data, 1-> distance to X, 2 -> distance to Y
@@ -170,6 +214,7 @@ class Routing {
         boolean changed = false;
 
         for (int destination = 0; destination < distancesTable.length; destination++) {
+            //this.printDistanceVectorForRouter(0);
             // Skip the iteration if we are checking distance to ourself
             if (destination != this.routerId) {
                 int currentValue = distancesTable[this.routerId][destination];
@@ -191,7 +236,15 @@ class Routing {
             }
         }
 
-        return changed;
+        // We need to update if our cost has been updated no matter what. It won't be detected
+        // by the normal method so we need to force an update here.
+        if (this.updatedAfterCostUpdate == false && this.costUpdated) {
+            this.updatedAfterCostUpdate = true;
+            return true;
+        }
+        else {
+            return changed;
+        }
     }
 
     /**
