@@ -16,13 +16,16 @@ public class Array {
     }
 
     public void print() {
+        String seperator = "";
         String printString = "";
 
         for (int element: array) {
-            printString += "-\n|" + element + "|\n-";
+            seperator += "---";
+            printString += "|" + element + "|";
         }
-
+        System.out.println(seperator);
         System.out.println(printString);
+        System.out.println(seperator);
     }
 
     public void sort() {
