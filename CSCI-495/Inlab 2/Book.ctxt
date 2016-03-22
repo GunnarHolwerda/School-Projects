@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=title\ cost\ num_in_stock
+comment0.target=Book(java.lang.String,\ double,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Book\r\n
+comment1.params=
+comment1.target=java.lang.String\ getTitle()
+comment2.params=
+comment2.target=double\ getCost()
+comment3.params=
+comment3.target=int\ getNumInStock()
+comment4.params=
+comment4.target=double\ getValueOfStock()
+numComments=5
