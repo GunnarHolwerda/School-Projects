@@ -45,6 +45,13 @@ public class Array {
     }
 
     public void printFrequency() {
-        System.out.println("Frequency printed");
+        int[] temp = new int[10];
+        for (int element: array) {
+            temp[element]++;
+        }
+        for (int i = 0; i < temp.length; i++) {
+            System.out.println("There are " + temp[i] + ", " + i + "'s");
+        }
+
     }
 }
