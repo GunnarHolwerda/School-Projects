@@ -118,7 +118,7 @@ public class Bowling {
                 printFrame(currentFrame, frameNumber);
                 currentFrame.clear();
             }
-            else if(currentFrame.size() == 2 && currentRoll < rolls.length - 1) {
+            else if(currentFrame.size() == 2 && currentRoll < rolls.length) {
                 frameNumber++;
                 calculateScoreForFrame(currentFrame, currentRoll);
                 printFrame(currentFrame, frameNumber);
